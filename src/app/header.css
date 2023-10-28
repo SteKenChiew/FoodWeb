@@ -1,0 +1,84 @@
+.header{
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.header img{
+    width: 20%;
+    height: 100px;
+    
+}
+.header .header-btn h1 {
+    text-align: center;
+    margin-left: 27px;
+    margin-right: 27px;
+    color: var(--Gray-1, #333);
+    font-family: Poppins;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 97.391% */
+    cursor: pointer;
+}
+
+.header .header-btn .header1 {
+    margin-left: 74px;
+    color: #FF4500;
+    font-family: Poppins;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 97.391% */
+}
+.header .header-btn{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    float: right;
+    
+}
+
+.header .header-btn .cart-btn{
+    width: 24.518px;
+    height: 28.069px;
+    border: none;
+    background-color: transparent;
+    margin-left: 37px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    
+}
+
+
+.header .header-btn .login-btn{
+    display: flex;
+    width: 168px;
+    height: 57px;
+    padding: 11px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    background: #FF4500;
+    color: var(--Gray-6, #F2F2F2);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 149.333% */
+    border: none;
+    margin-left: 46px;
+    margin-right: 40px;
+    cursor: pointer;
+    
+}
+

@@ -1,0 +1,210 @@
+footer{
+    width: 100%;
+    height: 411px;
+    background-color: #FF4500;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo{
+    width: 329px;
+    
+    margin-left: 97px;
+}
+
+.logo img{
+    margin-left: -10px;
+    margin-top: -70px;
+    margin-bottom: 10px;
+    
+}
+
+.logo p{
+    color: #FAFAFA;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px; /* 187.5% */
+}
+
+.logo .social-media{
+    margin-top: 30px;
+}
+
+.logo .social-media svg{
+    width: 22px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+.about{
+    width: 100px;
+    height: 215.35px;
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: 68px;
+}
+
+.about h1{
+    margin-bottom: 25px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px; /* 112% */
+}
+
+.about button{
+    margin-bottom: 12px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    color: #FAFAFA;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 187.5% */
+}
+
+.company{
+    width: 200px;
+    height: 215.35px;
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: 68px;
+}
+
+.company h1{
+    margin-bottom: 25px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px; /* 112% */
+}
+
+.company button{
+    margin-bottom: 12px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    color: #FAFAFA;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 187.5% */
+}
+
+.Support{
+    width: 200px;
+    height: 215.35px;
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: 68px;
+}
+
+.Support h1{
+    margin-bottom: 25px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px; /* 112% */
+}
+
+.Support button{
+    margin-bottom: 12px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    color: #FAFAFA;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px; /* 187.5% */
+}
+
+.getintouch{
+    width: 300px;
+    height: 215.35px;
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: 68px;
+}
+
+.getintouch h1{
+    margin-bottom: 25px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px; /* 112% */
+}
+.getintouch p{
+    color: #FAFAFA;
+font-family: Poppins;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px; /* 166.667% */
+}
+
+.getintouch .email-box{
+    width: 100%;
+    height: 51;
+    position: relative;
+    margin-top: 33px;
+}
+
+
+.getintouch .email{
+   
+    width: 196px;
+    height: 51px;
+    border-radius: 60px;
+    border: 2px solid #FAFAFA;
+    background-color: transparent;
+    color: white;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 140% */
+    padding-left: 20px;
+}
+
+.getintouch .email::placeholder{
+   
+    color: white;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 140% */
+}
+
+.getintouch .submit-btn{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 170px;
+    top: 0;
+    left: 0;
+}
