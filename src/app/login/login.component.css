@@ -1,0 +1,204 @@
+*{
+    padding: 0px;
+    margin: 0px;
+   
+}
+
+.login-container{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.login-container .login-form{
+
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+}
+
+.login-container .login-form .login-header{
+    width: 100%;
+    height: 90px;
+    margin-left: 61px;
+}
+
+.login-container .login-form .login-header h1{
+    color: #000;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.login-container .login-form .login-header p{
+    color: #717070;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px; /* 121.429% */
+}
+
+ .login-form .login-form-cotainer{
+    width: 80%;
+    height: 180px;
+    margin-left: 61px;
+    margin-right: 61px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.login-container .login-form .login-form-cotainer input{
+    height: 67px;
+    border-radius: 6px;
+    background: #FFFDF4;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    border: none;
+}
+
+.login-container .login-form .login-form-cotainer-email{
+    margin-bottom: 30px;
+}
+
+.login-container .login-form .login-form-cotainer input::placeholder{
+    color: #AAA;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 25px;
+
+}
+
+.login-container .login-form .forgot-pass{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+
+.login-container .login-form .forgot-pass a{
+    color: #373737;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 79px;
+    text-decoration: none;
+}
+   
+
+.login-container .login-form .submit-btn{
+    margin-top: 23px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+.login-container .login-form .submit-btn button{
+    border-radius: 6px;
+    width: 80%;
+    height: 100%;
+    border: none;
+    background: #FF4500;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    color: #FFFDF4;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.login-container .login-form .Gmail-login{
+    width: 100%;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.login-container .login-form .Gmail-login button{
+    width: 80%;
+    height: 100%;
+    border-radius: 6px;
+    border: 3px solid #333;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.login-container .login-form .register-acc{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+    margin-bottom: 79px;
+}
+.login-container .login-form .register-acc p{
+    color: #373737;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.login-container .login-form .register-acc a{
+    color: #FF4500;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+
+
+
+.login-container .login-form img{
+    height: 250px;
+    width: 100%;
+}
+
+.login-bg{
+    width: 60%;
+    height: 100%;
+    margin-bottom: -4px;
+    padding-bottom: 0px;
+}
+
+.login-bg img{
+    width: 100%;
+    height: 100%;
+    
+}
+

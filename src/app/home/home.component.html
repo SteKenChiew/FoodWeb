@@ -1,0 +1,145 @@
+<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.component.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Document</title>
+    <base href="/">
+</head>
+<body>
+  
+<section>
+
+    <div class="searchbar-img">
+        <img src="assets/img/indeximage.jpg" alt="" class="indeximage">
+        <div class="search-box">
+            <div>
+                <h1>Satisfy your hunger, your way</h1>
+            </div>
+            <div class="searchbar">
+                <input type="text" placeholder="What would you like to eat today?" required>
+                <button class="search-button" type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 20 22" fill="none">
+                    <g clip-path="url(#clip0_2_29)">
+                      <path d="M17.5 19.125L13.7617 15.0679L17.5 19.125ZM15.8334 9.64583C15.8334 11.681 15.0871 13.6328 13.7587 15.0719C12.4303 16.511 10.6286 17.3194 8.75002 17.3194C6.8714 17.3194 5.06973 16.511 3.74135 15.0719C2.41296 13.6328 1.66669 11.681 1.66669 9.64583C1.66669 7.61066 2.41296 5.65885 3.74135 4.21977C5.06973 2.78069 6.8714 1.97222 8.75002 1.97222C10.6286 1.97222 12.4303 2.78069 13.7587 4.21977C15.0871 5.65885 15.8334 7.61066 15.8334 9.64583V9.64583Z" stroke="#FF4500" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_2_29">
+                        <rect width="20" height="21.6667" fill="white" transform="translate(0 0.166664)"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="description">
+        <h1>WHAT WE SERVE</h1>
+        <h2>Your Favourite Food <br> Service Platform</h2>
+        <div class="desc-card">
+            <div class="desc-cardinfo">
+                <img src="assets/img/easytoorder.png" alt="">
+                <h2>Easy To Order</h2>
+                <p>Order food at your fingertips</p>
+            </div>
+            <div class="desc-cardinfo">
+                <img src="assets/img/clock.png" alt="">
+                <h2>Real-Time Updates</h2>
+                <p>Track your orders seamlessly</p>
+            </div>
+            <div class="desc-cardinfo">
+                <img src="assets/img/waiter.png" alt="">
+                <h2>No More Waiting</h2>
+                <p>Streaming Your Dining Experience</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section >
+
+  <div class="food-carousel">
+    <div>
+      <h2 class="food-carousel-header">OURMENU</h2>
+    </div>
+    <div class="food-carousel-desc">
+      <div class="food-carousel-desc-title">
+        <h1>We've Got Your <br> Cravings Covered</h1> 
+      </div>
+      <div class="carousel-container-btn">
+        <button class="carousel-btn" (click)="previousCard()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15 4L17 6L11 12L17 18L15 20L7 12L15 4Z" fill="black"/>
+        </svg></button>
+        <button class="carousel-btn" (click)="nextCard()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white"/>
+        </svg></button>
+      </div>
+      
+    </div>
+    <div class="food-carousel-container">
+      <div *ngIf="items" class="categories-box">
+        <div *ngFor="let item of items">
+          <button class="categories-btn" 
+          (click)="filterCategory(item.type)"
+          [ngClass]="{ 'active': selectedCategory === item.type }" >
+          <img src='{{item.logo}}' alt="">{{item.type}}
+          </button>
+        </div>
+      </div>
+      
+      <div #categoriesCard class="categories-card">
+       
+          <div *ngFor="let type of foodcategories | filterCategory: selectedCategory; " class="categories-innercard">
+           <img src="{{type.img}}" alt="" class="category-image" style="position: relative; background-image: linear-gradient(359deg, rgba(0, 0, 0, 0.70) 0.74%, rgba(0, 0, 0, 0.21) 42.39%, rgba(0, 0, 0, 0.00) 99.45%);">
+
+            <div class="categories-innercard-desc">
+              <h1>{{type.name}}</h1>
+              <div class="categories-innercard-pricing">
+                <h1>MYR</h1>
+                <h2>{{ type.price }}</h2>
+              </div>
+              <button>Order Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white"/>
+              </svg></button>
+            </div>
+            
+          </div>
+        
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </div>
+    
+  
+</section>
+<section class="faq">
+  <div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+    <h2>What is Sunway Nom²?</h2>
+    <p >
+      Sunway Nom² is a go-to website for students at Sunway University to conveniently order food for pick-up and dine-in. We've carefully curated all your favourite dishes, catering to every taste bud and craving. From hearty breakfast options like Hashbrown Sandwich from Bite & Taste to satisfying lunches with flavoursome Aglio Olio from Daun Daun, from a quick brunch pick-me-up with a cup of Kopi to delightful teatime featuring Waffles and Kaya Ball from Tomyam Kitchen - we've got it all!
+
+    </p>
+    <p [ngClass]="{ 'show-less': isContentExpanded }">Don't waste time waiting for your food. Experience the fastest way to enjoy your meals on campus with Sunway Nom², your ultimate dine-in and pick-up service designed exclusively for Sunway University students.
+    </p>
+    <div class="readmore-btn-container">
+      <button class="readmore-btn" (click)="toggleContent()">
+        {{ isContentExpanded ? 'Read More' : 'Read Less' }}
+      </button>
+    </div>
+  </div>
+</section>
+
+    
+</body>
+</html>
+
+
+<script src="https://kit.fontawesome.com/e8fb0d4486.js" crossorigin="anonymous"></script>
