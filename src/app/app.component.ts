@@ -1,6 +1,7 @@
 import {  Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
+const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification'];
 
 @Component({
   selector: 'app-root',
@@ -18,13 +19,17 @@ export class AppComponent {
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
-          if (event['url'] == '/login') {
+          window.scrollTo(0, 0)
+          if (noHeaderURLs.includes(event['url'])) {
             this.showHead = false;
           } else {
-            // console.log("NU")
             this.showHead = true;
           }
         }
       });
+    }
+
+    goPlaces() {
+      this.router.navigate(['/login']);
     }
 }

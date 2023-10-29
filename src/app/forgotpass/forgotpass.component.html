@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forgotpass.component.css">
+    <title>Document</title>
+</head>
+<header></header>
+<body>
+   <div class="forgotpass-container">
+    <div class="forgotpass-form">
+        <div class="forgotpass-header">
+            <h1>Forgot Your Password?</h1>
+            <p>Please confirm your email address below and we will send you a verification code.</p>
+        </div>
+        <div class="forgotpass-form-cotainer">
+
+            <input type="email" name="" id="" placeholder="Email" class="forgotpass-form-cotainer-email">
+        </div>
+        <div class="submit-btn">
+            <button (click)="goVerification()">Continue</button>
+        </div>
+        <div class="Gmail-login">
+            <button><img src="assets/img/googlelogo.png" alt="" style="width: 28px; height: 28px; padding-right: 15px;">Login with Google</button>
+        </div>
+        <div class="register-acc" >
+            <p>Already have an account ? <a routerLink="/login" routerLinkActive="active">Log in</a></p>
+           
+        </div>
+        
+        
+    </div>
+    <div class="forgotpass-bg">
+        <img src="assets/img/forgotpassavatar.png" alt="">
+    </div>
+   </div>
+    
+</body>
+</html>

@@ -9,14 +9,20 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-
+import { SignupComponent } from './signup/signup.component';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+import { VerificationComponent } from './verification/verification.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterCategoryPipe,
     LoginComponent,
-    HomeComponent 
+    HomeComponent,
+    SignupComponent,
+    ForgotpassComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule,
     ScrollingModule,
     CommonModule,
+    ReactiveFormsModule,
     
     
   ],

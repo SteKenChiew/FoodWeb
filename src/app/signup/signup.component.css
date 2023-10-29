@@ -1,18 +1,18 @@
 *{
     padding: 0px;
     margin: 0px;
+    overflow: hidden;
 }
 
-
-.login-container{
+.signup-container{
     width: 100%;
-    height: 100dvh;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     
 }
 
-.login-container .login-form{
+.signup-container .signup-form{
 
     width: 40%;
     height: 100%;
@@ -21,13 +21,15 @@
     flex-direction: column;
 }
 
-.login-container .login-form .login-header{
+.signup-container .signup-form .signup-header{
     width: 100%;
     height: 90px;
     margin-left: 61px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
-.login-container .login-form .login-header h1{
+.signup-container .signup-form .signup-header h1{
     color: #000;
     font-family: Poppins;
     font-size: 32px;
@@ -37,7 +39,8 @@
     padding-bottom: 10px;
 }
 
-.login-container .login-form .login-header p{
+.signup-container .signup-form .signup-header p{
+    width: 100%;
     color: #717070;
     font-family: Poppins;
     font-size: 14px;
@@ -46,29 +49,33 @@
     line-height: 17px; /* 121.429% */
 }
 
- .login-form .login-form-cotainer{
+ .signup-form .signup-form-cotainer{
     width: 80%;
-    height: 180px;
+    height: 250px;
     margin-left: 61px;
     margin-right: 61px;
+    margin-bottom: 37px;
     display: flex;
     flex-direction: column;
     
 }
 
-.login-container .login-form .login-form-cotainer input{
+.signup-container .signup-form .signup-form-cotainer input{
     height: 67px;
     border-radius: 6px;
     background: #FFFDF4;
     box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
     border: none;
 }
-
-.login-container .login-form .login-form-cotainer-email{
+.signup-container .signup-form .signup-form-container-name{
     margin-bottom: 30px;
 }
 
-.login-container .login-form .login-form-cotainer input::placeholder{
+.signup-container .signup-form .signup-form-cotainer-email{
+    margin-bottom: 30px;
+}
+
+.signup-container .signup-form .signup-form-cotainer input::placeholder{
     color: #AAA;
     font-family: Poppins;
     font-size: 18px;
@@ -79,7 +86,7 @@
 
 }
 
-.login-container .login-form .forgot-pass{
+.signup-container .signup-form .forgot-pass{
     width: 100%;
     height: 20px;
     display: flex;
@@ -88,7 +95,7 @@
     
 }
 
-.login-container .login-form .forgot-pass a{
+.signup-container .signup-form .forgot-pass a{
     color: #373737;
     text-align: center;
     font-family: Poppins;
@@ -101,7 +108,7 @@
 }
    
 
-.login-container .login-form .submit-btn{
+.signup-container .signup-form .submit-btn{
     margin-top: 23px;
     width: 100%;
     height: 80px;
@@ -112,7 +119,7 @@
     
 }
 
-.login-container .login-form .submit-btn button{
+.signup-container .signup-form .submit-btn button{
     border-radius: 6px;
     width: 80%;
     height: 100%;
@@ -129,7 +136,7 @@
     cursor: pointer;
 }
 
-.login-container .login-form .Gmail-login{
+.signup-container .signup-form .Gmail-signup{
     width: 100%;
     height: 68px;
     display: flex;
@@ -138,7 +145,7 @@
     margin-top: 18px;
 }
 
-.login-container .login-form .Gmail-login button{
+.signup-container .signup-form .Gmail-signup button{
     width: 80%;
     height: 100%;
     border-radius: 6px;
@@ -154,16 +161,17 @@
     align-items: center;
     cursor: pointer;
 }
-.login-container .login-form .register-acc{
+.signup-container .signup-form .register-acc{
     width: 100%;
     height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 14px;
-    margin-bottom: 79px;
+    margin-bottom: 20px;
+    
 }
-.login-container .login-form .register-acc p{
+.signup-container .signup-form .register-acc p{
     color: #373737;
     text-align: center;
     font-family: Poppins;
@@ -173,7 +181,7 @@
     line-height: normal;
 }
 
-.login-container .login-form .register-acc a{
+.signup-container .signup-form .register-acc a{
     color: #FF4500;
     font-family: Poppins;
     font-size: 16px;
@@ -185,19 +193,19 @@
 
 
 
-.login-container .login-form img{
+.signup-container .signup-form img{
     height: 250px;
     width: 100%;
 }
 
-.login-bg{
+.signup-bg{
     width: 60%;
     height: 100%;
     margin-bottom: -4px;
     padding-bottom: 0px;
 }
 
-.login-bg img{
+.signup-bg img{
     width: 100%;
     height: 100%;
     

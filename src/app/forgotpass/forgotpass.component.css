@@ -1,33 +1,35 @@
 *{
     padding: 0px;
     margin: 0px;
+   
 }
 
-
-.login-container{
+.forgotpass-container{
     width: 100%;
-    height: 100dvh;
+    height: 900px;
     display: flex;
     flex-direction: row;
     
 }
 
-.login-container .login-form{
+.forgotpass-container .forgotpass-form{
 
     width: 40%;
     height: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     flex-direction: column;
 }
 
-.login-container .login-form .login-header{
+.forgotpass-container .forgotpass-form .forgotpass-header{
     width: 100%;
     height: 90px;
-    margin-left: 61px;
+    margin-left: 70px;
+    margin-top: 50px;
+    margin-bottom: 91px;
 }
 
-.login-container .login-form .login-header h1{
+.forgotpass-container .forgotpass-form .forgotpass-header h1{
     color: #000;
     font-family: Poppins;
     font-size: 32px;
@@ -37,38 +39,46 @@
     padding-bottom: 10px;
 }
 
-.login-container .login-form .login-header p{
-    color: #717070;
+.forgotpass-container .forgotpass-form .forgotpass-header p{
+    width: 100%;
+    color: #000;
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 500;
-    line-height: 17px; /* 121.429% */
+    line-height: normal;
 }
 
- .login-form .login-form-cotainer{
+ .forgotpass-form .forgotpass-form-cotainer{
     width: 80%;
-    height: 180px;
+    height: 100px;
     margin-left: 61px;
     margin-right: 61px;
+    margin-bottom: 37px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
 }
 
-.login-container .login-form .login-form-cotainer input{
+.forgotpass-container .forgotpass-form .forgotpass-form-cotainer input{
+    width: 100%;
     height: 67px;
     border-radius: 6px;
     background: #FFFDF4;
     box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
     border: none;
 }
-
-.login-container .login-form .login-form-cotainer-email{
+.forgotpass-container .forgotpass-form .forgotpass-form-container-name{
     margin-bottom: 30px;
 }
 
-.login-container .login-form .login-form-cotainer input::placeholder{
+.forgotpass-container .forgotpass-form .forgotpass-form-cotainer-email{
+    margin-bottom: 30px;
+}
+
+.forgotpass-container .forgotpass-form .forgotpass-form-cotainer input::placeholder{
     color: #AAA;
     font-family: Poppins;
     font-size: 18px;
@@ -79,7 +89,7 @@
 
 }
 
-.login-container .login-form .forgot-pass{
+.forgotpass-container .forgotpass-form .forgot-pass{
     width: 100%;
     height: 20px;
     display: flex;
@@ -88,7 +98,7 @@
     
 }
 
-.login-container .login-form .forgot-pass a{
+.forgotpass-container .forgotpass-form .forgot-pass a{
     color: #373737;
     text-align: center;
     font-family: Poppins;
@@ -101,7 +111,7 @@
 }
    
 
-.login-container .login-form .submit-btn{
+.forgotpass-container .forgotpass-form .submit-btn{
     margin-top: 23px;
     width: 100%;
     height: 80px;
@@ -112,7 +122,7 @@
     
 }
 
-.login-container .login-form .submit-btn button{
+.forgotpass-container .forgotpass-form .submit-btn button{
     border-radius: 6px;
     width: 80%;
     height: 100%;
@@ -129,7 +139,7 @@
     cursor: pointer;
 }
 
-.login-container .login-form .Gmail-login{
+.forgotpass-container .forgotpass-form .Gmail-login{
     width: 100%;
     height: 68px;
     display: flex;
@@ -138,7 +148,7 @@
     margin-top: 18px;
 }
 
-.login-container .login-form .Gmail-login button{
+.forgotpass-container .forgotpass-form .Gmail-login button{
     width: 80%;
     height: 100%;
     border-radius: 6px;
@@ -154,16 +164,17 @@
     align-items: center;
     cursor: pointer;
 }
-.login-container .login-form .register-acc{
+.forgotpass-container .forgotpass-form .register-acc{
     width: 100%;
     height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 14px;
-    margin-bottom: 79px;
+    margin-bottom: 20px;
+    
 }
-.login-container .login-form .register-acc p{
+.forgotpass-container .forgotpass-form .register-acc p{
     color: #373737;
     text-align: center;
     font-family: Poppins;
@@ -173,7 +184,7 @@
     line-height: normal;
 }
 
-.login-container .login-form .register-acc a{
+.forgotpass-container .forgotpass-form .register-acc a{
     color: #FF4500;
     font-family: Poppins;
     font-size: 16px;
@@ -185,19 +196,19 @@
 
 
 
-.login-container .login-form img{
+.forgotpass-container .forgotpass-form img{
     height: 250px;
     width: 100%;
 }
 
-.login-bg{
+.forgotpass-bg{
     width: 60%;
     height: 100%;
     margin-bottom: -4px;
     padding-bottom: 0px;
 }
 
-.login-bg img{
+.forgotpass-bg img{
     width: 100%;
     height: 100%;
     

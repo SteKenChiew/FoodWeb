@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="verification.component.css">
+    <title>Document</title>
+</head>
+<header></header>
+<body>
+   <div class="verification-container">
+    <div class="verification-form">
+        <div class="verification-header">
+            <h1>Verify Code</h1>
+            <p>Code is sent to {{email}}</p>
+        </div>
+        <div class="verification-form-cotainer">
+            <form [formGroup]="verificationForm" class="verification-form">
+                <input formControlName="digit1" maxlength="1" #digit1Input>
+                <input formControlName="digit2" maxlength="1" #digit2Input>
+                <input formControlName="digit3" maxlength="1" #digit3Input>
+                <input formControlName="digit4" maxlength="1" #digit4Input>
+                <input formControlName="digit5" maxlength="1" #digit5Input>
+                <input formControlName="digit6" maxlength="1" #digit6Input>
+            </form>
+        </div>
+        <div class="submit-btn">
+            <button routerLink="/verification" routerLinkActive="active">Continue</button>
+        </div>
+        <div class="register-acc" >
+            <p>Already have an account ? <a routerLink="/login" routerLinkActive="active">Log in</a></p>
+        </div>
+        
+    </div>
+    <div class="verification-bg">
+        <img src="assets/img/forgotpassavatar.png" alt="">
+    </div>
+   </div>
+    
+</body>
+</html>
