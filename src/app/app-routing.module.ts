@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { VerificationComponent } from './verification/verification.component';
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+
 
 const routes: Routes = [
   
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgotpass', component: ForgotpassComponent},
   { path: 'verification', component: VerificationComponent },
+  { path: 'restaurant-list', component: RestaurantListComponent  },
 ];
 
 @NgModule({

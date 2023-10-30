@@ -27,6 +27,21 @@
     cursor: pointer;
 }
 
+.header .header-btn a {
+    text-align: center;
+    margin-left: 27px;
+    margin-right: 27px;
+    color: var(--Gray-1, #333);
+    font-family: Poppins;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 97.391% */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
 .header .header-btn .header1 {
     margin-left: 74px;
     color: #FF4500;

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 interface Categories {
   type: string;
   logo: string;
+  img: string;
 }
 
 interface Categoriesfood {
@@ -22,11 +23,11 @@ interface Categoriesfood {
 export class HomeComponent {
   title = 'my-first-project';
   items: Categories[] = [
-    { type: 'Western', logo: 'assets/img/burger.png' },
-    { type: 'Asian Delights', logo: 'assets/img/mee.png' },
-    { type: 'Quick Bites', logo: 'assets/img/muffin.png' },
-    { type: 'Beverages', logo: 'assets/img/drinks.png' },
-    { type: 'Desserts', logo: 'assets/img/icecream.png' },
+    { type: 'Western', logo: 'assets/img/burger.png' ,img: ""},
+    { type: 'Asian Delights', logo: 'assets/img/mee.png' ,img: "" },
+    { type: 'Quick Bites', logo: 'assets/img/muffin.png',img: "" },
+    { type: 'Beverages', logo: 'assets/img/drinks.png' ,img: ""},
+    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: ""},
   ];
 
   foodcategories: Categoriesfood[] = [

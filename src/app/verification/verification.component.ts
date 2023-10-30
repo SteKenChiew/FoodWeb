@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router} from '@angular/router';
+
 @Component({
   selector: 'app-verification',
   templateUrl: './verification.component.html',
@@ -19,7 +19,7 @@ export class VerificationComponent implements AfterViewInit {
   @ViewChild('digit5Input', { static: false }) digit5Input: ElementRef | null = null;
   @ViewChild('digit6Input', { static: false }) digit6Input: ElementRef | null = null;
 
-  constructor(private fb: FormBuilder, private renderer: Renderer2, private router: Router)  {
+  constructor(private fb: FormBuilder, private renderer: Renderer2)  {
     this.verificationForm = this.fb.group({
       digit1: ['', [Validators.required, Validators.pattern(/^\d$/)]],
       digit2: ['', [Validators.required, Validators.pattern(/^\d$/)]],
@@ -55,9 +55,6 @@ export class VerificationComponent implements AfterViewInit {
     });
   }
 
-  goVerification() {
-    this.router.navigate(['/verification']);
-  }
 
 
 }

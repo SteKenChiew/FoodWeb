@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { VerificationComponent } from './verification/verification.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     SignupComponent,
     ForgotpassComponent,
-    VerificationComponent
+    VerificationComponent,
+    RestaurantListComponent 
   ],
   imports: [
     BrowserModule,

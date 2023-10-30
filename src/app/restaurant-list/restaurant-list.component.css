@@ -1,0 +1,318 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.restaurant-container{
+   width: 100%;
+   height: 300vh;
+}
+
+.restaurant-container img{
+    margin-top: 100px;
+    height: 500px;
+    width: 100%;
+}
+
+.toppicks-container{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    position: relative;
+    flex-direction:row;
+    margin-top: 90px;
+    
+    
+}
+
+.restaurant-toppicks-container{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-x: hidden;
+    transition: transform 0.3s ease ;
+    scroll-behavior: smooth;
+    cursor: pointer;
+}
+
+.toppicks-container .prev-btn{
+
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position:  absolute;
+    z-index: 1;
+}
+
+.toppicks-container .prev-btn button{
+    display: flex;
+    width: 91px;
+    height: 91px;
+    padding: 24px 25px 23px 25px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #FF4500;
+    border: none;
+    margin-left: 50px;
+    
+}
+
+.toppicks-container .next-btn{
+    margin-left: 50%;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position:  absolute;
+    z-index: 1;
+    
+   
+}
+
+.toppicks-container .next-btn button{
+    display: flex;
+    width: 91px;
+    height: 91px;
+    padding: 24px 25px 23px 25px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #FF4500;
+    border: none;
+    margin-right: 50px;
+
+
+    
+}
+
+.restaurant-container .restaurant-toppicks-container .restaurant-toppicks-container-card{
+    width: auto;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.restaurant-toppicks-container-innercard{
+    width: 400px;
+    height: 484px;
+    margin-left: 100px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+.restaurant-toppicks-container-innercard-desc{
+    width: 80%;
+    height: 40%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.restaurant-toppicks-container-innercard-desc .food-title{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 35px;
+    margin-bottom: 15px;
+    height: 70px;
+    display: flex;
+    align-items: end;
+}
+.restaurant-toppicks-container-innercard-pricing{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+}
+
+
+
+.restaurant-toppicks-container-innercard-pricing h1{
+    margin: 0px;
+    color: var(--Yellow, #F2C94C);
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    padding-right: 10px;
+}
+
+.restaurant-toppicks-container-innercard-pricing h2{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px;
+}
+
+.restaurant-toppicks-container-innercard-desc button{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 34px;
+    background-color: transparent;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 124.444% */
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 19px;
+}
+
+.favcuisine-header{
+    width: 100%;
+    height: 69px;
+    margin-top: 73px;
+    
+}
+
+.favcuisine-header h1{
+    padding-left: 100px;
+    color: var(--Gray-1, #333);
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px; /* 133.333% */
+}
+
+.favcuisine-container{
+    width: 100%;
+    height: 175px;
+    display: flex;
+    flex-direction:row;
+    margin-top: 20px;
+    position: relative;
+    
+}
+
+.restaurant-favcuisine-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-x: hidden;
+    transition: transform 0.3s ease ;
+    scroll-behavior: smooth;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0px 70px 0px 70px;
+    
+}
+
+.favcuisine-container .favcuisine-prev-btn{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position:  absolute;
+    z-index: 1;
+}
+
+.favcuisine-container .favcuisine-prev-btn button{
+    display: flex;
+    width: 45.5px;
+    height: 45.5px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #FF4500;
+    border: none;
+    margin-left: 50px;
+    
+}
+
+.favcuisine-container .favcuisine-next-btn{
+    margin-left: 50%;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position:  absolute;
+    z-index: 1;
+    
+   
+}
+
+.favcuisine-container .favcuisine-next-btn button{
+    display: flex;
+    width: 45.5px;
+    height: 45.5px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #FF4500;
+    border: none;
+    margin-right: 50px;
+
+    
+}
+
+.favcuisine-container .restaurant-favcuisine-container .restaurant-favcuisine-container-card{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurant-favcuisine-container-innercard{
+    width: 150px;
+    height: 100%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    align-items: center;
+    
+}
+.restaurant-favcuisine-container-innercard img{
+    height: 123px;
+    width: 124px;
+    margin-top: 0px;
+    border-radius: 30px;
+  
+}
+.restaurant-favcuisine-container-innercard .restaurant-favcuisine-container-title{
+    width: 100%;
+    height: 20%;
+    margin-top: 2px;
+    color: #FFF;
+    text-align: center;
+    color: #333;
+    font-family: Poppins;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 65.882% */
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="restaurant-list.component.css">
+</head>
+<body>
+<div class="restaurant-container">
+    <img src="assets/img/restaurantbg.jpeg" alt="">
+    
+    <div class="toppicks-container">
+
+        <div class="prev-btn" >
+            <button (click)="previousCard()"><svg xmlns="http://www.w3.org/2000/svg" width="41" height="44" viewBox="0 0 41 44" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M27.7896 4L7 22L27.7896 40L33 35.5L17.3948 22L33 8.5L27.7896 4Z" fill="white"/>
+              </svg></button>
+        </div>
+        <div #categoriesCard class="restaurant-toppicks-container">
+            
+            <div  class="restaurant-toppicks-container-card">
+                
+                <div *ngFor="let type of foodcategories" class="restaurant-toppicks-container-innercard" style="
+                background: linear-gradient(359deg, rgba(0, 0, 0, 0.70) 0.74%, rgba(0, 0, 0, 0.21) 42.39%, rgba(0, 0, 0, 0.00) 99.45%), url(assets/img/zus.jpg), lightgray 50% / cover no-repeat;" >
+                    <div class="restaurant-toppicks-container-innercard-desc">
+                        <h1 class="food-title">{{type.name}}</h1>
+                        <div class="restaurant-toppicks-container-innercard-pricing">
+                          <h1>MYR</h1>
+                          <h2>{{ type.price }}</h2>
+                        </div>
+                        <button>Order Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white"/>
+                          </svg></button>
+                      </div>
+                </div>
+
+             
+            </div>
+        </div>
+        <div class="next-btn">
+            <button (click)="nextCard()"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="44" viewBox="0 0 40 44" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2104 4L33 22L12.2104 40L7 35.5L22.6052 22L7 8.5L12.2104 4Z" fill="white"/>
+            </svg></button>
+        </div>
+    </div>  
+    <div class="favcuisine-header">
+        <h1 >Your Favourite Cuisines</h1>
+    </div>
+    
+    <div  class="favcuisine-container"  >
+        
+        <div class="favcuisine-prev-btn"  >
+            <button (click)="favpreviousCard()" ><svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 41 44" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M27.7896 4L7 22L27.7896 40L33 35.5L17.3948 22L33 8.5L27.7896 4Z" fill="white"/>
+            </svg>
+            </button>
+        </div>
+        <div  #favcategoriesCard class="restaurant-favcuisine-container" >
+            
+            <div  class="restaurant-favcuisine-container-card">
+                <div class="restaurant-favcuisine-container-innercard" *ngFor="let item of items">
+                    <img src="{{item.img}}" alt="">
+                    <div class="restaurant-favcuisine-container-title"  >
+                        <h1>{{item.type}}</h1>
+                     </div>
+                </div>
+                
+
+             
+            </div>
+            
+        </div>
+        <div class="favcuisine-next-btn">
+            <button (click)="favnextCard()"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 41 44" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2104 4L33 22L12.2104 40L7 35.5L22.6052 22L7 8.5L12.2104 4Z" fill="white"/>
+            </svg></button>
+        </div>
+    </div>  
+
+</div>
+    
+</body>
+</html>
