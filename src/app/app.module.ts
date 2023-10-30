@@ -24,7 +24,7 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
     SignupComponent,
     ForgotpassComponent,
     VerificationComponent,
-    RestaurantListComponent 
+    RestaurantListComponent
   ],
   imports: [
     BrowserModule,

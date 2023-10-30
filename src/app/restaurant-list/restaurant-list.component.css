@@ -1,11 +1,13 @@
 *{
     margin: 0px;
     padding: 0px;
+    
 }
 
 .restaurant-container{
    width: 100%;
-   height: 300vh;
+   height: auto;
+   
 }
 
 .restaurant-container img{
@@ -202,7 +204,7 @@
 
 .favcuisine-container{
     width: 100%;
-    height: 175px;
+    height: 189px;
     display: flex;
     flex-direction:row;
     margin-top: 20px;
@@ -222,7 +224,7 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
-    margin: 0px 70px 0px 70px;
+    margin: 0px 70px 0px 100px;
     
 }
 
@@ -247,6 +249,7 @@
     background: #FF4500;
     border: none;
     margin-left: 50px;
+    margin-bottom: 50px;
     
 }
 
@@ -274,7 +277,7 @@
     background: #FF4500;
     border: none;
     margin-right: 50px;
-
+    margin-bottom: 50px;
     
 }
 
@@ -292,7 +295,7 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    margin-left: 100px;
+    margin-right: 100px;
     align-items: center;
     
 }
@@ -316,3 +319,185 @@
     font-weight: 500;
     line-height: 22.4px; /* 65.882% */
 }
+
+
+.restaurant-list-container{
+    width: 100%;
+    height: 900;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.restaurant-list-container h1{
+    color: var(--Gray-1, #333);
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px; /* 133.333% */
+    margin-left: 100px;
+}
+
+.restaurant-list-container .restaurant-list-merging{
+    width: 100%;
+    height: auto; /* Let the height expand as needed */
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px 0px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-top: 40px;
+
+}
+
+.restaurant-list-merging .restaurant-card{
+    width: 680px;
+    height: 442px;
+    display: flex;
+    
+    flex-direction: column;
+    margin: 0px 58px;
+    
+}
+.restaurant-list-merging .restaurant-card .restaurant-image{
+    width: 680px;
+    height: 80%;
+    border-radius: 5px;
+    margin-top: 0px;
+}
+
+.restaurant-list-merging .restaurant-card .restaurant-card-desc{
+    width: 100%;
+    height: 20%;
+}
+
+.restaurant-list-merging .restaurant-card .restaurant-card-desc .restaurant-card-desc-title{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.restaurant-list-merging .restaurant-card .restaurant-card-desc .restaurant-card-desc-title h1{
+    margin: 10px 0px 0px 0px;
+    color: #333;
+    font-family: Poppins;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    width: 70%;
+    line-height: 22.4px; /* 62.222% */
+    
+}
+.restaurantduration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+   
+    
+}
+.restaurantduration svg{
+   width: 50px ;
+   height: 50px;
+    
+}
+.restaurantduration p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 8px;
+    height: 100%;
+    width: 200px;
+}
+
+.restaurant-rating{
+    fill: #FFFF00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 30px;
+    margin-left: 15px;
+
+ 
+}
+.restaurant-rating p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 8px;
+    height: 100%;
+    
+}
+
+.religion{
+    width: 100%;
+    height: 30%;
+}
+.religion p{
+    color: #333;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.4px; /* 93.333% */
+}
+
+.readmore-btn{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 70px;
+}
+
+.readmore-btn button{
+    width: 35%;
+    height: 64px;
+    border: none;
+    border-radius: 20px;
+    color: #333;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px; /* 93.333% */
+    border: 2px solid #333;
+    
+}
+.show-less {
+    display: none;
+  }
+
+
+.expand-list{
+    width: 100%;
+    background-color: #F2C94C;
+    height: auto;
+    overflow: hidden;
+   
+}
+
+

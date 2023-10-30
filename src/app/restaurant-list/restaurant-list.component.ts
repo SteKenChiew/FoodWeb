@@ -13,6 +13,14 @@ interface Categoriesfood {
   desc: string;
 }
 
+interface Restaurant {
+  img: string;
+  name: string;
+  religion: string;
+  estimatedtime: string;
+  rating: number;
+}
+
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
@@ -28,9 +36,8 @@ export class RestaurantListComponent {
     { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
     { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
     { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-
+   { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
+   { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
   ];
 
   foodcategories: Categoriesfood[] = [
@@ -76,36 +83,97 @@ export class RestaurantListComponent {
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
     },
   ];
+
+  shop: Restaurant[] = [
+    {
+      img:"assets/img/restaurantimg/daundaun.jpg", name:'Daun Daun',religion:'Asian',estimatedtime:'30',rating:4.0
+    },
+    {
+      img: 'assets/img/restaurantimg/madeleine.png', name:'Madeleine Café',religion:'Western',estimatedtime:'30',rating:4.0
+    },
+    {
+      img:'assets/img/restaurantimg/starbucks.jpg', name:'Starbucks',religion:'Coffe',estimatedtime:'15',rating:4.0
+    },
+    {
+      img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
+    },
+    {
+      img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
+    },
+    {
+      img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
+    },
+    {
+      img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
+    },
+    {
+      img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
+    },
+    
+    
+  ]
+
   @ViewChild('categoriesCard') categoriesCard!: ElementRef;
+@ViewChild('nextButton') nextButton!: ElementRef;
+@ViewChild('prevButton') prevButton!: ElementRef;
 
-  nextCard() {
-    const container = this.categoriesCard.nativeElement;
-    const cardWidth = 1200; // Adjust this value based on your card width
-    const scrollAmount = cardWidth; // Scroll by one card width
-    container.scrollLeft += scrollAmount;
-  }
+ngAfterViewInit() {
+  const cardElement = this.categoriesCard.nativeElement;
+  cardElement.addEventListener('scroll', () => {
+    this.checkButtonVisibility(cardElement);
+    
+  });
+  this.prevButton.nativeElement.style.display = 'none';
+}
 
-  previousCard() {
-    const container = this.categoriesCard.nativeElement;
-    const cardWidth = 1200; // Adjust this value based on your card width
-    const scrollAmount = cardWidth; // Scroll by one card width
-    container.scrollLeft -= scrollAmount;
-  }
+nextCard() {
+  const container = this.categoriesCard.nativeElement;
+  const cardWidth = 1200; // Adjust this value based on your card width
+  const scrollAmount = cardWidth; // Scroll by one card width
+  container.scrollLeft += scrollAmount;
+  this.checkButtonVisibility(container);
+}
+
+prevCard() {
+  const container = this.categoriesCard.nativeElement;
+  const cardWidth = 1200; // Adjust this value based on your card width
+  const scrollAmount = cardWidth; // Scroll by one card width
+  container.scrollLeft -= scrollAmount;
+  this.checkButtonVisibility(container);
+}
+
+checkButtonVisibility(container: HTMLElement) {
+  const isAtEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth;
+  const isAtStart = container.scrollLeft === 0;
+  this.nextButton.nativeElement.style.display = isAtEnd ? 'none' : 'block';
+  this.prevButton.nativeElement.style.display = isAtStart ? 'none' : 'block';
+}
 
   @ViewChild('favcategoriesCard') favcategoriesCard!: ElementRef;
 
+  
   favnextCard() {
     const container = this.favcategoriesCard.nativeElement;
     const cardWidth = 1000; // Adjust this value based on your card width
     const scrollAmount = cardWidth; // Scroll by one card width
     container.scrollLeft += scrollAmount;
+   
   }
+
+  
 
   favpreviousCard() {
     const container = this.favcategoriesCard.nativeElement;
     const cardWidth = 1000; // Adjust this value based on your card width
     const scrollAmount = cardWidth; // Scroll by one card width
     container.scrollLeft -= scrollAmount;
+    
+  }
+
+
+  isContentExpanded = false;
+  toggleContent() {
+    this.isContentExpanded = !this.isContentExpanded;
   }
 
 
