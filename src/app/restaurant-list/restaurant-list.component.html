@@ -80,10 +80,10 @@
     </div>  
     <div class="restaurant-list-container">
         <h1>All Restaurants</h1>
-        <div class="restaurant-list-container-merging">
+        
             <div class="restaurant-list-merging"  >
                 <ng-container *ngFor="let shops of shop; let i = index">
-                <div class="restaurant-card" *ngIf="i < (isContentExpanded ? 8 : 4)" >
+                <div class="restaurant-card" *ngIf="i < (isContentExpanded ? 8 : 4)" (click)="openRestaurantDetail(shops)" >
                     
                     <img src="{{shops.img}}" alt="" class="restaurant-image">
                     <div class="restaurant-card-desc">
@@ -110,7 +110,7 @@
                 </div>
                  
             </div>
-        </div>
+        
         
        
         <div class="readmore-btn">

@@ -11,3 +11,4 @@ export class FilterCategoryPipe implements PipeTransform {
     return items.filter((item) => item.type === selectedCategory);
   }
 }
+

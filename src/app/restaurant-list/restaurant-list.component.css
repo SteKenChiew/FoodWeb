@@ -357,7 +357,7 @@
     width: 680px;
     height: 442px;
     display: flex;
-    
+    cursor: pointer;
     flex-direction: column;
     margin: 0px 58px;
     

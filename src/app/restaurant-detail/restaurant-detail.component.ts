@@ -1,18 +1,21 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-interface Categories {
-  type: string;
-  logo: string;
-  img: string;
-}
 
-interface Categoriesfood {
+
+interface Restaurantfood {
   img: string;
   type: string;
+  category: string;
   name: string;
   price: number;
   desc: string;
+  qty_sold: number;
+  
+}
+
+interface FoodCategories{
+  name: string;
 }
 
 interface Restaurant {
@@ -25,65 +28,99 @@ interface Restaurant {
 }
 
 @Component({
-  selector: 'app-restaurant-list',
-  templateUrl: './restaurant-list.component.html',
-  styleUrls: ['./restaurant-list.component.css']
+  selector: 'app-restaurant-detail',
+  templateUrl: './restaurant-detail.component.html',
+  styleUrls: ['./restaurant-detail.component.css']
 })
-export class RestaurantListComponent {
-  
-  items: Categories[] = [
-    { type: 'Western', logo: 'assets/img/burger.png' ,img: "assets/img/favcategories/western.png"},
-    { type: 'Asian Delights', logo: 'assets/img/mee.png' ,img: "assets/img/favcategories/asiandelights.png" },
-    { type: 'Quick Bites', logo: 'assets/img/muffin.png',img: "assets/img/favcategories/fastfood.png" },
-    { type: 'Beverages', logo: 'assets/img/drinks.png' ,img: "assets/img/favcategories/beverage.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-   { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-   { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-  ];
+export class RestaurantDetailComponent {
 
-  foodcategories: Categoriesfood[] = [
+
+  foodfilter: FoodCategories[] = [
+    {name: "Autumn"},
+    {name: "dog"},
+  ]
+
+
+  foodcategories: Restaurantfood[] = [
     {
       img: '',
       type: 'Asian Delights',
+      category: "Autumn",
       name: 'Hainanese Chicken Rice',
       price: 7.50,
       desc: 'Ji Fan',
+      qty_sold: 3,
     },
     {
       img: '',
       type: 'Asian Delights',
+      category: "Autumn",
       name: 'Pad Thai 1',
       price: 8.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 4,
     },
     {
       img: '',
       type: 'Asian Delights',
+      category: "Autumn",
       name: 'Pad Thai 2',
       price: 8.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 10,
     },
     {
-      img: '',
+      img: 'assets/img/lenzaidev.jpg',
       type: 'Western',
+      category: "Autumn",
       name: 'Burger',
       price: 8.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 100,
     },
     {
       img: 'assets/img/zus.jpg',
       type: 'Beverages',
+      category: "dog",
       name: 'Zus',
       price: 8.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
     },{
       img: '',
       type: 'Asian Delights',
-      name: 'Pad Thai 3',
+      category: "Autumn",
+      name: 'Pad Thai 69',
       price: 8.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
+    },
+    {
+      img: '',
+      type: 'Asian Delights',
+      category: "dog",
+      name: 'Pad Thai 69',
+      price: 8.50,
+      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
+    },
+    {
+      img: '',
+      type: 'Asian Delights',
+      category: "dog",
+      name: 'Pad Thai 69',
+      price: 8.50,
+      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
+    },
+    {
+      img: '',
+      type: 'Asian Delights',
+      category: "dog",
+      name: 'Pad Thai 69',
+      price: 8.50,
+      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
     },
   ];
 
@@ -180,11 +217,18 @@ checkButtonVisibility(container: HTMLElement) {
   }
 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  
+  }
 
-    openRestaurantDetail(shop: any) {
-        // Navigate to the restaurant detail page, passing the shop ID as a route parameter
-        this.router.navigate(['/restaurant-detail', shop.id,shop.name]);
+
+    getTop5FoodCategories() {
+      // Sort the array in descending order based on qty_sold and slice the first 5.
+      return this.foodcategories
+        .sort((a, b) => b.qty_sold - a.qty_sold)
+        .slice(0, 5);
     }
+
+    
 
 }
