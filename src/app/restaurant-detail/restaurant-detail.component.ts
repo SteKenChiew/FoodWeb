@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
-
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 
 interface Restaurantfood {
   img: string;
@@ -90,38 +90,12 @@ export class RestaurantDetailComponent {
       img: '',
       type: 'Asian Delights',
       category: "Autumn",
-      name: 'Pad Thai 69',
+      name: 'Pad Thai 33',
       price: 8.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
       qty_sold: 3,
     },
-    {
-      img: '',
-      type: 'Asian Delights',
-      category: "dog",
-      name: 'Pad Thai 69',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },
-    {
-      img: '',
-      type: 'Asian Delights',
-      category: "dog",
-      name: 'Pad Thai 69',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },
-    {
-      img: '',
-      type: 'Asian Delights',
-      category: "dog",
-      name: 'Pad Thai 69',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },
+   
   ];
 
   shop: Restaurant[] = [
@@ -217,10 +191,7 @@ checkButtonVisibility(container: HTMLElement) {
   }
 
 
-  constructor(private router: Router) {
-  
-  }
-
+  constructor(private route: ActivatedRoute) { }
 
     getTop5FoodCategories() {
       // Sort the array in descending order based on qty_sold and slice the first 5.
