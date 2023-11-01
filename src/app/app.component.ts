@@ -1,7 +1,7 @@
 import {  Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
-const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification'];
+const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart'];
 
 @Component({
   selector: 'app-root',

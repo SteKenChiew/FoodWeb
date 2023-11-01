@@ -1,0 +1,465 @@
+.cart-merge{
+    width: 100%;
+    height: auto;
+
+}
+
+.cart-logo{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-logo img{
+    width: 100%;
+    height: 150px;
+   
+    
+}
+
+.cart{
+    width: 95%;
+    padding-left: 50px;
+    height: auto;
+
+}
+
+.cart h1{
+    color: var(--Gray-1, #333);
+    font-family: Poppins;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px; /* 133.333% */
+}
+
+.empty-cart{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.empty-cart img{
+    width: 15%;
+    height: 15%;
+}
+.empty-cart h1{
+    margin: 0 ;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+.cartitem-merge{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cartitem-merge img{
+    width: 122px;
+    height: 122px;
+    border-radius: 15px;
+}
+
+.cartitem-merge .cartitem-desc{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.cart-merge .cartitem-price{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-merge .cartitem-price .price-tag{
+    color: #7C7C7C;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 65.882% */
+    margin: 0px;
+
+}
+.cart-merge .cartitem-qty-merge{
+    width: 100%;
+    margin-top: 5px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-merge .cartitem-qty{
+    width: 100%;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cart-merge .cartitem-qty p{
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+    color: #333;
+    font-family: Poppins;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 45px; /* 112.5% */
+}
+
+
+.cart-merge .cartitem-qty button{
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #FF4500;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+
+}
+
+
+.cart-merge .cartitem-qty .remove-btn{
+    width: 100%;
+}
+
+.popular{
+    width: 100%;
+    height: 350px;
+    fill: linear-gradient(180deg, #EFEEE9 0%, rgba(255, 255, 255, 0.00) 100%);
+    filter: drop-shadow(0px 8px 40px rgba(0, 0, 0, 0.05));
+}
+
+.popular-merge{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.popular .popular-desc{
+    width: 80%;
+    height: 100%;
+    margin-left: 50px;
+}
+
+.popular .popular-desc h2{
+    color: #333;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 62.222% */
+}
+.popular .popular-desc p{
+    color: #7C7C7C;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 74.667% */
+}
+
+.popular .popular-btn{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.popular .popular-btn button{
+    display: flex;
+    width: 46px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #999;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+}
+.popular .popular-card-container-merge{
+    width: 100%;
+    height: 80%;
+    margin-top: 10px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+   
+}
+.popular .popular-card-container-merge .popular-card-container{
+    width: auto;
+    height: 100%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.popular .popular-card-container-merge .popular-card-container .popular-card{
+    height: 100%;
+    width: 150px;
+    margin: 0px 50px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.popular .popular-card-container-merge .popular-card-container .popular-card img{
+    width: 150px;
+    height: 150px;
+    margin: 0px auto ;
+    border-radius: 5px;
+}
+
+.popular .popular-card-container-merge .popular-card-container .popular-card h1{
+    color: #333;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22.4px; /* 80% */
+    margin: 5px 0px 0px;
+}
+.popular .popular-card-container-merge .popular-card-container .popular-card p{
+    color: #333;
+    font-family: Poppins;
+    font-size: 20px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30.4px; /* 80% */
+}
+
+.cutlery{
+    width: 100%;
+    height: 200px;
+    
+}
+
+.cutlery .cutlery-merge{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-right: 50px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+}
+
+.cutlery .cutlery-merge svg{
+    width: 20px;
+    margin-bottom: 30px;
+}
+
+.cutlery .cutlery-merge .cutlery-desc{
+    width: 70%;
+    height: 100%;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+}
+.cutlery .cutlery-merge .cutlery-desc h1{
+    color: #FF4500;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 70% */
+    margin: 0;
+}
+.cutlery .cutlery-merge .cutlery-desc p{
+    color: #7C7C7C;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.4px; /* 93.333% */
+    margin: 15px 0px 0px 0px;
+}
+
+.cutlery-togglebtn{
+    width: 30%;
+    height: 100%;
+    margin-right: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .total-price-merge{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .total-price-merge .subtotal{
+    width: 93%;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin-left: 50px;
+  }
+  
+  .total-price-merge .subtotal .subtotal-header{
+    width: 50%;
+    color: #333;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 62.222% */
+  }
+  .total-price-merge .subtotal .subtotal-price {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: #333;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 62.222% */
+  }
+  .total-price-merge .subtotal .subtotal-price p{
+    width: auto;
+    
+  }
+
+  .total-price-merge .total  .total-header{
+    width: 50%;
+    color: #333;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px; /* 62.222% */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .total-price-merge .total  .total-header h1{
+    width: 85px;
+  }
+  .total-price-merge .total  .total-header p{
+    width: 100px;
+  }
+
+
+  .total-price-merge .total{
+    width: 93%;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin-left: 50px;
+  }
+
+  .total-price-merge .total .total-price{
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: #333;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px; /* 46.667% */
+    
+  }
+  .total-price-merge .total .total-price p{
+    width: auto;
+  }
+

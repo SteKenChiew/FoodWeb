@@ -18,7 +18,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { FoodDialogComponent } from './food-dialog/food-dialog.component';
-
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -34,6 +34,7 @@ import { FoodDialogComponent } from './food-dialog/food-dialog.component';
     RestaurantListComponent,
     RestaurantDetailComponent,
     FoodDialogComponent,
+    CartComponent,
     
   ],
   imports: [

@@ -4,6 +4,7 @@ custom-dialog{
   align-items: center;
 }
 
+
 .dialog-form{
   display: flex;
   flex-direction:  column;

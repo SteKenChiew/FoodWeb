@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FoodDialogComponent } from '../food-dialog/food-dialog.component';
 
 
-interface Restaurantfood {
+export interface Restaurantfood {
   img: string;
   type: string;
   category: string;
@@ -225,7 +225,7 @@ checkButtonVisibility(container: HTMLElement) {
     openDialog(food: FoodCategories): void {
       const dialogRef = this.dialog.open(FoodDialogComponent, {
         width: '640px', // Adjust the width as needed
-        height: '650px',
+        height: '700px',
         data: { food }, // Pass the food data to the dialog
         panelClass: 'custom-dialog' 
       });
@@ -238,7 +238,7 @@ checkButtonVisibility(container: HTMLElement) {
     scrollToCategory(categoryName: string): void {
       const element = document.getElementById(categoryName);
       if (element) {
-        const headerHeight = 120;
+        const headerHeight = 220;
         window.scrollTo({
           top: element.getBoundingClientRect().top + window.pageYOffset - headerHeight,
           behavior: 'smooth',
