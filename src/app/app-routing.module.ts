@@ -9,6 +9,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 
+
 const routes: Routes = [
   
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'restaurant-list', component: RestaurantListComponent  },
   { path: 'restaurant-detail/:id/:name', component: RestaurantDetailComponent },
   { path: 'restaurant-detail', component: RestaurantDetailComponent },
+  
 ];
 
 @NgModule({

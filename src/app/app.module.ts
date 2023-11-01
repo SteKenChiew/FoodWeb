@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CdkVirtualScrollViewport, ScrollDispatcher } from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';  // Import MatDialogModule here
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import {  FilterCategoryPipe } from './filter-category.pipe';
+import { FilterCategoryPipe } from './filter-category.pipe';
 import { FilterAdditionalPipe } from './filterAdditional.pipe';
-import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { VerificationComponent } from './verification/verification.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import { FoodDialogComponent } from './food-dialog/food-dialog.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
     ForgotpassComponent,
     VerificationComponent,
     RestaurantListComponent,
-    RestaurantDetailComponent
+    RestaurantDetailComponent,
+    FoodDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
     ScrollingModule,
     CommonModule,
     ReactiveFormsModule,
+    MatDialogModule,
     
     
   ],

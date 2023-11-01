@@ -1,7 +1,9 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild ,Renderer2, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { FoodDialogComponent } from '../food-dialog/food-dialog.component';
+
 
 interface Restaurantfood {
   img: string;
@@ -38,6 +40,9 @@ export class RestaurantDetailComponent {
   foodfilter: FoodCategories[] = [
     {name: "Autumn"},
     {name: "dog"},
+    {name: "All time fav"},
+    {name: "LengZai"}
+    
   ]
 
 
@@ -92,6 +97,23 @@ export class RestaurantDetailComponent {
       category: "Autumn",
       name: 'Pad Thai 33',
       price: 8.50,
+      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
+    },{
+      img: '',
+      type: 'Asian Delights',
+      category: "All time fav",
+      name: 'Kopi Beng',
+      price: 3.50,
+      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
+      qty_sold: 3,
+    },
+    {
+      img: 'assets/img/lenzaidev.jpg',
+      type: 'Asian Delights',
+      category: "LengZai",
+      name: 'Wanted',
+      price: 300000000.50,
       desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
       qty_sold: 3,
     },
@@ -191,7 +213,7 @@ checkButtonVisibility(container: HTMLElement) {
   }
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private dialog: MatDialog) { }
 
     getTop5FoodCategories() {
       // Sort the array in descending order based on qty_sold and slice the first 5.
@@ -200,6 +222,28 @@ checkButtonVisibility(container: HTMLElement) {
         .slice(0, 5);
     }
 
+    openDialog(food: FoodCategories): void {
+      const dialogRef = this.dialog.open(FoodDialogComponent, {
+        width: '640px', // Adjust the width as needed
+        height: '650px',
+        data: { food }, // Pass the food data to the dialog
+        panelClass: 'custom-dialog' 
+      });
     
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        // Handle any actions after the dialog is closed
+      });
+    }
+    scrollToCategory(categoryName: string): void {
+      const element = document.getElementById(categoryName);
+      if (element) {
+        const headerHeight = 120;
+        window.scrollTo({
+          top: element.getBoundingClientRect().top + window.pageYOffset - headerHeight,
+          behavior: 'smooth',
+        });
+      }
+    }
 
 }

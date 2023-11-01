@@ -1,0 +1,24 @@
+
+
+<div class="dialog-form">
+    <div class="dialog-img">
+        <img [src]="data.food.img" alt="{{ data.food.name }}">
+    </div>
+   <div class="dialog-food-desc-merge">
+    <h1>{{ data.food.name }}</h1>
+    <p class="dialog-food-desc">{{ data.food.desc }}</p>
+    <p class="dialog-food-price">MYR {{ data.food.price.toFixed(2) }}</p>
+   </div>
+   
+   
+   
+  
+</div>
+<div class="dialog-placeorder" >
+    <div class="placeholder-variation">
+        <button>-</button>
+        <p>1</p>
+        <button>+</button>
+    </div>
+    <button class="placeholder-addtocart" >Add to Cart</button>
+</div>
