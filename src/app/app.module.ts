@@ -21,6 +21,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { FoodDialogComponent } from './food-dialog/food-dialog.component';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     FoodDialogComponent,
     CartComponent,
     FilterBySearchPipe,
+    OrderSummaryComponent,
   ],
   imports: [
     BrowserModule,
