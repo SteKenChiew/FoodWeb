@@ -39,7 +39,8 @@
         <div class="restaurant-breif-info-merging2" id="sticky-header">
             <div class="restaurant-breif-info-search">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
-                <input type="text" placeholder="Search in menu">
+                <input type="text" [(ngModel)]="searchQuery" placeholder="Search in menu">
+                <button class="searchQuery" *ngIf="searchQuery" (click)="clearSearchQuery()">X</button>
             </div>
             <div class="restaurant-breif-info-categories">
                 <div class="categories-card"  (click)="scrollToCategory('Popular')">
@@ -50,63 +51,93 @@
                 </div>
             </div>
         </div>
-        <div class="popular-header">
-            <h1 id="Popular"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg> Popular</h1>
-        </div>
-        <div class="toppicks-container">
-    
-            <div class="prev-btn" >
-                <button (click)="prevCard()" #prevButton><svg xmlns="http://www.w3.org/2000/svg" width="41" height="44" viewBox="0 0 41 44" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M27.7896 4L7 22L27.7896 40L33 35.5L17.3948 22L33 8.5L27.7896 4Z" fill="white"/>
-                  </svg></button>
+        <!-- clear when search -->
+        <div *ngIf="!searchQuery" > 
+            
+            <div class="popular-header">
+                <h1 id="Popular"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg> Popular</h1>
             </div>
-            <div #categoriesCard class="restaurant-toppicks-container">
-                
-                <div  class="restaurant-toppicks-container-card">
-                    
-                    <div *ngFor="let type of getTop5FoodCategories()" (click)="openDialog(type)" class="restaurant-toppicks-container-innercard" style="
-                    background: linear-gradient(359deg, rgba(0, 0, 0, 0.70) 0.74%, rgba(0, 0, 0, 0.21) 42.39%, rgba(0, 0, 0, 0.00) 99.45%), url({{type.img}}), lightgray 50% / cover no-repeat;" >
-                        <div class="restaurant-toppicks-container-innercard-desc">
-                            <h1 class="food-title">{{type.name}}</h1>
-                            <div class="restaurant-toppicks-container-innercard-pricing">
-                              <h1>MYR</h1>
-                              <h2>{{ type.price }}</h2>
-                            </div>
-                            <button>Order Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white"/>
-                              </svg></button>
-                          </div>
-                    </div>
-    
-                 
-                </div>
-            </div>
-            <div class="next-btn">
-                <button (click)="nextCard()" #nextButton >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="44" viewBox="0 0 40 44" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2104 4L33 22L12.2104 40L7 35.5L22.6052 22L7 8.5L12.2104 4Z" fill="white"/>
-                </svg></button>
-            </div>
-        </div>  
+            <div class="toppicks-container">
         
-        <div class="restaurant-list-container" *ngFor="let category of foodfilter">
-            <h1 id="{{category.name}}">{{category.name}}</h1>
-            <div class="food-list-container">
-              <div class="food-list-container-merging" >
-                <div class="food-card" *ngFor="let food of foodcategories | filterAdditional: category.name"  (click)="openDialog(food)"
-                >
-                  <div class="foodimg">
-                    <img [src]="food.img" alt="">
-                  </div>
-                  <div class="food-card-title">
-                    <h2>{{food.name}}</h2>
-                    <h3>from</h3>
-                    <p>MYR {{food.price.toFixed(2)}}</p>
+                <div class="prev-btn" >
+                    <button (click)="prevCard()" #prevButton><svg xmlns="http://www.w3.org/2000/svg" width="41" height="44" viewBox="0 0 41 44" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M27.7896 4L7 22L27.7896 40L33 35.5L17.3948 22L33 8.5L27.7896 4Z" fill="white"/>
+                      </svg></button>
+                </div>
+                <div #categoriesCard class="restaurant-toppicks-container">
+                    
+                    <div  class="restaurant-toppicks-container-card">
+                        
+                        <div *ngFor="let type of getTop5FoodCategories()" (click)="openDialog(type)" class="restaurant-toppicks-container-innercard" style="
+                        background: linear-gradient(359deg, rgba(0, 0, 0, 0.70) 0.74%, rgba(0, 0, 0, 0.21) 42.39%, rgba(0, 0, 0, 0.00) 99.45%), url({{type.img}}), lightgray 50% / cover no-repeat;" >
+                            <div class="restaurant-toppicks-container-innercard-desc">
+                                <h1 class="food-title">{{type.name}}</h1>
+                                <div class="restaurant-toppicks-container-innercard-pricing">
+                                  <h1>MYR</h1>
+                                  <h2>{{ type.price }}</h2>
+                                </div>
+                                <button>Order Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white"/>
+                                  </svg></button>
+                              </div>
+                        </div>
+        
+                     
+                    </div>
+                </div>
+                <div class="next-btn">
+                    <button (click)="nextCard()" #nextButton >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="44" viewBox="0 0 40 44" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2104 4L33 22L12.2104 40L7 35.5L22.6052 22L7 8.5L12.2104 4Z" fill="white"/>
+                    </svg></button>
+                </div>
+            </div>  
+            
+            <div class="restaurant-list-container" *ngFor="let category of foodfilter">
+                <h1 id="{{category.name}}">{{category.name}}</h1>
+                <div class="food-list-container">
+                  <div class="food-list-container-merging" >
+                    <div class="food-card" *ngFor="let food of foodcategories | filterAdditional: category.name"  (click)="openDialog(food)"
+                    >
+                      <div class="foodimg">
+                        <img [src]="food.img" alt="">
+                      </div>
+                      <div class="food-card-title">
+                        <h2>{{food.name}}</h2>
+                        <h3>from</h3>
+                        <p>MYR {{food.price.toFixed(2)}}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
+              
+        </div>
+        <div *ngIf="searchQuery">
+            <div class="food-list-container">
+              <ng-container *ngIf="foodcategories | filterBySearch: searchQuery as filteredItems">
+                <div class="food-list-container-merging">
+                  <div class="food-card" *ngFor="let food of filteredItems" (click)="openDialog(food)">
+                    <div class="foodimg">
+                      <img [src]="food.img" alt="">
+                    </div>
+                    <div class="food-card-title">
+                      <h2>{{food.name}}</h2>
+                      <h3>from</h3>
+                      <p>MYR {{food.price.toFixed(2)}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="no-results-message" *ngIf="filteredItems.length === 0">
+                    <img src="assets/img/searchnotfound.png" alt="">
+                  <p>Search not found!</p>
+                </div>
+              </ng-container>
             </div>
           </div>
+          
+          
           
           
           

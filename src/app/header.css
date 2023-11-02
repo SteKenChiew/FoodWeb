@@ -62,16 +62,35 @@
 }
 
 .header .header-btn .cart-btn{
-    width: 24.518px;
-    height: 28.069px;
+    width: 25;
+    height: 30.069px;
     border: none;
     background-color: transparent;
     margin-left: 37px;
     margin-bottom: 5px;
     cursor: pointer;
+    position: relative;
     
 }
-
+.header .header-btn .cart-btn span{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 10px;
+    background-color: #FF4500;
+    position: absolute;
+    left: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0 ;
+    color: var(--Gray-6, #F2F2F2);
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 22.4px; /* 149.333% */
+}
 
 .header .header-btn .login-btn{
     display: flex;

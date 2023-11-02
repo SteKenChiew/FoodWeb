@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilterCategoryPipe } from './filter-category.pipe';
 import { FilterAdditionalPipe } from './filterAdditional.pipe';
+import { FilterBySearchPipe } from './filter-by-search.pipe';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
@@ -19,7 +20,7 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { FoodDialogComponent } from './food-dialog/food-dialog.component';
 import { CartComponent } from './cart/cart.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { CartComponent } from './cart/cart.component';
     RestaurantDetailComponent,
     FoodDialogComponent,
     CartComponent,
-    
+    FilterBySearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,7 @@ import { CartComponent } from './cart/cart.component';
     CommonModule,
     ReactiveFormsModule,
     MatDialogModule,
+    FormsModule ,
     
     
   ],

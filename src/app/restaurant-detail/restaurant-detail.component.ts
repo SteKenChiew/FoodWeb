@@ -35,7 +35,7 @@ interface Restaurant {
   styleUrls: ['./restaurant-detail.component.css']
 })
 export class RestaurantDetailComponent {
-
+  searchQuery: string = '';
 
   foodfilter: FoodCategories[] = [
     {name: "Autumn"},
@@ -238,12 +238,17 @@ checkButtonVisibility(container: HTMLElement) {
     scrollToCategory(categoryName: string): void {
       const element = document.getElementById(categoryName);
       if (element) {
+        
         const headerHeight = 220;
         window.scrollTo({
           top: element.getBoundingClientRect().top + window.pageYOffset - headerHeight,
           behavior: 'smooth',
         });
       }
+       this.searchQuery = '';
     }
-
+    clearSearchQuery(): void {
+      this.searchQuery = ''; // Clear the search query
+  }
+    
 }

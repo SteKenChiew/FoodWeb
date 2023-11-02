@@ -1,5 +1,6 @@
 import {  Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { CartNotificationService } from './cart-notification.service';
 
 const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart'];
 
@@ -14,8 +15,10 @@ export class AppComponent {
   title = 'my-first-project';
   showHeader = true;
   showHead: boolean = false;
+  cartCount: number = 0;
  
-  constructor(private router: Router) {
+  constructor(private router: Router,private cartNotificationService: CartNotificationService) {
+    
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
@@ -26,6 +29,12 @@ export class AppComponent {
             this.showHead = true;
           }
         }
+      });
+    }
+    ngOnInit() {
+      // Subscribe to cart count changes
+      this.cartNotificationService.cartCount$.subscribe((count) => {
+        this.cartCount = count;
       });
     }
 

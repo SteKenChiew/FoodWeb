@@ -9,6 +9,12 @@ import { CartService } from '../cart.service';
 export class CartComponent {
   cartItems: any[];
   cartTotal: number = 0;
+  cutleryChecked: boolean = false;
+  cutleryCost: number = 0;
+  updateCutleryCost() {
+    this.cutleryCost = this.cutleryChecked ? 10 : 0; 
+    this.cartTotal += this.cutleryChecked ? 10 : -10;
+  }
   @ViewChild('popularCardContainer') popularCardContainer!: ElementRef;
 
 
