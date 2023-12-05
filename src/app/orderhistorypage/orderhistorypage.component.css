@@ -92,6 +92,7 @@ header img{
     line-height: 22.4px; /* 86.154% */
     cursor: pointer;
     border-bottom: #FF4500 solid 5px;
+    
 }
 .status-btn-history img{
     width: 100px;
@@ -155,6 +156,7 @@ header img{
 .orderpreparingpage-merge{
     height: 100vh;
     width: 100%;
+    margin-bottom: 100px;
 }
 
 
@@ -184,11 +186,13 @@ header img{
     flex-direction: column;
     align-items: center;
     overflow: auto;
+    
 }
 
 .order-card{
     width: 80%;
-    height: 400px;
+    height: auto;
+    min-height: 400px;
     display: flex;
     flex-direction: row;
     background-color: #263238;
@@ -198,12 +202,12 @@ header img{
 
  .order-card-innerdesc{
     width: 70%;
-    height: 180px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: top;
-    margin-top: 220px;
+    justify-content: end;
     padding-left: 50px;
+    padding-bottom: 20px;
 }
 
 .order-card-innerdesc h1{
@@ -217,11 +221,19 @@ header img{
     margin-bottom: 20px;
 }
 
-.order-card-innerdesc .item-desc{
+.order-card-innerdesc .item-desc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.order-card-innerdesc .item-desc .item-qty{
     width: 100%;
     display: flex;
     flex-direction: row;
+
 }
+
 
 .order-card-innerdesc .item-desc p{
     color: #FFF;
@@ -273,6 +285,20 @@ header img{
 
 .order-card .order-card-img img{
     width: 100%;
-    height: 100%;
+    height: 80%;
 }
 
+.order-card .order-card-img button{
+    width: 80%;
+    height: 15%;
+    border-radius: 20px;
+    background: #FF4500;
+    color: #FAFAFA;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px; /* 70% */
+    border: none;
+}
