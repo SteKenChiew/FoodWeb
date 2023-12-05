@@ -11,6 +11,7 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { CartComponent } from './cart/cart.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MerchantmainComponent } from './merchantmain/merchantmain.component';
 
 const routes: Routes = [
   
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'cart', component:  CartComponent },
   { path: 'order-summary', component:  OrderSummaryComponent },
   { path: 'profile', component:  ProfileComponent },
+  { path: 'merchantmain', component:  MerchantmainComponent },
 ];
 
 @NgModule({

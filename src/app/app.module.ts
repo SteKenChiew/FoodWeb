@@ -23,7 +23,7 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { MerchantmainComponent } from './merchantmain/merchantmain.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { ProfileComponent } from './profile/profile.component';
     FilterBySearchPipe,
     OrderSummaryComponent,
     ProfileComponent,
+    MerchantmainComponent,
   ],
   imports: [
     BrowserModule,
