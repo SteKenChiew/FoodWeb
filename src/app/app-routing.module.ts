@@ -12,6 +12,9 @@ import { CartComponent } from './cart/cart.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MerchantmainComponent } from './merchantmain/merchantmain.component';
+import { OrderpreparingpageComponent } from './orderpreparingpage/orderpreparingpage.component';
+import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.component';
+import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 
 const routes: Routes = [
   
@@ -27,6 +30,9 @@ const routes: Routes = [
   { path: 'order-summary', component:  OrderSummaryComponent },
   { path: 'profile', component:  ProfileComponent },
   { path: 'merchantmain', component:  MerchantmainComponent },
+  { path: 'orderpreparingpage', component:  OrderpreparingpageComponent },
+  { path: 'readyorderpage', component:  ReadyorderpageComponent },
+  { path: 'orderhistorypage', component:  OrderhistorypageComponent },
 ];
 
 @NgModule({

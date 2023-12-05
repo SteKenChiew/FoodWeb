@@ -24,6 +24,9 @@ import { FormsModule } from '@angular/forms';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MerchantmainComponent } from './merchantmain/merchantmain.component';
+import { OrderpreparingpageComponent } from './orderpreparingpage/orderpreparingpage.component';
+import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.component';
+import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { MerchantmainComponent } from './merchantmain/merchantmain.component';
     OrderSummaryComponent,
     ProfileComponent,
     MerchantmainComponent,
+    OrderpreparingpageComponent,
+    ReadyorderpageComponent,
+    OrderhistorypageComponent
   ],
   imports: [
     BrowserModule,
