@@ -15,6 +15,8 @@ import { MerchantmainComponent } from './merchantmain/merchantmain.component';
 import { OrderpreparingpageComponent } from './orderpreparingpage/orderpreparingpage.component';
 import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.component';
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
+import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
+
 
 const routes: Routes = [
   
@@ -33,6 +35,7 @@ const routes: Routes = [
   { path: 'orderpreparingpage', component:  OrderpreparingpageComponent },
   { path: 'readyorderpage', component:  ReadyorderpageComponent },
   { path: 'orderhistorypage', component:  OrderhistorypageComponent },
+  { path: 'merchanteditmenu', component:  MerchanteditmenuComponent },
 ];
 
 @NgModule({

@@ -18,7 +18,8 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { VerificationComponent } from './verification/verification.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
-import { FoodDialogComponent } from './food-dialog/food-dialog.component';
+import { FoodDialogComponent } from './food-dialog/food-dialog.component'; //dialog
+import { MerchanteditmenudialogComponent } from './merchanteditmenudialog/merchanteditmenudialog.component'; //dialog
 import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
@@ -27,6 +28,7 @@ import { MerchantmainComponent } from './merchantmain/merchantmain.component';
 import { OrderpreparingpageComponent } from './orderpreparingpage/orderpreparingpage.component';
 import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.component';
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
+import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.c
     MerchantmainComponent,
     OrderpreparingpageComponent,
     ReadyorderpageComponent,
-    OrderhistorypageComponent
+    OrderhistorypageComponent,
+    MerchanteditmenuComponent,
+    MerchanteditmenudialogComponent
   ],
   imports: [
     BrowserModule,
