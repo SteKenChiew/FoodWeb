@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';  // Import MatDialogModule here
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilterCategoryPipe } from './filter-category.pipe';
@@ -30,6 +29,8 @@ import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.compone
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
+import {AngularFireModule} from '@angular/fire/compat'
+import { environment } from 'src/environment/environment';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,8 @@ import { AdminloginComponent} from './adminlogin/adminlogin.component';
     ReactiveFormsModule,
     MatDialogModule,
     FormsModule ,
+    AngularFireModule.initializeApp(environment.firebase)
+  
     
     
   ],
