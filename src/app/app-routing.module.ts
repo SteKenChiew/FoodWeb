@@ -16,7 +16,7 @@ import { OrderpreparingpageComponent } from './orderpreparingpage/orderpreparing
 import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.component';
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
-
+import { AdminloginComponent} from './adminlogin/adminlogin.component';
 
 const routes: Routes = [
   
@@ -36,6 +36,7 @@ const routes: Routes = [
   { path: 'readyorderpage', component:  ReadyorderpageComponent },
   { path: 'orderhistorypage', component:  OrderhistorypageComponent },
   { path: 'merchanteditmenu', component:  MerchanteditmenuComponent },
+  { path: 'adminlogin', component:  AdminloginComponent },
 ];
 
 @NgModule({

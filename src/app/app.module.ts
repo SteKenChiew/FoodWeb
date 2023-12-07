@@ -29,6 +29,7 @@ import { OrderpreparingpageComponent } from './orderpreparingpage/orderpreparing
 import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.component';
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
+import { AdminloginComponent} from './adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.c
     ReadyorderpageComponent,
     OrderhistorypageComponent,
     MerchanteditmenuComponent,
-    MerchanteditmenudialogComponent
+    MerchanteditmenudialogComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
