@@ -31,6 +31,7 @@ import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.c
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environment/environment';
+import { MerchantsignupComponent } from './merchantsignup/merchantsignup.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { environment } from 'src/environment/environment';
     OrderhistorypageComponent,
     MerchanteditmenuComponent,
     MerchanteditmenudialogComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    MerchantsignupComponent,
   ],
   imports: [
     BrowserModule,
