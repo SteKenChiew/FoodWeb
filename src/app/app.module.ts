@@ -29,10 +29,9 @@ import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.compone
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
-import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environment/environment';
 import { MerchantsignupComponent } from './merchantsignup/merchantsignup.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +67,7 @@ import { MerchantsignupComponent } from './merchantsignup/merchantsignup.compone
     ReactiveFormsModule,
     MatDialogModule,
     FormsModule ,
-    AngularFireModule.initializeApp(environment.firebase)
+    HttpClientModule,
   
     
     
