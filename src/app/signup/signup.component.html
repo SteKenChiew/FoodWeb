@@ -17,7 +17,7 @@
         <div class="signup-form-cotainer">
             <input type="text" name="name" placeholder="Name" class="signup-form-container-name" [(ngModel)]="user.username">
             <input type="email" name="email" placeholder="Email" class="signup-form-cotainer-email" [(ngModel)]="user.email">
-            <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password">
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="user.hashedpassword">
           </div>
           <div class="submit-btn">
             <button (click)="registerUser()">Create account</button>
