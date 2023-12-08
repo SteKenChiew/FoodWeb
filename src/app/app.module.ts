@@ -32,6 +32,8 @@ import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { environment } from 'src/environment/environment';
 import { MerchantsignupComponent } from './merchantsignup/merchantsignup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,9 @@ import { HttpClientModule } from '@angular/common/http';
     
     
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

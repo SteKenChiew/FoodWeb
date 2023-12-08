@@ -15,14 +15,14 @@
             <p>Welcome back to Sunway Nom². Please enter your details .</p>
         </div>
         <div class="login-form-cotainer">
-            <input type="email" name="" id="" placeholder="Email" class="login-form-cotainer-email">
-            <input type="text" name="" id="" placeholder="Password">
+            <input type="email" name="" id="" placeholder="Email"  [(ngModel)]="email" class="login-form-cotainer-email">
+            <input type="password" name="" id="" placeholder="Password" [(ngModel)]="password">
         </div>
         <div class="forgot-pass">
             <a  routerLink="/forgotpass" routerLinkActive="active">Forgot Password ?</a>
         </div>
         <div class="submit-btn">
-            <button (click)="goHome()">Login</button>
+            <button (click)="login()">Login</button>
         </div>
         <div class="Gmail-login">
             <button><img src="assets/img/googlelogo.png" alt="" style="width: 28px; height: 28px; padding-right: 15px;">Login with Google</button>
