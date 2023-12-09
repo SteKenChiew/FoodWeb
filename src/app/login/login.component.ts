@@ -17,6 +17,7 @@ export class LoginComponent {
     this.authService.login(this.email, this.hashedpassword).subscribe(
       (response) => {
         console.log('Login successful:', response);
+        this.authService.setUser(response);
         this.router.navigate(['']);
       },
       (error) => {

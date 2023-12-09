@@ -1,7 +1,7 @@
 import {  Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { CartNotificationService } from './cart-notification.service';
-
+import { AuthService } from './services/auth.service';
 
 const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart','/order-summary','/merchantmain','/orderpreparingpage','/readyorderpage','/orderhistorypage','/merchanteditmenu','/admin','/adminreslist','/orderdetails'];
 
@@ -17,8 +17,8 @@ export class AppComponent {
   showHeader = true;
   showHead: boolean = false;
   cartCount: number = 0;
- 
-  constructor(private router: Router,private cartNotificationService: CartNotificationService) {
+  authenticated: boolean = false;
+  constructor(private router: Router,private cartNotificationService: CartNotificationService,private authService: AuthService) {
     
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
@@ -29,6 +29,7 @@ export class AppComponent {
           } else {
             this.showHead = true;
           }
+          this.authenticated = this.authService.isAuthenticated();
         }
       });
     }
@@ -41,5 +42,10 @@ export class AppComponent {
 
     goPlaces() {
       this.router.navigate(['/login']);
+    }
+
+    get userName(): string {
+      const user = this.authService.getUser();
+      return user ? user.username : '';
     }
 }
