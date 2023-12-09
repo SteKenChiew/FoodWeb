@@ -18,6 +18,8 @@ import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.c
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
+import { AdminresListComponent } from './adminres-list/adminres-list.component';
+
 
 const routes: Routes = [
   
@@ -38,7 +40,8 @@ const routes: Routes = [
   { path: 'orderhistorypage', component:  OrderhistorypageComponent },
   { path: 'merchanteditmenu', component:  MerchanteditmenuComponent },
   { path: 'admin', component:  AdminloginComponent },
-  { path: 'orderdetails', component: OrderdetailsComponent}
+  { path: 'orderdetails', component: OrderdetailsComponent},
+  { path: 'adminreslist', component: AdminresListComponent},
 
 ];
 

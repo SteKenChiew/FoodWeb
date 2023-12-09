@@ -12,13 +12,10 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): Observable<any> {
-    const loginUrl = `${this.apiUrl}/login`;
-    console.log('Login URL:', loginUrl);
-  
-    // Send data in the expected format
-    return this.http.post(loginUrl, { email, password }, { headers: { 'Content-Type': 'application/json' } });
-
-
+  login(email: string, hashedpassword: string): Observable<any> {
+    const requestBody = { email, hashedpassword };
+    return this.http.post('http://localhost:8080/user/login', requestBody);
   }
+  
+  
 }

@@ -33,7 +33,7 @@ import { environment } from 'src/environment/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
-
+import { AdminresListComponent } from './adminres-list/adminres-list.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
     MerchanteditmenudialogComponent,
     AdminloginComponent,
     OrderdetailsComponent,
+    AdminresListComponent,
   ],
   imports: [
     BrowserModule,
