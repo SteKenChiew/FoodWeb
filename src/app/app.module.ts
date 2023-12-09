@@ -30,7 +30,6 @@ import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.c
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { environment } from 'src/environment/environment';
-import { MerchantsignupComponent } from './merchantsignup/merchantsignup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 
@@ -58,7 +57,6 @@ import { AuthService } from './services/auth.service';
     MerchanteditmenuComponent,
     MerchanteditmenudialogComponent,
     AdminloginComponent,
-    MerchantsignupComponent,
   ],
   imports: [
     BrowserModule,
