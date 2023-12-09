@@ -32,8 +32,9 @@ import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { environment } from 'src/environment/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
-import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
+import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { AdminresListComponent } from './adminres-list/adminres-list.component';
+import { AdmincusListComponent } from './admincus-list/admincus-list.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AdminresListComponent } from './adminres-list/adminres-list.component';
     AdminloginComponent,
     OrderdetailsComponent,
     AdminresListComponent,
+    AdmincusListComponent,
   ],
   imports: [
     BrowserModule,
