@@ -9,22 +9,26 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent {
   email: string = '';
-  password: string = '';
+  hashedpassword: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
-
   login() {
-    console.log('Login method triggered. Email:', this.email, 'Password:', this.password); // Log the values
-    this.authService.login(this.email, this.password).subscribe(
+    // Send the email and password directly to the backend
+    this.authService.login(this.email, this.hashedpassword).subscribe(
       (response) => {
-        console.log('Login response:', response);
-        // Continue with your existing logic...
+        console.log('Login successful:', response);
+        this.router.navigate(['']);
       },
       (error) => {
-        // Handle login error
         console.error('Login failed:', error);
+        if (error.status === 404) {
+          console.error('User not found. Check user credentials.');
+        } else {
+          console.error('Unexpected error:', error);
+        }
+        // Handle login error
       }
     );
-  
   }
+  
 }
