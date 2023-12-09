@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  private user: any;
   private apiUrl = 'http://localhost:8080/user'; // Replace with your authentication API URL
 
   constructor(private http: HttpClient) {}
@@ -17,5 +18,16 @@ export class AuthService {
     return this.http.post('http://localhost:8080/user/login', requestBody);
   }
   
-  
+  setUser(user: any): void {
+    this.user = user;
+  }
+
+  getUser(): any {
+    return this.user;
+  }
+  isAuthenticated(): boolean {
+    // Implement logic to check whether the user is authenticated.
+    // For example, check if the user object is present in your service.
+    return !!this.getUser();
+  }
 }

@@ -1,0 +1,167 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    fill: #FFFDF4;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.nav-top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header img{
+    width: 15%;
+    height: 100%;
+    padding: 10px;
+}
+
+.nav-merge{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding-right: 50px;
+}
+
+.nav-merge .customer-icon{
+    width: 50px;
+}
+
+.nav-merge .arrow-icon{
+    width: 20px;
+    height: 20px;
+}
+
+.cart-btn{
+    width: 25;
+    height: 30.069px;
+    border: none;
+    background-color: transparent;
+    margin-left: 37px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.track-order-container{
+    width: 70%;
+    height: auto;
+}
+
+.active-order-word{
+    margin: 20px;
+    font-family: Poppins;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #333333;
+}
+
+
+.active-order-container{
+    height: auto;
+}
+
+.active-order-list{
+    padding: 30px;
+    height: 200px;
+    width: auto;
+    margin:20px;
+    background-image: url(src\assets\img\restaurantimg\starbucks.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    display: flex;
+    align-items: end;
+    flex-direction: row;
+}
+
+.active-order-list .active-order-details{
+    width: 70%;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    color:#FFFDF4;
+}
+
+
+.view-details-btn{
+    width: 150px;
+    height: 30px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #FF4500;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    color: #FFFDF4;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.active-order-list .active-order-button{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: right;
+    
+}
+
+.pass-order-container{
+    height: 500px;
+    overflow: auto;
+}
+
+.re-order-btn{
+    width: 150px;
+    height: 30px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background:#FFFDF4 ;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    color: #FF4500;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+

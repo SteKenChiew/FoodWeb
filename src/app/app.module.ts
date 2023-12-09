@@ -35,6 +35,7 @@ import { AuthService } from './services/auth.service';
 import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { AdminresListComponent } from './adminres-list/adminres-list.component';
 import { AdmincusListComponent } from './admincus-list/admincus-list.component';
+import { TrackorderComponent } from './trackorder/trackorder.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AdmincusListComponent } from './admincus-list/admincus-list.component';
     OrderdetailsComponent,
     AdminresListComponent,
     AdmincusListComponent,
+    TrackorderComponent,
   ],
   imports: [
     BrowserModule,
