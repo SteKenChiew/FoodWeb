@@ -21,6 +21,7 @@ import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { AdminresListComponent } from './adminres-list/adminres-list.component';
 import { AdmincusListComponent } from './admincus-list/admincus-list.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
+import { MerchantregisterComponent } from './merchantregister/merchantregister.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,7 @@ const routes: Routes = [
   { path: 'adminreslist', component: AdminresListComponent},
   { path: 'admincuslist', component: AdmincusListComponent},
   {path: 'trackorder', component: TrackorderComponent},
-
+  {path: 'merchantregister', component: MerchantregisterComponent},
 ];
 
 @NgModule({
