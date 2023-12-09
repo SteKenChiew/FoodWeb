@@ -67,7 +67,8 @@ header img{
     display: flex;
     flex-direction: row;
     margin-left: 20px;
-    justify-content: center;
+    padding-left: 35px;
+    justify-content: left;
 }
 
 .status-btn{
@@ -153,14 +154,14 @@ header img{
     outline: none;
 }
 
-.orderpreparingpage-merge{
+.reslistpage-merge{
     height: 100vh;
     width: 100%;
     margin-bottom: 100px;
 }
 
 
-.orderpreparingpage-merge h1{
+.reslistpage-merge h1{
     margin-left: 100px;
     margin-top: 50px;
     color: var(--Gray-1, #333);
@@ -179,7 +180,7 @@ header img{
     flex-direction: column;
     align-items: center;
 }
-.order-card-merge{
+.res-card-merge{
     width: 90%;
     height: 1000px;
     display: flex;
@@ -189,18 +190,18 @@ header img{
     
 }
 
-.order-card{
+.res-card{
     width: 80%;
     height: auto;
-    min-height: 400px;
+    min-height: 300px;
     display: flex;
     flex-direction: row;
     background-color: #263238;
     border-radius: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
- .order-card-innerdesc{
+ .res-card-innerdesc{
     width: 70%;
     height: auto;
     display: flex;
@@ -210,7 +211,7 @@ header img{
     padding-bottom: 20px;
 }
 
-.order-card-innerdesc h1{
+.res-card-innerdesc h1{
     color: #FFF;
     margin: 0px;
     font-family: Poppins;
@@ -221,13 +222,13 @@ header img{
     margin-bottom: 20px;
 }
 
-.order-card-innerdesc .item-desc {
+.res-card-innerdesc .item-desc {
     width: 100%;
     display: flex;
     flex-direction: column;
 
 }
-.order-card-innerdesc .item-desc .item-qty{
+.res-card-innerdesc .item-desc .item-qty{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -235,7 +236,7 @@ header img{
 }
 
 
-.order-card-innerdesc .item-desc p{
+.res-card-innerdesc .item-desc p{
     color: #FFF;
     font-family: Poppins;
     font-size: 30px;
@@ -244,12 +245,12 @@ header img{
     line-height: 22.4px; /* 65.882% */
     margin-bottom: 20px;
 }
-.order-card-innerdesc .pricing{
+.res-card-innerdesc .pricing{
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
 }
-.order-card-innerdesc .pricing h3{
+.res-card-innerdesc .pricing h3{
     color: var(--Yellow, #F2C94C);
     font-family: Poppins;
     font-size: 24px;
@@ -257,7 +258,7 @@ header img{
     font-weight: 700;
     line-height: 22.4px; /* 93.333% */
 }
-.order-card-innerdesc .pricing h2{
+.res-card-innerdesc .pricing h2{
     color: #FFF;
     font-family: Poppins;
     font-size: 34px;
@@ -265,7 +266,7 @@ header img{
     font-weight: 700;
     line-height: 22.4px;
 }
-.order-card-innerdesc p{
+.res-card-innerdesc p{
     color: #FFF;
     font-family: Poppins;
     font-size: 20px;
@@ -275,7 +276,7 @@ header img{
 
 }
 
-.order-card-img{
+.res-card-img{
     width: 30%;
     height: 100%;
     display: flex;
@@ -283,12 +284,12 @@ header img{
     align-items: center;
 }
 
-.order-card .order-card-img img{
+.res-card .res-card-img img{
     width: 100%;
     height: 80%;
 }
 
-.order-card .order-card-img button{
+.res-card .res-card-img button{
     width: 80%;
     height: 15%;
     border-radius: 20px;
@@ -296,7 +297,7 @@ header img{
     color: #FAFAFA;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 600;
     line-height: 22.4px; /* 70% */
