@@ -2,7 +2,7 @@ import {  Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from 
 import { Router, NavigationStart } from '@angular/router';
 import { CartNotificationService } from './cart-notification.service';
 
-const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart','/order-summary','/merchantmain','/orderpreparingpage','/readyorderpage','/orderhistorypage','/merchanteditmenu','/admin','/merchantsignup'];
+const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart','/order-summary','/merchantmain','/orderpreparingpage','/readyorderpage','/orderhistorypage','/merchanteditmenu','/admin','/adminreslist'];
 
 @Component({
   selector: 'app-root',

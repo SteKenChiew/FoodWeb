@@ -32,6 +32,7 @@ import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { environment } from 'src/environment/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { AdminresListComponent } from './adminres-list/adminres-list.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AuthService } from './services/auth.service';
     MerchanteditmenuComponent,
     MerchanteditmenudialogComponent,
     AdminloginComponent,
+    AdminresListComponent,
   ],
   imports: [
     BrowserModule,

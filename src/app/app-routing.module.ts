@@ -17,6 +17,7 @@ import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.compone
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
+import { AdminresListComponent } from './adminres-list/adminres-list.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'orderhistorypage', component:  OrderhistorypageComponent },
   { path: 'merchanteditmenu', component:  MerchanteditmenuComponent },
   { path: 'admin', component:  AdminloginComponent },
+  { path: 'adminreslist', component: AdminresListComponent},
 
 ];
 
