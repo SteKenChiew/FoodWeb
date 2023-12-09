@@ -32,6 +32,8 @@ import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { environment } from 'src/environment/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { AuthService } from './services/auth.service';
     MerchanteditmenuComponent,
     MerchanteditmenudialogComponent,
     AdminloginComponent,
+    OrderdetailsComponent,
   ],
   imports: [
     BrowserModule,

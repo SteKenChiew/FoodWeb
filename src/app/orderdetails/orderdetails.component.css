@@ -1,0 +1,318 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.order-details-container{
+    height: auto;
+    width: 100%;
+    
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    
+}
+.help-btn button{
+    width: 100px;
+    height: 40px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    border-radius: 30px;
+    background: #FF4500;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    color: #FFFDF4;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.order-details-container .help-btn{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-align: center;
+}
+
+.order-details-container .logo-container{
+    display: flex;
+    margin-top: 15px;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+   
+}
+
+.order-details-container .order-title{
+    font-family: Poppins;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    color: #333333;
+    margin-top: 50px;
+
+}
+
+.order-details-container .order-details-words{
+    font-family: Poppins;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    color: #7C7C7C;
+    margin-top: 30px;   
+
+}
+
+.background-picture-container{
+    height:auto;
+    margin-top: 20px;
+
+}
+
+.background-picture{
+    height: 500px;
+    width: 100%;
+}
+.order-address-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.order-address-container .order-address-icon{
+    width: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: left;
+}
+
+.order-address-container .order-address-icon img{
+  width: 100px;
+  height: 100px;
+}
+.order-address-container .order-address-details{
+    width: 90%;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 0px;
+   
+
+}
+ hr {
+    border: 3px solid #D1D1D1;
+    margin-top: 50px;
+    margin-bottom: 50px;
+ }
+
+.order-item-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-item-container .order-item-num{
+    width: 10%;
+    font-family: Poppins;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #333333;
+}
+
+.order-item-container .order-item-name{
+    width: 70%;
+    font-family: Poppins;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FF4500;
+}
+
+.order-item-container .order-item-price{
+    width: 20%;
+    font-family: Poppins;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: right;
+
+}
+
+.order-total-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-total-container .order-total-details{
+    width:50%;
+    font-family: Poppins;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#333333
+
+}
+
+.order-total-container .order-total-price{
+    width: 50%;
+    font-family: Poppins;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: right;
+    color:#333333
+}
+
+.order-paid-words{
+    font-family: Poppins;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#333333
+}
+
+.order-paid-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-paid-container .order-paid-details{
+    width: 50%;
+    font-family: Poppins;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#7C7C7C;
+}
+
+.order-paid-container .order-paid-price{
+    width: 50%;
+    font-family: Poppins;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: right;
+    color:#7C7C7C;
+
+}
+
+.order-suggest-words{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #333333;
+}
+
+.order-suggest-sentences{
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#333333
+}
+
+.order-suggest-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.order-suggest-container .order-picture{
+    width: 50%;
+}
+
+.order-suggest-container .order-suggest-words{
+    width: 50%;
+    font-family: Poppins;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.order-suggest-container .order-suggest-words textarea{
+    margin-top: 20px;
+    padding: 20px;
+    width: 80%;
+    height: 200px;
+    resize: none;
+    border-radius: 10%;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+.order-suggest-container .order-suggest-words .send-btn{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.send-btn button{
+    width: 100px;
+    height: 50px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    border-radius: 15px;
+    background: #FF4500;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    color: #FFFDF4;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
