@@ -1,0 +1,139 @@
+body{
+    margin-top: 100px;
+}
+.merchant-register-background{
+    height: 600px;
+    background-image: url(src\assets\img\merchant\merchantregisterbackground.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.merchant-register-container{
+    margin:50px;
+    width: 350px;
+    height: 80%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    
+}
+
+.title {
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 45px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FF4500;
+
+}
+
+.description{
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: justify;
+    color: #333333;
+    margin-top: 10px;
+
+}
+
+.yes_no{
+    margin-top: 50px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #333333;
+}
+
+input[type="radio"] {
+    /* Change the color of the radio button */
+    accent-color: #FF4500;
+    width: 20px;
+    height: 20px; 
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked {
+    /* Change the color when the radio button is checked */
+    background-color: #FF4500;
+
+}
+
+
+.next-btn{
+    width: 100%;
+    height: 50px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #FF4500;
+    box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+    color: #FFFDF4;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: normal;
+    margin-top: 30px;
+  
+}
+
+.get-started-word{
+    font-family: Poppins;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: center;
+    color:#333333;
+}
+
+.started-details-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+}
+
+.started-details-container .started-details{
+    width: 33%;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.started-details-container .started-details .text-title{
+    margin-top: 20px;
+    color: #333333;
+    text-align: center;
+    font-size: 30px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.started-details-container .started-details .text{
+    margin-top: 20px;
+    color: #333333;
+    text-align: center;
+    font-size: 15px;
+    font-family: Poppins;
+}
+
