@@ -19,6 +19,7 @@ import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.c
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { AdminresListComponent } from './adminres-list/adminres-list.component';
+import { AdmincusListComponent } from './admincus-list/admincus-list.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'admin', component:  AdminloginComponent },
   { path: 'orderdetails', component: OrderdetailsComponent},
   { path: 'adminreslist', component: AdminresListComponent},
+  { path: 'admincuslist', component: AdmincusListComponent},
   {path: 'trackorder', component: TrackorderComponent},
 
 ];
