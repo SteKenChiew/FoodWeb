@@ -24,7 +24,6 @@
             <button class="searchQuery" *ngIf="searchQuery" (click)="clearSearchQuery()">X</button>
         </div>
         <div class="restaurant-breif-info-categories">
-            
             <div class="categories-card" *ngFor="let c of foodfilter" (click)="scrollToCategory(c.name)">
                 <p>{{c.name}}</p>
             </div>
