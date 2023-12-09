@@ -9,8 +9,7 @@ body{
 
 .order-details-container{
     height: auto;
-    width: 100%;
-    
+    width: 50%;
     justify-content:center;
     align-items: center;
     text-align: center;
@@ -52,26 +51,31 @@ body{
     text-align: center;
    
 }
+.order-details-container .logo-container img{
+   width: 150px;
+   height:150px;
+   
+}
 
 .order-details-container .order-title{
     font-family: Poppins;
-    font-size: 64px;
+    font-size: 54px;
     font-weight: 700;
     line-height: 60px;
     letter-spacing: 0em;
     color: #333333;
-    margin-top: 50px;
+    margin-top: 20px;
 
 }
 
 .order-details-container .order-details-words{
     font-family: Poppins;
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 22px;
     letter-spacing: 0em;
     color: #7C7C7C;
-    margin-top: 30px;   
+    margin-top: 10px;   
 
 }
 
@@ -82,7 +86,7 @@ body{
 }
 
 .background-picture{
-    height: 500px;
+    height: 200px;
     width: 100%;
 }
 .order-address-container{
@@ -95,22 +99,22 @@ body{
 
 .order-address-container .order-address-icon{
     width: 10%;
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 20px;
     display: flex;
     align-items: left;
 }
 
 .order-address-container .order-address-icon img{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 .order-address-container .order-address-details{
     width: 90%;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 400;
-    line-height: 60px;
+    line-height: 40px;
     letter-spacing: 0em;
     text-align: left;
     padding: 0px;
@@ -119,8 +123,8 @@ body{
 }
  hr {
     border: 3px solid #D1D1D1;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
  }
 
 .order-item-container{
@@ -133,9 +137,9 @@ body{
 .order-item-container .order-item-num{
     width: 10%;
     font-family: Poppins;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 40px;
     letter-spacing: 0em;
     text-align: left;
     color: #333333;
@@ -144,9 +148,9 @@ body{
 .order-item-container .order-item-name{
     width: 70%;
     font-family: Poppins;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: 600;
-    line-height: 60px;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
     color: #FF4500;
@@ -155,9 +159,9 @@ body{
 .order-item-container .order-item-price{
     width: 20%;
     font-family: Poppins;
-    font-size: 34px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: right;
 
@@ -173,9 +177,9 @@ body{
 .order-total-container .order-total-details{
     width:50%;
     font-family: Poppins;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
     color:#333333
@@ -185,9 +189,9 @@ body{
 .order-total-container .order-total-price{
     width: 50%;
     font-family: Poppins;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 40px;
     letter-spacing: 0em;
     text-align: right;
     color:#333333
@@ -195,7 +199,7 @@ body{
 
 .order-paid-words{
     font-family: Poppins;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 22px;
     letter-spacing: 0em;
@@ -213,7 +217,7 @@ body{
 .order-paid-container .order-paid-details{
     width: 50%;
     font-family: Poppins;
-    font-size: 34px;
+    font-size: 22px;
     font-weight: 500;
     line-height: 22px;
     letter-spacing: 0em;
@@ -224,7 +228,7 @@ body{
 .order-paid-container .order-paid-price{
     width: 50%;
     font-family: Poppins;
-    font-size: 34px;
+    font-size: 22px;
     font-weight: 500;
     line-height: 22px;
     letter-spacing: 0em;
@@ -235,9 +239,9 @@ body{
 
 .order-suggest-words{
     font-family: Poppins;
-    font-size: 40px;
+    font-size: 22px;
     font-weight: 700;
-    line-height: 60px;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
     color: #333333;
@@ -245,9 +249,9 @@ body{
 
 .order-suggest-sentences{
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 400;
-    line-height: 40px;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: left;
     color:#333333
@@ -260,19 +264,22 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 70px;
 }
 
 .order-suggest-container .order-picture{
     width: 50%;
 }
+.order-suggest-container .order-picture img{
+    width: 300px;
+}
 
 .order-suggest-container .order-suggest-words{
     width: 50%;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 600;
-    line-height: 40px;
+    line-height: 30px;
     letter-spacing: 0em;
     text-align: center;
 }

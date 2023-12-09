@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import {OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { AdminresListComponent } from './adminres-list/adminres-list.component';
+import { TrackorderComponent } from './trackorder/trackorder.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AdminresListComponent } from './adminres-list/adminres-list.component';
     AdminloginComponent,
     OrderdetailsComponent,
     AdminresListComponent,
+    TrackorderComponent,
   ],
   imports: [
     BrowserModule,
