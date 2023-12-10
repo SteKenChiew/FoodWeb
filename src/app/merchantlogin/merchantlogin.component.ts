@@ -17,6 +17,10 @@ export class MerchantloginComponent {
     this.authService.login(this.email, this.hashedpassword).subscribe(
       (response) => {
         console.log('Login successful:', response);
+        console.log('Response Structure:', JSON.stringify(response));
+        this.authService.setMerchantName(response);
+        this.authService.setAuthenticated(true);
+        console.log('Authenticated:', this.authService.isAuthenticated()); // Add this line
         this.router.navigate(['/merchantmain']);
       },
       (error) => {

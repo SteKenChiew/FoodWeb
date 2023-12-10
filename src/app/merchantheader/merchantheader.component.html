@@ -1,0 +1,14 @@
+<header>
+    <img src="assets/img/logo1.svg" alt="">
+    <div class="nav-merge">
+        <a  routerLink="/orderpreparingpage" routerLinkActive="active">Orders</a>
+        <a>Menu</a>
+        <ng-container *ngIf="authenticated; else loginButtonTemplate">
+            <a>{{ merchantName }}</a>
+            <a >Logout</a>
+          </ng-container>
+          <ng-template #loginButtonTemplate>
+            <a [routerLink]="'/merchantlogin'">Login</a>
+          </ng-template>
+    </div>
+</header>

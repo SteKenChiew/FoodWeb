@@ -32,6 +32,7 @@ import { AdminloginComponent} from './adminlogin/adminlogin.component';
 import { environment } from 'src/environment/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { MerchantauthService } from './services/merchantauth.service';
 import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
 import { AdminresListComponent } from './adminres-list/adminres-list.component';
 import { AdmincusListComponent } from './admincus-list/admincus-list.component';
@@ -40,6 +41,7 @@ import { MerchantregisterComponent } from './merchantregister/merchantregister.c
 import {MerchantadditemComponent} from './merchantadditem/merchantadditem.component';
 import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
+import { MerchantHeaderComponent } from './merchantheader/merchantheader.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,6 @@ import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
     FilterBySearchPipe,
     OrderSummaryComponent,
     ProfileComponent,
-    MerchantmainComponent,
     OrderpreparingpageComponent,
     ReadyorderpageComponent,
     OrderhistorypageComponent,
@@ -73,6 +74,8 @@ import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
     MerchantadditemComponent,
     AdminmainpageComponent,
     MerchantloginComponent,
+    MerchantmainComponent,
+    MerchantHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,7 @@ import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
   ],
   providers: [
     AuthService,
+    MerchantauthService,
   ],
   bootstrap: [AppComponent]
 })

@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MerchantauthService {
-  private user: any;
+  private merchantName: any;
   private apiUrl = 'http://localhost:8080/merchant'; // Replace with your authentication API URL
-
+  private authenticated: boolean = false; 
   constructor(private http: HttpClient) {}
 
   login(email: string, hashedpassword: string): Observable<any> {
@@ -19,17 +19,21 @@ export class MerchantauthService {
   
   
   
-  setUser(user: any): void {
-    this.user = user;
+  setMerchantName(response: any): void {
+    // Assuming the merchant name is a property in the response
+    this.merchantName = response.merchantName;
+  }
+  
+
+  getmerchantName(): any {
+    return this.merchantName;
+  }
+  setAuthenticated(value: boolean): void {
+    this.authenticated = value;
   }
 
-  getUser(): any {
-    return this.user;
-  }
   isAuthenticated(): boolean {
-    // Implement logic to check whether the user is authenticated.
-    // For example, check if the user object is present in your service.
-    return !!this.getUser();
+    return this.authenticated;
   }
 
   

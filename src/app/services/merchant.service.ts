@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MerchantService {
-  
+  private user: any;
   private apiUrl = 'http://localhost:8080/merchant'; // Replace with your NestJS API URL
 
   constructor(private http: HttpClient) {}
@@ -17,5 +17,5 @@ export class MerchantService {
     console.log('Registration URL:', url); // Add this line
     return this.http.post(url, user);
   }
- 
+  
 }
