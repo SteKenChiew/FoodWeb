@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adminmainpage.component.css">
+    <title>Document</title>
+</head>
+<header>
+    <img src="assets/img/logo1.svg" alt="">
+    <div class="nav-merge">
+        <a  routerLink="/orderpreparingpage" routerLinkActive="active">Orders</a>
+        <a>Menu</a>
+        <a>[Admin Name]</a>
+    </div>
+</header>
+<body>
+        <div class="order-stats">
+            <h1>X pending merchant | X active merchant</h1>
+        </div>
+        <div class="admin-menu">
+            <button routerLink="/adminreslist" routerLinkActive="active">
+                <img src="assets/img/order.png" alt="">
+                <h1>Search Merchant</h1>
+            </button>
+            <button routerLink="/adminreslist" routerLinkActive="active">
+                <img src="assets\img\orderdetail\orderdetailui.png" alt="" style="width:70%;">
+                <h1>Merchants</h1>
+            </button>
+        </div>
+</body>
+</html>

@@ -37,7 +37,8 @@ import { AdminresListComponent } from './adminres-list/adminres-list.component';
 import { AdmincusListComponent } from './admincus-list/admincus-list.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
 import { MerchantregisterComponent } from './merchantregister/merchantregister.component';
-
+import {MerchantadditemComponent} from './merchantadditem/merchantadditem.component';
+import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,8 @@ import { MerchantregisterComponent } from './merchantregister/merchantregister.c
     AdmincusListComponent,
     TrackorderComponent,
     MerchantregisterComponent,
+    MerchantadditemComponent,
+    AdminmainpageComponent,
   ],
   imports: [
     BrowserModule,

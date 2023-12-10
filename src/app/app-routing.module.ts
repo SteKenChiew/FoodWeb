@@ -22,7 +22,8 @@ import { AdminresListComponent } from './adminres-list/adminres-list.component';
 import { AdmincusListComponent } from './admincus-list/admincus-list.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
 import { MerchantregisterComponent } from './merchantregister/merchantregister.component';
-
+import {MerchantadditemComponent} from './merchantadditem/merchantadditem.component';
+import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 
 const routes: Routes = [
   
@@ -48,6 +49,8 @@ const routes: Routes = [
   { path: 'admincuslist', component: AdmincusListComponent},
   {path: 'trackorder', component: TrackorderComponent},
   {path: 'merchantregister', component: MerchantregisterComponent},
+  {path: 'merchantadditem', component: MerchantadditemComponent},
+  {path: 'adminmainpage', component:AdminmainpageComponent},
 ];
 
 @NgModule({
