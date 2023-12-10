@@ -2,7 +2,7 @@ body{
     margin-top: 100px;
 }
 .merchant-register-background{
-    height: 600px;
+    height: 670px;
     background-image: url(src\assets\img\merchant\merchantregisterbackground.png);
     background-size:cover;
     background-repeat: no-repeat;
@@ -34,42 +34,7 @@ body{
 
 }
 
-.description{
-    font-family: Poppins;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 15px;
-    letter-spacing: 0em;
-    text-align: justify;
-    color: #333333;
-    margin-top: 10px;
 
-}
-
-.yes_no{
-    margin-top: 50px;
-    font-family: Poppins;
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #333333;
-}
-
-input[type="radio"] {
-    /* Change the color of the radio button */
-    accent-color: #FF4500;
-    width: 20px;
-    height: 20px; 
-    margin-right: 5px;
-}
-
-input[type="radio"]:checked {
-    /* Change the color when the radio button is checked */
-    background-color: #FF4500;
-
-}
 
 
 .next-btn{
@@ -137,3 +102,42 @@ input[type="radio"]:checked {
     font-family: Poppins;
 }
 
+.merchant-register-form{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+}
+
+.merchant-register-form input{
+    height: 50px;
+    padding-left: 10px;
+    font-size: 15px;
+    border: #333333 1px solid;
+    border-radius: 10px;
+}
+
+.merchant-register-form h3{
+    margin-bottom: 5px;
+    color: var(--Gray-1, #333);
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.4px;
+}
+
+.merchant-register-form-submit{
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--Gray-1, #333);
+    background-color: #FF4500;
+}
