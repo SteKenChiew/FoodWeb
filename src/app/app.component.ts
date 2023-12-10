@@ -3,7 +3,7 @@ import { Router, NavigationStart } from '@angular/router';
 import { CartNotificationService } from './cart-notification.service';
 import { AuthService } from './services/auth.service';
 
-const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart','/order-summary','/merchantmain','/orderpreparingpage','/readyorderpage','/orderhistorypage','/merchanteditmenu','/admin','/adminreslist','/orderdetails','/trackorder','/admincuslist'];
+const noHeaderURLs = ['/login', '/signup','/forgotpass','/verification','/cart','/order-summary','/merchantmain','/orderpreparingpage','/readyorderpage','/orderhistorypage','/merchanteditmenu','/admin','/adminreslist','/orderdetails','/trackorder','/admincuslist','/merchantadditem'];
 
 @Component({
   selector: 'app-root',
