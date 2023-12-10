@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+export interface Restaurantfood {
+  itemName: string ;
+  itemDescription: string ;
+  itemPrice: number ;
+  itemImg: String ;
+  itemCategory: String ;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +24,11 @@ export class MerchantService {
     const url = 'http://localhost:8080/merchant/create'; // Add this line
     console.log('Registration URL:', url); // Add this line
     return this.http.post(url, user);
+  }
+
+  getMerchantFoodItems(merchantEmail: string): Observable<Restaurantfood[]> {
+    const url = `${this.apiUrl}/get-food-items?merchantEmail=${merchantEmail}`;
+    return this.http.get<Restaurantfood[]>(url);
   }
   
 }

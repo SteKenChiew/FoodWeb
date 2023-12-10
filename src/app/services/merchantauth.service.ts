@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MerchantauthService {
   private merchantName: any;
+  private merchantEmail: any;
   private apiUrl = 'http://localhost:8080/merchant'; // Replace with your authentication API URL
   private authenticated: boolean = false; 
   constructor(private http: HttpClient) {}
@@ -23,7 +24,13 @@ export class MerchantauthService {
     // Assuming the merchant name is a property in the response
     this.merchantName = response.merchantName;
   }
-  
+  setMerchantEmail(response: any): void {
+    // Assuming the merchant name is a property in the response
+    this.merchantEmail = response.merchantEmail;
+  }
+  getmerchantEmail(): any {
+    return this.merchantEmail;
+  }
 
   getmerchantName(): any {
     return this.merchantName;

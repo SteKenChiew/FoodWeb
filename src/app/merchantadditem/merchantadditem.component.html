@@ -6,16 +6,7 @@
     <link rel="stylesheet" href="merchantadditem.component.css">
     <title>Document</title>
 </head>
-<header>
-<div class="nav-merge">
-    <img src="assets/img/logo1.svg" alt="">
-    <div class="nav-merge-a">
-        <a  routerLink="/orderpreparingpage" routerLinkActive="active">Orders</a>
-        <a>Menu</a>
-        <a>[Merchant Name]</a>
-    </div>
-</div>
-</header>
+<app-merchant-header></app-merchant-header>
 <body>
     <div class="add-product-container">
         <div class="add-product-word">
@@ -24,20 +15,21 @@
         <div class="product-details-container">
             <div class="product-picture">
                 <img src="assets\img\burger.png" alt="">
-                <button class="add-product-picture-btn">Add picture</button>
+                <input type="file" id="img" name="img" accept="image/*" style="border: none;" [(ngModel)]="itemImg">
             </div>
-            <form class="product-details">
-
+            <form class="product-details" >
                 Name<br>
-                <input type="text"><br>
+                <input type="text" [(ngModel)]="itemName" name="itemName" required><br>
                 Description<br>
-                <input type="text"><br>
+                <input type="text" [(ngModel)]="itemDescription" name="itemDescription" required><br>
                 Price<br>
-                <input type="text"><br>
+                <input type="number" [(ngModel)]="itemPrice" name="itemPrice" required><br>
+                Category<br>
+                <input type="text" [(ngModel)]="itemCategory" name="itemPrice" required><br>
                 <div class="send-btn">
-                    <button>Send</button>
+                  <button  (click)="addItem()">Send</button>
                 </div>
-            </form>     
+              </form>  
         </div>
     </div>
     
