@@ -24,6 +24,7 @@ import { TrackorderComponent } from './trackorder/trackorder.component';
 import { MerchantregisterComponent } from './merchantregister/merchantregister.component';
 import {MerchantadditemComponent} from './merchantadditem/merchantadditem.component';
 import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
+import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 
 const routes: Routes = [
   
@@ -51,6 +52,7 @@ const routes: Routes = [
   {path: 'merchantregister', component: MerchantregisterComponent},
   {path: 'merchantadditem', component: MerchantadditemComponent},
   {path: 'adminmainpage', component:AdminmainpageComponent},
+  {path: 'merchantlogin', component:MerchantloginComponent},
 ];
 
 @NgModule({

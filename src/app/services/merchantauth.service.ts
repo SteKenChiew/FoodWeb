@@ -1,22 +1,22 @@
-// auth.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class AuthService {
+export class MerchantauthService {
   private user: any;
-  private apiUrl = 'http://localhost:8080/user'; // Replace with your authentication API URL
+  private apiUrl = 'http://localhost:8080/merchant'; // Replace with your authentication API URL
 
   constructor(private http: HttpClient) {}
 
   login(email: string, hashedpassword: string): Observable<any> {
+    console.log('Request payload:', { email, hashedpassword });
     const requestBody = { email, hashedpassword };
-    return this.http.post('http://localhost:8080/user/login', requestBody);
+    return this.http.post('http://localhost:8080/merchant/login', requestBody);
   }
+  
   
   
   setUser(user: any): void {

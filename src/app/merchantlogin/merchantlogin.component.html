@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<header></header>
+<body>
+   <div class="login-container">
+    <div class="login-form">
+        <div class="login-header">
+            <h1>Merchant Login</h1>
+            <p>Welcome back to Sunway Nom². Please enter your details .</p>
+        </div>
+        <div class="login-form-cotainer">
+            <input type="email" name="" id="" placeholder="Email"  [(ngModel)]="email" class="login-form-cotainer-email">
+            <input type="password" name="" id="" placeholder="Password" [(ngModel)]="hashedpassword">
+        </div>
+        <div class="forgot-pass">
+            <a  routerLink="/forgotpass" routerLinkActive="active">Forgot Password ?</a>
+        </div>
+        <div class="submit-btn">
+            <button (click)="login()">Login</button>
+        </div>
+      
+        
+            <img src="assets/img/loginavatar.png" alt="">
+        
+    </div>
+    <div class="login-bg">
+        <img src="assets/img/loginbg.png" alt="">
+    </div>
+   </div>
+    
+</body>
+</html>

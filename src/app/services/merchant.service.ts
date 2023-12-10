@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MerchantService {
+  
   private apiUrl = 'http://localhost:8080/merchant'; // Replace with your NestJS API URL
 
   constructor(private http: HttpClient) {}

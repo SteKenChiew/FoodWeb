@@ -39,6 +39,7 @@ import { TrackorderComponent } from './trackorder/trackorder.component';
 import { MerchantregisterComponent } from './merchantregister/merchantregister.component';
 import {MerchantadditemComponent} from './merchantadditem/merchantadditem.component';
 import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
+import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
     MerchantregisterComponent,
     MerchantadditemComponent,
     AdminmainpageComponent,
+    MerchantloginComponent,
   ],
   imports: [
     BrowserModule,
