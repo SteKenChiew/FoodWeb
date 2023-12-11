@@ -61,40 +61,44 @@
             </div>
           </div>
         </div>
+        <!-- Show this div when foodcategories is empty -->
+        <div *ngIf="foodcategories.length === 0" class="Empty-fooditem">
+          <p>No food items available pls add food item by letting customer buy your food</p>
+          <a href="" routerLink="/merchantadditem" routerLinkActive="active" style=" text-decoration: none; color: #FF4500;">Add Item Now!</a>
+        </div>
       </div>
       
-        <div *ngIf="searchQuery">
-            <div class="food-list-container">
-              <ng-container *ngIf="foodcategories | filterBySearch: searchQuery as filteredItems">
-                <div class="food-list-container-merging">
-                  <div class="food-card" *ngFor="let food of filteredItems" (click)="openDialog(food)">
-                    <div class="foodimg">
-                      <img [src]="food.img" alt="">
-                    </div>
-                    <div class="food-card-title">
-                        <div class="food-card-desc"  (click)="openDialog(food)">
-                            <h2>{{food.name}}</h2>
-                            <h3>from</h3>
-                            <p>MYR {{food.price.toFixed(2)}}</p>
-                        </div>
-
-                        <div class="food-card-toggle-btn">
-                            <label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                            </label>
-                            
-                        </div>
-                    </div>
+      <div *ngIf="searchQuery">
+        <div class="food-list-container" style="min-height: 500px;">
+          <ng-container *ngIf="foodcategories | filterBySearch: searchQuery as filteredItems">
+            <div class="food-list-container-merging">
+              <div class="food-card" *ngFor="let food of filteredItems" >
+                <div class="foodimg" (click)="openDialog(food)">
+                  <img [src]="food.itemImg" alt="">
+                </div>
+                <div class="food-card-title">
+                  <div class="food-card-desc" (click)="openDialog(food)">
+                    <h2>{{food.itemName}}</h2>
+                    <h3>from</h3>
+                    <p>MYR {{food.itemPrice.toFixed(2)}}</p>
+                  </div>
+                  <div class="food-card-toggle-btn">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
                   </div>
                 </div>
-                <div class="no-results-message" *ngIf="filteredItems.length === 0">
-                    <img src="assets/img/searchnotfound.png" alt="">
-                  <p>Search not found!</p>
-                </div>
-              </ng-container>
+              </div>
             </div>
-          </div>
+            <div class="no-results-message" *ngIf="filteredItems.length === 0">
+              <img src="assets/img/searchnotfound.png" alt="">
+              <p>Search not found!</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      
           
           
           

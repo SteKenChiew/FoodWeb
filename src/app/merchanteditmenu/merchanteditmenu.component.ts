@@ -43,6 +43,7 @@ export class MerchanteditmenuComponent {
     ) { }
 
     ngOnInit() {
+      console.log('Initial searchQuery:', this.searchQuery);
       const merchantEmail = this.merchantAuthService.getmerchantEmail();
     
       if (merchantEmail) {
@@ -51,6 +52,7 @@ export class MerchanteditmenuComponent {
     }
     
     fetchMerchantFoodItems(merchantEmail: string) {
+      console.log('Fetching food items for searchQuery:', this.searchQuery);
       this.merchantService.getMerchantFoodItems(merchantEmail).subscribe(
         (foodItems: Restaurantfood[]) => {
           // Populate foodfilter array with unique categories
@@ -73,7 +75,7 @@ export class MerchanteditmenuComponent {
       const dialogRef = this.dialog.open(MerchanteditmenudialogComponent, {
         width: '640px', // Adjust the width as needed
         height: '700px',
-        data: { food }, // Pass the food data to the dialog
+        data: {food: food }, // Pass the food data to the dialog
         panelClass: 'custom-dialog' 
       });
     

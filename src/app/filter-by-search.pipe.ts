@@ -12,13 +12,17 @@ export class FilterBySearchPipe implements PipeTransform {
     // Convert searchText to lowercase for a case-insensitive search
     searchText = searchText.toLowerCase();
 
-  
     const filteredItems = items.filter((item) => {
-      // Modify this condition based on your specific search requirements
-      return item.name.toLowerCase().includes(searchText);
-    });
+      // Log the item to identify which one is causing the issue
+      console.log('Current Item:', item);
 
-    
+      // Make sure the item is defined and has the 'itemName' property
+      if (item && item.itemName) {
+        return item.itemName.toLowerCase().includes(searchText);
+      } else {
+        return false; // Or handle this case based on your requirements
+      }
+    });
 
     return filteredItems;
   }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Restaurantfood {
+  itemID: number;
   itemName: string ;
   itemDescription: string ;
   itemPrice: number ;
@@ -28,7 +29,15 @@ export class MerchantService {
 
   getMerchantFoodItems(merchantEmail: string): Observable<Restaurantfood[]> {
     const url = `${this.apiUrl}/get-food-items?merchantEmail=${merchantEmail}`;
+    console.log('Fetch Food Items URL:', url);
     return this.http.get<Restaurantfood[]>(url);
   }
+  
+  updateFoodItem(food: Restaurantfood, merchantEmail: string, itemID: number): Observable<any> {
+    const url = `${this.apiUrl}/update-food-item`;
+    const params = { merchantEmail, itemID };
+    return this.http.put(url, food, { params });
+  }
+  
   
 }

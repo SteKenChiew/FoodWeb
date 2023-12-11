@@ -1,22 +1,17 @@
-
 <div class="dialog-form">
     <div class="dialog-img">
-        <img [src]="data.food.img" alt="{{ data.food.name }}">
+      <img [src]="editedFood.itemImg">
     </div>
-   <div class="dialog-food-desc-merge">
-    <h3>Name:</h3>
-    <input type="text" name="" id="" value="{{ data.food.name }}">
-    <h3>Desc:</h3>
-    <input type="text" name="" id="" value="{{ data.food.desc }}">
-    <h3>MYR:</h3>
-    <input type="text" name="" id="" value="MYR {{ data.food.price.toFixed(2) }}">
-   
-   </div>
-   
-   
-   
+    <div class="dialog-food-desc-merge">
+      <h3>Name:</h3>
+      <input type="text" name="itemName" id="itemName" [(ngModel)]="editedFood.itemName" required>
+      <h3>Desc:</h3>
+      <input type="text" name="itemDescription" id="itemDescription" [(ngModel)]="editedFood.itemDescription" required>
+      <h3>MYR:</h3>
+      <input type="number" name="itemPrice" id="itemPrice" [(ngModel)]="editedFood.itemPrice" required>
+    </div>
+  </div>
+  <div class="dialog-placeorder">
+    <button class="placeholder-editmenu" (click)="editFood()">Edit</button>
+  </div>
   
-</div>
-<div class="dialog-placeorder" >
-    <button class="placeholder-addtocart" (click)="addToCart(data.food,quantity)">Edit</button>
-</div>
