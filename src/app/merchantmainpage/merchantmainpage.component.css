@@ -1,0 +1,125 @@
+
+.merchantimage{
+    width: 100%;
+}
+
+
+
+.registerbuttonstyle{
+    background-color: #FF4500; 
+    color:#FFFDF4;
+    margin-left: 25px;
+    width: 170px;
+    height: 50px;
+    font-size: 100%;
+}
+
+
+.button-overlay button {
+    position: absolute;
+    top: 90%;
+    right: 80%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    
+}
+
+.text-overylay{
+    font-family: Poppins;
+    position: absolute;
+    top: 100%;
+    right: 68%;
+    transform: translate(-50%, -50%);
+    color:white
+}
+
+.txt_centre{
+    text-align: center;
+    color: #333333;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.img{
+    height: 200px;
+    width: 214.6px;
+}
+
+.img1{
+    height: 200px;
+    width: 260px;
+}
+
+.img0{
+    height: 198px;
+    width: 200px;
+}
+
+.adjustcontent{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.adj{
+    justify-content: center;
+    padding-left: 40px;
+}
+
+.a{
+    padding-left: 25px;
+}
+
+.platform{
+    color:#FF4500;
+    padding-left: 50px;
+    padding-top: 80px;
+}
+
+.platform1{
+    color: #333333;
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+.step {
+    border-left: 3px solid #FF4500;
+    opacity: 40%;
+    margin: 20px;
+    padding: 10px;
+  }
+  
+  .step-number {
+    font-size: 180px;
+    color: #FF4500;
+    opacity: 40%;
+    font-weight: bold;
+  }
+  
+  .step-details h2 {
+    margin-left: 65px;
+    margin-top: -65px;
+    color: #333;
+  }
+  
+  .step-details p {
+    margin-top: -5px;
+    margin-left: 60px;
+    color: #666;
+  }
+
+  .aj{
+    padding-left: 100px;
+  }
+
+  .adjj{
+    padding-left: 100px;
+  }
+
+  .aj1{
+    padding-left: 130px;
+  }

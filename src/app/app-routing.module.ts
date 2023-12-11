@@ -25,6 +25,7 @@ import { MerchantregisterComponent } from './merchantregister/merchantregister.c
 import {MerchantadditemComponent} from './merchantadditem/merchantadditem.component';
 import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
+import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.component';
 
 const routes: Routes = [
   
@@ -53,6 +54,7 @@ const routes: Routes = [
   {path: 'merchantadditem', component: MerchantadditemComponent},
   {path: 'adminmainpage', component:AdminmainpageComponent},
   {path: 'merchantlogin', component:MerchantloginComponent},
+  {path: 'merchantmainpage', component:MerchantmainpageComponent},
 ];
 
 @NgModule({
