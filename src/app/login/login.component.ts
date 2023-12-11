@@ -13,10 +13,16 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
   login() {
-    // Send the email and password directly to the backend
+    
+  
     this.authService.login(this.email, this.hashedpassword).subscribe(
       (response) => {
         console.log('Login successful:', response);
+
+        // Clear the form values
+        this.email = '';
+        this.hashedpassword = '';
+
         this.authService.setUser(response);
         this.router.navigate(['']);
       },

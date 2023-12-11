@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 interface Categories {
   type: string;
   logo: string;
@@ -29,7 +29,7 @@ interface Restaurant {
   templateUrl: './restaurant-list.component.html',
   styleUrls: ['./restaurant-list.component.css']
 })
-export class RestaurantListComponent {
+export class RestaurantListComponent implements OnInit{
   
   items: Categories[] = [
     { type: 'Western', logo: 'assets/img/burger.png' ,img: "assets/img/favcategories/western.png"},
@@ -115,10 +115,45 @@ export class RestaurantListComponent {
     
     
   ]
+  constructor(private router: Router, private httpClient: HttpClient) {}
 
-  @ViewChild('categoriesCard') categoriesCard!: ElementRef;
+@ViewChild('categoriesCard') categoriesCard!: ElementRef;
 @ViewChild('nextButton') nextButton!: ElementRef;
 @ViewChild('prevButton') prevButton!: ElementRef;
+@ViewChild('favcategoriesCard') favcategoriesCard!: ElementRef;
+
+  
+isContentExpanded = false;
+ngOnInit() {
+  // Fetch restaurants from the backend
+  this.httpClient.get<any[]>('http://localhost:8080/restaurants')
+  .subscribe(data => {
+    console.log(data);
+
+    // Check if the data is an array and not empty
+    if (Array.isArray(data) && data.length > 0) {
+      // Assuming each element in the array represents a different merchant
+      this.shop = data.map((merchant, index) => ({
+        id: index + 1,
+        uuid: merchant.uuid, // You may want to adjust this based on your actual data
+        img: merchant.merchantImage,
+        name: merchant.merchantName,
+        religion: merchant.merchantType,
+        estimatedtime: '30', // You may need to update this based on your data
+        rating: 4.0, // You may need to update this based on your data
+      }));
+
+      this.isContentExpanded = this.shop.length > 5;
+    }
+  });
+}
+
+  
+toggleContent() {
+  this.isContentExpanded = !this.isContentExpanded;
+}
+
+
 
 ngAfterViewInit() {
   const cardElement = this.categoriesCard.nativeElement;
@@ -152,9 +187,7 @@ checkButtonVisibility(container: HTMLElement) {
   this.prevButton.nativeElement.style.display = isAtStart ? 'none' : 'block';
 }
 
-  @ViewChild('favcategoriesCard') favcategoriesCard!: ElementRef;
-
-  
+ 
   favnextCard() {
     const container = this.favcategoriesCard.nativeElement;
     const cardWidth = 1000; // Adjust this value based on your card width
@@ -174,17 +207,12 @@ checkButtonVisibility(container: HTMLElement) {
   }
 
 
-  isContentExpanded = false;
-  toggleContent() {
-    this.isContentExpanded = !this.isContentExpanded;
-  }
 
 
-  constructor(private router: Router) {}
-
+ 
     openRestaurantDetail(shop: any) {
         // Navigate to the restaurant detail page, passing the shop ID as a route parameter
-        this.router.navigate(['/restaurant-detail', shop.id,shop.name]);
+        this.router.navigate(['/restaurant-detail', shop.uuid,shop.name]);
     }
 
 }

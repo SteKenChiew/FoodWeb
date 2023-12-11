@@ -113,9 +113,12 @@
         
         
        
-        <div class="readmore-btn">
+        <div class="readmore-btn" *ngIf="shop.length > 4">
             <button (click)="toggleContent()">
                 {{ isContentExpanded ? 'View Less' : 'View More' }}</button>
+        </div>
+        <div class="readmore-btn" *ngIf="shop.length < 5">
+            
         </div>
     </div>
 

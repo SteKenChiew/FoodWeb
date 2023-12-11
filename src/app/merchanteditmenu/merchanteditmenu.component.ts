@@ -52,7 +52,7 @@ export class MerchanteditmenuComponent {
     }
     
     fetchMerchantFoodItems(merchantEmail: string) {
-      console.log('Fetching food items for searchQuery:', this.searchQuery);
+        console.log('Fetching food items for searchQuery:', this.searchQuery);
       this.merchantService.getMerchantFoodItems(merchantEmail).subscribe(
         (foodItems: Restaurantfood[]) => {
           // Populate foodfilter array with unique categories

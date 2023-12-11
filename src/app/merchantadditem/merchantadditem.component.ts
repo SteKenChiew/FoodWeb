@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {MerchantauthService} from '../services/merchantauth.service';
 
 @Component({
   selector: 'app-merchantadditem',
@@ -13,7 +14,7 @@ export class MerchantadditemComponent {
   itemImg: String = '';
   itemCategory: String ='';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: MerchantauthService) {}
 
   addItem() {
     const foodItem = {
@@ -25,7 +26,7 @@ export class MerchantadditemComponent {
       // Add other properties as needed
     };
 
-    const merchantEmail = 'your-merchant-email'; // Replace with the actual email
+    const merchantEmail = this.authService.getmerchantEmail(); // Replace with the actual email
 
     this.http.post('http://localhost:8080/merchant/add-item', foodItem, {
       params: { merchantEmail },
