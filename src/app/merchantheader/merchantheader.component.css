@@ -1,6 +1,6 @@
 header{
     width: 100%;
-    height: 100px;
+    height: 85px;
     display: flex;
     position: sticky;
     top: 0;
@@ -9,7 +9,7 @@ header{
 }
 
 header img{
-    width: 10%;
+    width: 68%;
     padding-left: 50px;
 }
 
