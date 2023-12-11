@@ -42,6 +42,7 @@ import {MerchantadditemComponent} from './merchantadditem/merchantadditem.compon
 import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 import { MerchantHeaderComponent } from './merchantheader/merchantheader.component';
+import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { MerchantHeaderComponent } from './merchantheader/merchantheader.compone
     MerchantloginComponent,
     MerchantmainComponent,
     MerchantHeaderComponent,
+    MerchantmainpageComponent,
   ],
   imports: [
     BrowserModule,
