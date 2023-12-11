@@ -1,4 +1,4 @@
-import {  Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { CartNotificationService } from './cart-notification.service';
 import { AuthService } from './services/auth.service';
