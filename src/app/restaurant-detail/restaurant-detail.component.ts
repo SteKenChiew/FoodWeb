@@ -6,14 +6,14 @@ import { FoodDialogComponent } from '../food-dialog/food-dialog.component';
 import { HttpClient } from '@angular/common/http';
 
 export interface Restaurantfood {
+  itemID: number;
   itemImg: string;
   type: string;
-  itemCategory: String ;
+  itemCategory: string;
   itemName: string;
   itemPrice: number;
   itemDescription: string;
   itemTotalSale: number;
-  
 }
 
 interface FoodCategories{
@@ -80,7 +80,7 @@ fetchRestaurantData() {
   this.http.get<any>(`http://localhost:8080/restaurants/${this.uuid}`)
     .subscribe((data: any) => {
       console.log(data);
-      this.merchantName = data.merchantName
+      this.merchantName = data.merchantName;
 
       if (Array.isArray(data.foodItems)) {
         // If data.foodItems is an array, merge it into foodcategories
@@ -160,6 +160,7 @@ checkButtonVisibility(container: HTMLElement) {
       .map(food => {
         // Map each Restaurantfood to itself
         return {
+          itemID: food.itemID,
           itemImg: food.itemImg,
           type: food.type,
           itemCategory: food.itemCategory,

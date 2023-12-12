@@ -31,7 +31,7 @@ export class FoodDialogComponent {
     this.cartService.addToCart(this.uuid, this.food, this.quantity).subscribe(
       () => {
         // Handle success if needed
-        this.cartNotificationService.updateCartCount(this.cartService.getCartItems().length);
+        
       },
       (error) => {
         console.error('Error adding to cart:', error);
