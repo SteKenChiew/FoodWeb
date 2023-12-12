@@ -13,7 +13,7 @@
 
         
             <div class="restaurant-bgimg-tittle">
-                <h1>Dummy Restaurant</h1>
+                <h1>{{merchantName}}</h1>
             </div>
         </div>
        
@@ -69,12 +69,12 @@
                     <div  class="restaurant-toppicks-container-card">
                         
                         <div *ngFor="let type of getTop5FoodCategories()" (click)="openDialog(type)" class="restaurant-toppicks-container-innercard" style="
-                        background: linear-gradient(359deg, rgba(0, 0, 0, 0.70) 0.74%, rgba(0, 0, 0, 0.21) 42.39%, rgba(0, 0, 0, 0.00) 99.45%), url({{type.img}}), lightgray 50% / cover no-repeat;" >
+                        background: linear-gradient(359deg, rgba(0, 0, 0, 0.70) 0.74%, rgba(0, 0, 0, 0.21) 42.39%, rgba(0, 0, 0, 0.00) 99.45%), url({{type.itemImg}}), lightgray 50% / cover no-repeat;" >
                             <div class="restaurant-toppicks-container-innercard-desc">
-                                <h1 class="food-title">{{type.name}}</h1>
+                                <h1 class="food-title">{{type.itemName}}</h1>
                                 <div class="restaurant-toppicks-container-innercard-pricing">
                                   <h1>MYR</h1>
-                                  <h2>{{ type.price }}</h2>
+                                  <h2>{{ type.itemPrice }}</h2>
                                 </div>
                                 <button>Order Now <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white"/>
@@ -94,23 +94,27 @@
             </div>  
             
             <div class="restaurant-list-container" *ngFor="let category of foodfilter">
-                <h1 id="{{category.name}}">{{category.name}}</h1>
-                <div class="food-list-container">
-                  <div class="food-list-container-merging" >
-                    <div class="food-card" *ngFor="let food of foodcategories | filterAdditional: category.name"  (click)="openDialog(food)"
-                    >
-                      <div class="foodimg">
-                        <img [src]="food.img" alt="">
+              <h1 id="{{category.name}}">{{category.name}}</h1>
+              <div class="food-list-container">
+                <div class="food-list-container-merging">
+                    <div *ngFor="let food of foodcategories">
+                        <!-- Check if the current food item belongs to the current category -->
+                        <div class="food-card" *ngIf="food.itemCategory === category.name"(click)="openDialog(food)">
+                          <div class="foodimg" >
+                            <img [src]="food.itemImg" alt="">
+                          </div>
+                          <div class="food-card-title">
+                            <div class="food-card-desc" >
+                              <h2>{{food.itemName}}</h2>
+                              <h3>from</h3>
+                              <p>MYR {{food.itemPrice.toFixed(2)}}</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="food-card-title">
-                        <h2>{{food.name}}</h2>
-                        <h3>from</h3>
-                        <p>MYR {{food.price.toFixed(2)}}</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
+            </div>
               
               
         </div>
@@ -120,14 +124,14 @@
                 <div class="food-list-container-merging">
                   <div class="food-card" *ngFor="let food of filteredItems" (click)="openDialog(food)">
                     <div class="foodimg">
-                      <img [src]="food.img" alt="">
+                        <img [src]="food.itemImg" alt="">
                     </div>
                     <div class="food-card-title">
-                      <h2>{{food.name}}</h2>
-                      <h3>from</h3>
-                      <p>MYR {{food.price.toFixed(2)}}</p>
+                        <h2>{{food.itemName}}</h2>
+                        <h3>from</h3>
+                        <p>MYR {{food.itemPrice.toFixed(2)}}</p>
                     </div>
-                  </div>
+                </div>
                 </div>
                 <div class="no-results-message" *ngIf="filteredItems.length === 0">
                     <img src="assets/img/searchnotfound.png" alt="">

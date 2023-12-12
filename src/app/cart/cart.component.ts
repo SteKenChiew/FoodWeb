@@ -1,5 +1,5 @@
 import { Component , Renderer2,ElementRef, ViewChild } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -43,7 +43,7 @@ export class CartComponent {
   }
 
   calculateCartTotal() {
-    this.cartTotal = this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    this.cartTotal = this.cartItems.reduce((total, item) => total + item.itemPrice * item.quantity, 0);
   }
 
  

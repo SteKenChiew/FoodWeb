@@ -22,12 +22,12 @@
                     <img src="{{item.img}}" alt="" class="cartitem-img" >
                    
                     <div class="cartitem-desc">
-                        <h1>{{item.name}}</h1>
+                        <h1>{{item.itemName}}</h1>
                         <p></p>
                         <p></p>
                     </div>
                     <div class="cartitem-price">
-                        <p class="price-tag">MYR {{ item.price }}</p>
+                        <p class="price-tag">MYR {{ item.itemPrice }}</p>
                         <div class="cartitem-qty-merge">
                             <div class="cartitem-qty">
                                 <button (click)="updateQuantity(i, -1)">-</button>

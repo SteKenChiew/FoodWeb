@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Restaurantfood } from './restaurant-detail/restaurant-detail.component'; // Adjust the path as needed
+import { Restaurantfood } from '../restaurant-detail/restaurant-detail.component'; // Adjust the path as needed
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class CartService {
 
   addToCart(item: Restaurantfood, quantity: number) {
     // Check if the item is already in the cart
-    const existingItem = this.cartItems.find((cartItem) => cartItem.name === item.name);
+    const existingItem = this.cartItems.find((cartItem) => cartItem.name === item.itemName);
   
     if (existingItem) {
       // If it exists, update the quantity

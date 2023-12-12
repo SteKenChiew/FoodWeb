@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MerchantService, Restaurantfood } from '../services/merchant.service';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { MerchantauthService } from '../services/merchantauth.service';
 
 @Component({

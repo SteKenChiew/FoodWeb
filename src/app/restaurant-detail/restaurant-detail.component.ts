@@ -3,16 +3,16 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FoodDialogComponent } from '../food-dialog/food-dialog.component';
-
+import { HttpClient } from '@angular/common/http';
 
 export interface Restaurantfood {
-  img: string;
+  itemImg: string;
   type: string;
-  category: string;
-  name: string;
-  price: number;
-  desc: string;
-  qty_sold: number;
+  itemCategory: String ;
+  itemName: string;
+  itemPrice: number;
+  itemDescription: string;
+  itemTotalSale: number;
   
 }
 
@@ -34,133 +34,76 @@ interface Restaurant {
   templateUrl: './restaurant-detail.component.html',
   styleUrls: ['./restaurant-detail.component.css']
 })
-export class RestaurantDetailComponent {
+export class RestaurantDetailComponent implements OnInit{
   searchQuery: string = '';
+  uuid: string = '';
+  foodfilter: FoodCategories[] = []
+  foodcategories: Restaurantfood[] = [];
+  merchantName: string='';
 
-  foodfilter: FoodCategories[] = [
-    {name: "Autumn"},
-    {name: "dog"},
-    {name: "All time fav"},
-    {name: "LengZai"}
-    
-  ]
+  constructor(private route: ActivatedRoute, 
+    private dialog: MatDialog,
+    private http: HttpClient
+    ) {this.route.params.subscribe(params => {
+      this.uuid = params['id'];
+      const shop = history.state.shop; // Retrieve the shop object from the navigation state
+  
+      if (shop) {
+        // Merge foodItems into foodcategories
+        this.foodcategories = [...this.foodcategories, ...shop.foodItems];
+      } else {
+        // Handle the case where the shop object is not available
+        console.error('Shop object not found in navigation state');
+      }
+  
+      // Fetch additional data if needed
+      this.fetchRestaurantData();
+    });
+   }
 
-
-  foodcategories: Restaurantfood[] = [
-    {
-      img: '',
-      type: 'Asian Delights',
-      category: "Autumn",
-      name: 'Hainanese Chicken Rice',
-      price: 7.50,
-      desc: 'Ji Fan',
-      qty_sold: 3,
-    },
-    {
-      img: '',
-      type: 'Asian Delights',
-      category: "Autumn",
-      name: 'Pad Thai 1',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 4,
-    },
-    {
-      img: '',
-      type: 'Asian Delights',
-      category: "Autumn",
-      name: 'Pad Thai 2',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 10,
-    },
-    {
-      img: 'assets/img/lenzaidev.jpg',
-      type: 'Western',
-      category: "Autumn",
-      name: 'Burger',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 100,
-    },
-    {
-      img: 'assets/img/zus.jpg',
-      type: 'Beverages',
-      category: "dog",
-      name: 'Zus',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },{
-      img: '',
-      type: 'Asian Delights',
-      category: "Autumn",
-      name: 'Pad Thai 33',
-      price: 8.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },{
-      img: '',
-      type: 'Asian Delights',
-      category: "All time fav",
-      name: 'Kopi Beng',
-      price: 3.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },
-    {
-      img: 'assets/img/lenzaidev.jpg',
-      type: 'Asian Delights',
-      category: "LengZai",
-      name: 'Wanted',
-      price: 300000000.50,
-      desc: 'PADDDDDDDDDDDDDD THAIIIIIIIIIIIIIIIIIIII',
-      qty_sold: 3,
-    },
-   
-  ];
-
-  shop: Restaurant[] = [
-    {
-      id:1,img:"assets/img/restaurantimg/daundaun.jpg", name:'Daun Daun',religion:'Asian',estimatedtime:'30',rating:4.0
-    },
-    {
-      id:2,img: 'assets/img/restaurantimg/madeleine.png', name:'Madeleine Café',religion:'Western',estimatedtime:'30',rating:4.0
-    },
-    {
-      id:3,img:'assets/img/restaurantimg/starbucks.jpg', name:'Starbucks',religion:'Coffe',estimatedtime:'15',rating:4.0
-    },
-    {
-      id:4,img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
-    },
-    {
-      id:5,img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
-    },
-    {
-      id:6,img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
-    },
-    {
-      id:7,img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
-    },
-    {
-      id:8,img:'assets/img/restaurantimg/tomyumkitchen.png', name:'Tom Yum Kitchen',religion:'Asian',estimatedtime:'20',rating:3.8
-    },
-    
-    
-  ]
 
   @ViewChild('categoriesCard') categoriesCard!: ElementRef;
 @ViewChild('nextButton') nextButton!: ElementRef;
 @ViewChild('prevButton') prevButton!: ElementRef;
 
-ngAfterViewInit() {
-  const cardElement = this.categoriesCard.nativeElement;
-  cardElement.addEventListener('scroll', () => {
-    this.checkButtonVisibility(cardElement);
-    
-  });
-  this.prevButton.nativeElement.style.display = 'none';
+ngOnInit() {
+ 
+    const cardElement = this.categoriesCard.nativeElement; // <-- Error here
+    cardElement.addEventListener('scroll', () => {
+      this.checkButtonVisibility(cardElement);
+    });
+    this.prevButton.nativeElement.style.display = 'none';
+  
 }
+fetchRestaurantData() {
+  // Fetch additional restaurant data using this.uuid if needed
+  this.http.get<any>(`http://localhost:8080/restaurants/${this.uuid}`)
+    .subscribe((data: any) => {
+      console.log(data);
+      this.merchantName = data.merchantName
+
+      if (Array.isArray(data.foodItems)) {
+        // If data.foodItems is an array, merge it into foodcategories
+        this.foodcategories = [...this.foodcategories, ...data.foodItems];
+        console.log(this.foodcategories);
+
+        // Extract unique categories from foodcategories and populate foodfilter
+        const uniqueCategories = Array.from(new Set(this.foodcategories.map(food => food.itemCategory)));
+        this.foodfilter = uniqueCategories.map(category => ({ name: category as string }));
+        console.log('foodfilter:', this.foodfilter);
+      } else {
+        console.error('foodItems is not an array:', data.foodItems);
+        // Handle the case where data.foodItems is not an array
+      }
+
+      // You can also merge other properties if needed
+      // this.foodcategories = [...this.foodcategories, ...data.otherProperty];
+
+    }, (error) => {
+      console.error('Error fetching data:', error);
+    });
+}
+
 
 nextCard() {
   const container = this.categoriesCard.nativeElement;
@@ -207,26 +150,33 @@ checkButtonVisibility(container: HTMLElement) {
   }
 
 
-  isContentExpanded = false;
-  toggleContent() {
-    this.isContentExpanded = !this.isContentExpanded;
+
+
+  getTop5FoodCategories(): Restaurantfood[] {
+    // Sort the array in descending order based on itemTotalSale and slice the first 5.
+    return this.foodcategories
+      .sort((a, b) => b.itemTotalSale - a.itemTotalSale)
+      .slice(0, 5)
+      .map(food => {
+        // Map each Restaurantfood to itself
+        return {
+          itemImg: food.itemImg,
+          type: food.type,
+          itemCategory: food.itemCategory,
+          itemName: food.itemName,
+          itemPrice: food.itemPrice,
+          itemDescription: food.itemDescription,
+          itemTotalSale: food.itemTotalSale,
+        };
+      });
   }
+  
 
-
-  constructor(private route: ActivatedRoute, private dialog: MatDialog) { }
-
-    getTop5FoodCategories() {
-      // Sort the array in descending order based on qty_sold and slice the first 5.
-      return this.foodcategories
-        .sort((a, b) => b.qty_sold - a.qty_sold)
-        .slice(0, 5);
-    }
-
-    openDialog(food: FoodCategories): void {
+    openDialog(food: Restaurantfood): void {
       const dialogRef = this.dialog.open(FoodDialogComponent, {
         width: '640px', // Adjust the width as needed
         height: '700px',
-        data: { food }, // Pass the food data to the dialog
+        data: { food} , // Pass the food data to the dialog
         panelClass: 'custom-dialog' 
       });
     

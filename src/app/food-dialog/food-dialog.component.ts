@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { Restaurantfood } from '../restaurant-detail/restaurant-detail.component'; // Adjust the path as needed
 import { CartNotificationService } from '../cart-notification.service';
 
