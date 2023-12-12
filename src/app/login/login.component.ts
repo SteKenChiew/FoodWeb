@@ -22,7 +22,7 @@ export class LoginComponent {
         // Clear the form values
         this.email = '';
         this.hashedpassword = '';
-
+        this.authService.setUserUUID(response.uuid)
         this.authService.setUser(response);
         this.router.navigate(['']);
       },

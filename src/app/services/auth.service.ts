@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private user: any;
+  private useruuid: any;
   private apiUrl = 'http://localhost:8080/user'; // Replace with your authentication API URL
 
   constructor(private http: HttpClient) {}
@@ -18,7 +19,12 @@ export class AuthService {
     return this.http.post('http://localhost:8080/user/login', requestBody);
   }
   
-  
+  setUserUUID(useruuid: any): void {
+    this.useruuid = useruuid;
+  }
+  getUserUUID(): any {
+    return this.useruuid;
+  }
   setUser(user: any): void {
     this.user = user;
   }
