@@ -1,6 +1,6 @@
 header{
     width: 100%;
-    height: 85px;
+    height: 92px;
     display: flex;
     position: sticky;
     top: 0;
@@ -11,6 +11,7 @@ header{
 header img{
     width: 68%;
     padding-left: 50px;
+    padding-top: 10px;
 }
 
 .nav-merge{
