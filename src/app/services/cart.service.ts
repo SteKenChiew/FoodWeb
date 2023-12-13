@@ -61,5 +61,14 @@ export class CartService {
     return this.cartItems.reduce((total, item) => total + item.price, 0);
   }
 
+  updateCartItem(uuid: string, item: any): Observable<void> {
+    const body = {
+      itemID: item.foodItem.itemID,
+      quantity: item.quantity
+    };
+  
+    // Assuming you have an endpoint for updating cart items
+    return this.http.put<void>(`${this.apiUrl}/update?uuid=${uuid}`, body);
+  }
   
 }

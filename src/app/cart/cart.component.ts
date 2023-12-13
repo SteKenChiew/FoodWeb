@@ -55,6 +55,19 @@ private cartSubscription: Subscription = new Subscription();
     if (item) {
       item.quantity += change;
       console.log('Updated Item:', item);
+  
+      // Update the quantity on the server
+      this.cartService.updateCartItem(this.uuid, item).subscribe(
+        () => {
+          console.log('Item updated successfully on the server');
+        },
+        error => {
+          console.error('Error updating item on the server:', error);
+          // Revert the local change on error
+          item.quantity -= change;
+        }
+      );
+  
       if (item.quantity <= 0) {
         this.cartService.removeFromCart(index);
       }
