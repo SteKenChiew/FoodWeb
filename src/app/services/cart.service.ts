@@ -26,20 +26,21 @@ export class CartService {
 
   constructor(private http: HttpClient) {}
 
-  addToCart(uuid: string, foodItem: Restaurantfood, quantity: number): Observable<void> {
+  addToCart(uuid: string, merchantUuid: string, foodItem: Restaurantfood, quantity: number): Observable<void> {
     const body = {
       ...foodItem,
       quantity: quantity
     };
-
+  
     // Ensure that userUUID is included in the request
-    if (!uuid) {
-      console.error('userUUID is required');
-      return throwError('userUUID is required');
+    if (!uuid || !merchantUuid) {
+      console.error('userUUID and merchantUUID are required');
+      return throwError('userUUID and merchantUUID are required');
     }
-
-    return this.http.post<void>(`${this.apiUrl}/add?uuid=${uuid}`, body);
+  
+    return this.http.post<void>(`${this.apiUrl}/add?uuid=${uuid}&merchantUuid=${merchantUuid}`, body);
   }
+  
 
   removeFromCart(index: number) {
     this.cartItems.splice(index, 1);
@@ -57,7 +58,7 @@ export class CartService {
       })
     );
   }
-  tCartTotal() {
+  CartTotal() {
     return this.cartItems.reduce((total, item) => total + item.price, 0);
   }
 
@@ -70,5 +71,9 @@ export class CartService {
     // Assuming you have an endpoint for updating cart items
     return this.http.put<void>(`${this.apiUrl}/update?uuid=${uuid}`, body);
   }
-  
+  // cart.service.ts
+  placeOrder(uuid: string): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/place-order?uuid=${uuid}`, {});
+  }
+
 }

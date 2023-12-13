@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'restaurant-detail', component: RestaurantDetailComponent },
   { path: 'cart', component:  CartComponent },
   { path: 'order-summary', component:  OrderSummaryComponent },
+  { path: 'order-summary/:bookingId', component:  OrderSummaryComponent },
   { path: 'profile', component:  ProfileComponent },
   { path: 'merchantmain', component:  MerchantmainComponent },
   { path: 'orderpreparingpage', component:  OrderpreparingpageComponent },

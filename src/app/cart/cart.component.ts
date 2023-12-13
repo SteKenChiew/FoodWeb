@@ -124,5 +124,19 @@ export class CartComponent implements OnInit, OnDestroy {
       );
     }); // Adjust the delay as needed
   }
+  reviewPayment() {
+    this.cartService.placeOrder(this.uuid).subscribe(
+      (response:any) => {
+        console.log('Order placed successfully',response);
+        const bookingId = response.bookingId;
+        
+        this.router.navigate(['/order-summary', bookingId]);
+      },
+      error => {
+        console.error('Error placing order:', error);
+        // Handle the error as needed
+      }
+    );
+  }
   
 }

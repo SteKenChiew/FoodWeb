@@ -14,7 +14,7 @@ export class FoodDialogComponent {
   food: Restaurantfood; 
   quantity: number = 1;
   uuid: string;
-  
+  merchantId: string;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private cartService: CartService, 
@@ -23,12 +23,13 @@ export class FoodDialogComponent {
   ) {
     this.food = data.food;
     this.uuid = this.authService.getUserUUID(); 
+    this.merchantId = this.getMerchantIdFromUrl();
     console.log('FoodDialogComponent Data:', data);
   }
   
 
   addToCart() {
-    this.cartService.addToCart(this.uuid, this.food, this.quantity).subscribe(
+    this.cartService.addToCart(this.uuid,this.merchantId, this.food, this.quantity).subscribe(
       () => {
         // Handle success if needed
         
@@ -47,6 +48,16 @@ export class FoodDialogComponent {
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
+    }
+  }
+  private getMerchantIdFromUrl(): string {
+    const urlParts = window.location.href.split('/');
+    const merchantIdIndex = urlParts.indexOf('restaurant-detail') + 1;
+    
+    if (merchantIdIndex < urlParts.length) {
+      return urlParts[merchantIdIndex];
+    } else {
+      return '';
     }
   }
 }

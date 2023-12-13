@@ -32,46 +32,53 @@
         <div class="order-details">
             <h1>Order Details</h1>
             <div class="order-num-container">
-                <h3>Your order number:</h3>
-                <div class="order-num">
-                    <p>#fk1234</p>
-                </div>
+              <h3>Your order number:</h3>
+              <div class="order-num">
+                <p>#{{ order.orderId }}</p>
+              </div>
             </div>
-            <div  class="order-place-container">
-                <h3>Your order from:</h3>
-                <div class="order-place">
-                    <p>Dummy Restaurant</p>
-                </div>
-                
+            <div class="order-place-container">
+              <h3>Your order from:</h3>
+              <div class="order-place">
+                <p>Dummy Restaurant</p>
+              </div>
             </div>
-        </div>
-        <div class="order-items">
-            <h1>123</h1>
-            <div class="order-items-price">
-                <p>MYR </p>
+          </div>
+          
+          <div *ngFor="let item of order.orderItems" class="order-items">
+              <h1>{{ item.foodItem.itemName }}</h1>
+              <div class="order-items-price">
+                <p>MYR {{ item.foodItem.itemPrice }}</p>
+              </div>
+              <p>Quantity: {{ item.quantity }}</p>
             </div>
-        </div>
-        <div class="total-section">
+         
+          
+          <div class="total-section">
             <div class="total-price-merge">
-                <div class="subtotal">
-                    <div class="subtotal-header">
-                        <h1>Subtotal</h1>
-                    </div>
-                    <div class="subtotal-price">
-                        <p>MYR </p>
-                    </div>
+              <div class="subtotal">
+                <div class="subtotal-header">
+                  <h1>Subtotal</h1>
                 </div>
-                <div class="total">
-                   <div class="total-header">
-                        <h1>Total</h1><p>(incl. VAT)</p>
-                   </div>
-                   <div class="total-price">
-                        <p>MYR </p>
-                   </div>
-                    
+                <div class="subtotal-price">
+                  <!-- You may need to calculate the subtotal based on the items -->
+                  <p>MYR </p>
                 </div>
+              </div>
+              <div class="total">
+                <div class="total-header">
+                  <h1>Total</h1><p>(incl. VAT)</p>
+                </div>
+                <div class="total-price">
+                  <!-- You may need to calculate the total based on the items -->
+                  <p>MYR </p>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+          
+          
+          
         <div class="payment-method">
             <h1>Paid with</h1>
             <div class="payment-method-details">
