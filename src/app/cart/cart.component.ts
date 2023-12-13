@@ -1,7 +1,8 @@
-import { Component, Renderer2, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
-import { Subscription } from 'rxjs'; // Import Subscription
-import { AuthService } from '../services/auth.service'; // Import AuthService
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,45 +11,40 @@ import { AuthService } from '../services/auth.service'; // Import AuthService
 })
 export class CartComponent implements OnInit, OnDestroy {
   cartItems: any[] = [];
-
   cartTotal: number = 0;
   cutleryChecked: boolean = false;
   cutleryCost: number = 0;
   uuid: string;
-private cartSubscription: Subscription = new Subscription();
+  private cartSubscription: Subscription = new Subscription();
 
-
-  
   @ViewChild('popularCardContainer') popularCardContainer!: ElementRef;
 
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.uuid = this.authService.getUserUUID();
+  }
 
-  constructor(private cartService: CartService,private authService: AuthService ) {
-    this.uuid = this.authService.getUserUUID(); }
-    ngOnInit(): void {
-      this.cartService.getCartItems(this.uuid).subscribe(
-        (data: any) => {
-          console.log('After API call - Cart Items:', data);
-          this.cartItems = data.cartItems || [];
-          this.calculateCartTotal();
-        },
-        error => {
-          console.error('Error fetching cart items:', error);
-        }
-      );
-    }
+  ngOnInit(): void {
+    this.cartSubscription = this.cartService.cartItemsChanged.subscribe(() => {
+      this.fetchCartItems();
+    });
 
-    
-    
-    
-    
-    ngOnDestroy(): void {
-      // Unsubscribe to avoid memory leaks
-      this.cartSubscription.unsubscribe();
-    }
+    // Fetch initial cart items
+    this.fetchCartItems();
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe to avoid memory leaks
+    this.cartSubscription.unsubscribe();
+  }
 
   removeFromCart(index: number) {
     this.cartService.removeFromCart(index);
   }
+
   updateQuantity(index: number, change: number) {
     const item = this.cartItems[index];
   
@@ -60,6 +56,9 @@ private cartSubscription: Subscription = new Subscription();
       this.cartService.updateCartItem(this.uuid, item).subscribe(
         () => {
           console.log('Item updated successfully on the server');
+          
+          // Fetch updated cart items immediately after the server update
+          this.fetchCartItems();
         },
         error => {
           console.error('Error updating item on the server:', error);
@@ -76,6 +75,8 @@ private cartSubscription: Subscription = new Subscription();
     console.log('Cart Items after update:', this.cartItems);
     this.calculateCartTotal();
   }
+  
+
   calculateCartTotal() {
     if (Array.isArray(this.cartItems)) {
       this.cartTotal = this.cartItems.reduce((total, item) => {
@@ -88,25 +89,40 @@ private cartSubscription: Subscription = new Subscription();
     }
     console.log('Cart Total:', this.cartTotal);
   }
-  
+
   updateCutleryCost() {
-    this.cutleryCost = this.cutleryChecked ? 10 : 0; 
+    this.cutleryCost = this.cutleryChecked ? 10 : 0;
     this.cartTotal += this.cutleryChecked ? 10 : -10;
   }
- 
+
   nextCard() {
     const container = this.popularCardContainer.nativeElement;
     const cardWidth = 400; // Adjust this value based on your card width
     const scrollAmount = cardWidth * 2; // Scroll by two card widths
     container.scrollLeft += scrollAmount;
   }
-  
+
   previousCard() {
     const container = this.popularCardContainer.nativeElement;
     const cardWidth = 400; // Adjust this value based on your card width
     const scrollAmount = cardWidth * 2; // Scroll by two card widths
     container.scrollLeft -= scrollAmount;
   }
-  
+
+  private fetchCartItems() {
+    // Introduce a delay (e.g., 500 milliseconds) before fetching updated cart items
+    setTimeout(() => {
+      this.cartService.getCartItems(this.uuid).subscribe(
+        (data: any) => {
+          console.log('After API call - Cart Items:', data);
+          this.cartItems = data.cartItems || [];
+          this.calculateCartTotal();
+        },
+        error => {
+          console.error('Error fetching cart items:', error);
+        }
+      );
+    }); // Adjust the delay as needed
+  }
   
 }
