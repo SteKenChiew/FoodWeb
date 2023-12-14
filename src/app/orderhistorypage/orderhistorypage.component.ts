@@ -34,4 +34,22 @@ export class OrderhistorypageComponent  implements OnInit {
   );
 
 }
+
+formatOrderPlacedDateTime(orderPlacedDateTime: string): string {
+  if (!orderPlacedDateTime) {
+    return ''; // Skip null values
+  }
+
+  const dateObject = new Date(orderPlacedDateTime);
+
+  // Format the date as "12/15/2023 02:36 AM"
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true // Use 12-hour clock
+  }).format(dateObject);
+}
 }

@@ -51,7 +51,7 @@
                         <h3>MYR</h3>
                         <h2>{{ order.orderTotal }}</h2>
                       </div>
-                      <p>Date: {{ order.orderPlacedDateTime }}</p>
+                      <p *ngIf="order.orderPlacedDateTime">Date:  {{ formatOrderPlacedDateTime(order.orderPlacedDateTime) }}</p>
                     </div>
                     <div class="order-card-img">
                       <!-- Assuming you want to display an image related to the first item in the order -->

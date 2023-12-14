@@ -30,7 +30,7 @@ export class OrderService {
 
 
   getMerchantOrderHistory(merchantUuid: string): Observable<any[]> {
-    const url = `${this.apiUrl}/orders/ready?merchantUuid=${merchantUuid}`;
+    const url = `${this.apiUrl}/orders/history?merchantUuid=${merchantUuid}`;
     return this.http.get<any[]>(url);
   }
 }
