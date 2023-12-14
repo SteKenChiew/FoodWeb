@@ -40,7 +40,7 @@
             <div class="order-place-container">
               <h3>Your order from:</h3>
               <div class="order-place">
-                <p>Dummy Restaurant</p>
+                <p>{{ order.merchantName }}</p>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="subtotal-price">
                   <!-- You may need to calculate the subtotal based on the items -->
-                  <p>RM </p>
+                  <p>MYR {{ order.orderTotal }}</p>
                 </div>
               </div>
               <div class="total">
@@ -79,7 +79,7 @@
                 </div>
                 <div class="total-price">
                   <!-- You may need to calculate the total based on the items -->
-                  <p>RM </p>
+                  <p>MYR {{ order.orderTotal }}</p>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
             <h1>Paid with</h1>
             <div class="payment-method-details">
                 <p class="card-detail">Card</p>
-                <p class="payment-method-price">RM</p>
+                <p class="payment-method-price">MYR {{ order.orderTotal }}</p>
             </div>
     
         </div>
