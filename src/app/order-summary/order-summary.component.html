@@ -46,11 +46,15 @@
           </div>
           
           <div *ngFor="let item of order.orderItems" class="order-items">
-              <h1>{{ item.foodItem.itemName }}</h1>
+            <h1>
+              <span style="color: var(--Gray-1, #333);">x{{ item.quantity }}</span>
+              <span style="color: #FF4500;">  {{ item.foodItem.itemName }}</span>
+            </h1>
+          
               <div class="order-items-price">
-                <p>MYR {{ item.foodItem.itemPrice }}</p>
+                <p>RM {{ item.foodItem.itemPrice }}</p>
               </div>
-              <p>Quantity: {{ item.quantity }}</p>
+              
             </div>
          
           
@@ -62,7 +66,7 @@
                 </div>
                 <div class="subtotal-price">
                   <!-- You may need to calculate the subtotal based on the items -->
-                  <p>MYR </p>
+                  <p>RM </p>
                 </div>
               </div>
               <div class="total">
@@ -71,27 +75,21 @@
                 </div>
                 <div class="total-price">
                   <!-- You may need to calculate the total based on the items -->
-                  <p>MYR </p>
+                  <p>RM </p>
                 </div>
               </div>
             </div>
           </div>
           
-          
-          
         <div class="payment-method">
             <h1>Paid with</h1>
             <div class="payment-method-details">
                 <p class="card-detail">Card</p>
-                <p class="payment-method-price">MYR</p>
+                <p class="payment-method-price">RM</p>
             </div>
     
         </div>
-
-
-
     </div>
-
     
 </body>
 </html>
