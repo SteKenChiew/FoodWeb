@@ -34,6 +34,35 @@
     <div class="orderpreparingpage-merge">
         <h1>Pending orders</h1>
         <div class="orderpreparingstats">
+          <div *ngFor="let order of activeOrders" class="order-card-merge">
+            <div class="order-card">
+              <div class="order-card-innerdesc">
+                <h1>#{{ order.orderId }}</h1>
+                <div class="item-desc">
+                  <div *ngFor="let item of order.orderItems" class="item-qty">
+                    <p>{{ item.quantity }}x &nbsp;</p>
+                    <p>{{ item.foodItem.itemName }}</p>
+                  </div>
+                </div>
+                <div class="pricing">
+                  <h3>MYR</h3>
+                  <h2>{{ order.orderItems }}</h2>
+                </div>
+                <p>Estimated preparing time: 10-15mins</p>
+              </div>
+              <div class="order-card-img">
+                <!-- Assuming you want to display an image related to the first item in the order -->
+                <img *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
+                <button>Ready</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="orderpreparingpage-merge">
+        <h1>Pending orders</h1>
+        <div class="orderpreparingstats">
             
             <div class="order-card-merge">
                 <div class="order-card">

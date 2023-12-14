@@ -20,6 +20,7 @@ export class MerchantloginComponent {
         console.log('Response Structure:', JSON.stringify(response));
         this.authService.setMerchantName(response);
         this.authService.setMerchantEmail(response);
+        this.authService.setMerchantUUID(response);
         this.authService.setAuthenticated(true);
         console.log('Authenticated:', this.authService.isAuthenticated()); // Add this line
         this.router.navigate(['/merchantmain']);
