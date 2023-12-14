@@ -43,7 +43,7 @@ import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 import { MerchantHeaderComponent } from './merchantheader/merchantheader.component';
 import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.component';
-
+import { OrderService } from './services/order.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +96,7 @@ import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.com
   providers: [
     AuthService,
     MerchantauthService,
+    OrderService 
   ],
   bootstrap: [AppComponent]
 })
