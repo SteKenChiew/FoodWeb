@@ -23,7 +23,10 @@ export class MerchantregisterComponent {
     console.log(this.selectedFile)
   }
   registerMerchant() {
-    if (this.selectedFile) {
+    if (!this.isFormDataValid()){
+      return;
+    }
+    else if (this.selectedFile) {
       // Upload the file first
       this.fileUploadService.uploadFile(this.selectedFile).subscribe(
         (response) => {
@@ -55,4 +58,41 @@ export class MerchantregisterComponent {
       }
     );
   }
+  isFormDataValid(): boolean {
+    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,15}$/;
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (!this.merchant.merchantName.trim()) {
+      // Merchant Name is empty
+      alert('Please enter Merchant Name');
+      return false;
+    }else if (!/^[a-zA-Z]+$/.test(this.merchant.merchantName.trim())){
+      alert('Merchant Name should only contain letter') ;
+      return false;
+    }
+
+    if (!this.merchant.merchantEmail.trim()) {
+      // Merchant Email is empty
+      alert('Please enter Merchant Email');
+      return false;
+    }else if(!emailRegex.test(this.merchant.merchantEmail.trim()))
+
+    if (!this.merchant.hashedpassword.trim()) {
+      // Merchant Password is empty
+      alert('Please enter Merchant Password');
+      return false;
+    }else if (!passwordRegex.test(this.merchant.hashedpassword.trim())){
+      alert('Password should contain 3-15 characters with a combination of letters, numbers, and symbols.');
+      return false;
+    }
+
+    if (!this.merchant.merchantType) {
+      // Merchant Type is not selected
+      alert('Please select Merchant Type');
+      return false;
+    }
+
+    // All checks passed, data is valid
+    return true;
+  }
+
 }
