@@ -73,9 +73,6 @@ export class MerchantadditemComponent {
     if (!this.itemCategory.trim()) {
       alert('Please enter Item Category');
       return false;
-    }else if (!/^[a-zA-Z ]+$/.test(this.itemCategory.trim())){
-      alert('Item Category should only contain letter') ;
-      return false;
     }
     // All checks passed, data is valid
     return true;
