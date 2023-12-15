@@ -20,13 +20,13 @@
             </div>
             <form class="product-details" >
                 Name<br>
-                <input type="text" [(ngModel)]="itemName" name="itemName" required><br>
+                <input type="text" [(ngModel)]="itemName" name="itemName"  maxlength="30" ><br>
                 Description<br>
-                <input type="text" [(ngModel)]="itemDescription" name="itemDescription" required><br>
+                <input type="text" [(ngModel)]="itemDescription" name="itemDescription"  maxlength="100" ><br>
                 Price<br>
-                <input type="number" [(ngModel)]="itemPrice" name="itemPrice" required><br>
+                <input type="number" [(ngModel)]="itemPrice" name="itemPrice"><br>
                 Category<br>
-                <input type="text" [(ngModel)]="itemCategory" name="itemPrice" required><br>
+                <input type="text" [(ngModel)]="itemCategory" name="itemPrice"  maxlength="30" ><br>
                 <div class="send-btn">
                     <button  (click)="addItem()">Send</button>
                 </div>
