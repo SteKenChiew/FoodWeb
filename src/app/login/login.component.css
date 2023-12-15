@@ -1,6 +1,7 @@
 *{
     padding: 0px;
     margin: 0px;
+    background-color:#FFFDF4;;
 }
 
 
@@ -188,7 +189,7 @@
 
 
 .login-container .login-form img{
-    height: 250px;
+    height: 165px;
     width: 100%;
 }
 
