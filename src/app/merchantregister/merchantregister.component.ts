@@ -16,6 +16,7 @@ export class MerchantregisterComponent {
     merchantType:'',
   };
   selectedFile: File | null = null;
+  passwordInputFocused = false;
 
   constructor(private merchantService: MerchantService, private router: Router, private fileUploadService: FileUploadService) {}
   onFileSelected(event: any) {
