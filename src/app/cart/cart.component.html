@@ -29,7 +29,7 @@
                       <p></p>
                     </div>
                     <div class="cartitem-price">
-                      <p class="price-tag">MYR {{ item.foodItem.itemPrice }}</p>
+                      <p class="price-tag">MYR {{ item.foodItem.itemPrice.toFixed(2) }}</p>
                       <div class="cartitem-qty-merge">
                         <div class="cartitem-qty">
                           <button (click)="updateQuantity(i, -1)">-</button>
