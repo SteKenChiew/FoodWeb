@@ -59,13 +59,14 @@ export class MerchantregisterComponent {
     );
   }
   isFormDataValid(): boolean {
+     
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,15}$/;
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (!this.merchant.merchantName.trim()) {
       // Merchant Name is empty
       alert('Please enter Merchant Name');
       return false;
-    }else if (!/^[a-zA-Z]+$/.test(this.merchant.merchantName.trim())){
+    }else if (!/^[a-zA-Z ]+$/.test(this.merchant.merchantName.trim())){
       alert('Merchant Name should only contain letter') ;
       return false;
     }
