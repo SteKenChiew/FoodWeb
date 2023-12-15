@@ -6,19 +6,13 @@
     <link rel="stylesheet" href="merchantadditem.component.css">
     <title>Document</title>
 </head>
-<app-merchant-header>
-    
-</app-merchant-header>
-<div class="searchbar-img">
-    <img src="assets/img/merchant/additem.jpg" alt="" class="indeximage">
-    <div class="search-box">
-        <div>
-            <h1>Add Item</h1>
-        </div>
-    </div>
-</div>
+
+<app-merchant-header></app-merchant-header>
+
+
 <body>
-    <div class="add-product-container">
+    <div class="indeximage">    
+        <h1>Add Item</h1> 
         <div class="product-details-container">
             <div class="product-picture">
                 <img src="assets\img\burger.png" alt="">
@@ -34,11 +28,10 @@
                 Category<br>
                 <input type="text" [(ngModel)]="itemCategory" name="itemPrice" required><br>
                 <div class="send-btn">
-                  <button  (click)="addItem()">Send</button>
+                    <button  (click)="addItem()">Send</button>
                 </div>
-              </form>  
+            </form>  
         </div>
-    </div>
-    
+    </div>  
 </body>
 </html>
