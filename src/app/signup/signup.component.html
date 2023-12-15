@@ -15,10 +15,14 @@
             <p>Experience the fastest way to enjoy your meals on campus with Sunway Nom².</p>
         </div>
         <div class="signup-form-cotainer">
-            <input type="text" name="name" placeholder="Name" class="signup-form-container-name" [(ngModel)]="user.username">
+            <input type="text" name="name" placeholder="Name" class="signup-form-container-name" [(ngModel)]="user.username" maxlength="30">
             <input type="email" name="email" placeholder="Email" class="signup-form-cotainer-email" [(ngModel)]="user.email">
-            <input type="password" name="password" placeholder="Password" [(ngModel)]="user.hashedpassword">
-          </div>
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="user.hashedpassword" maxlength="15" (focus)="passwordInputFocused = true" (blur)="passwordInputFocused = false">
+        </div>
+        <div style="color: red;padding-left: 60px;" *ngIf="passwordInputFocused">
+            *Should contain 3 - 15 characters with the combination of letters, numbers, and symbols.
+        </div>
+        
           <div class="submit-btn">
             <button (click)="registerUser()">Create account</button>
           </div>

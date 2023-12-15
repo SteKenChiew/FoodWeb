@@ -66,6 +66,7 @@
     background: #FFFDF4;
     box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
     border: none;
+    padding: 20px;
 }
 .signup-container .signup-form .signup-form-container-name{
     margin-bottom: 30px;
