@@ -4,9 +4,9 @@
     </div>
     <div class="dialog-food-desc-merge">
       <h3>Name:</h3>
-      <input type="text" name="itemName" id="itemName" [(ngModel)]="editedFood.itemName" required>
+      <input type="text" name="itemName" id="itemName" [(ngModel)]="editedFood.itemName" required maxlength="30">
       <h3>Desc:</h3>
-      <input type="text" name="itemDescription" id="itemDescription" [(ngModel)]="editedFood.itemDescription" required>
+      <input type="text" name="itemDescription" id="itemDescription" [(ngModel)]="editedFood.itemDescription" maxlength="100">
       <h3>MYR:</h3>
       <input type="number" name="itemPrice" id="itemPrice" [(ngModel)]="editedFood.itemPrice" required>
     </div>
