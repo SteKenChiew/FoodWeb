@@ -29,7 +29,6 @@ import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.compone
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
-import { environment } from 'src/environment/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { MerchantauthService } from './services/merchantauth.service';
@@ -44,6 +43,12 @@ import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 import { MerchantHeaderComponent } from './merchantheader/merchantheader.component';
 import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.component';
 import { OrderService } from './services/order.service';
+import { AngularFireModule } from '@angular/fire/compat';  // Use @angular/fire/compat for backward compatibility
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';  // Use @angular/fire/compat for backward compatibility
+import { environment } from '../environment/environment';  // Make sure this path is correct
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +94,8 @@ import { OrderService } from './services/order.service';
     MatDialogModule,
     FormsModule ,
     HttpClientModule,
-  
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
     
     
   ],

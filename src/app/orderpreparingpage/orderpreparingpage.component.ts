@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
 import { MerchantauthService } from '../services/merchantauth.service';
-
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-orderpreparingpage',
@@ -18,6 +18,7 @@ export class OrderpreparingpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchMerchantActiveOrders();
+    timer(0, 30000).subscribe(() => this.fetchMerchantActiveOrders());
   }
 
   fetchMerchantActiveOrders() {

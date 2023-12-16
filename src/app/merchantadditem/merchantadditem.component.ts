@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {MerchantauthService} from '../services/merchantauth.service';
-
+import { MerchantauthService } from '../services/merchantauth.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-merchantadditem',
   templateUrl: './merchantadditem.component.html',
@@ -11,39 +12,51 @@ export class MerchantadditemComponent {
   itemName: string = '';
   itemDescription: string = '';
   itemPrice: number = 0;
-  itemImg: String = '';
-  itemCategory: String ='';
+  itemImg: File | null = null;
+  itemCategory: string = '';
 
-  constructor(private http: HttpClient, private authService: MerchantauthService) {}
+  constructor(private http: HttpClient, private authService: MerchantauthService, private storage: AngularFireStorage) {}
+
+  onFileSelected(event: any) {
+    this.itemImg = event.target.files[0] as File;
+  }
 
   addItem() {
-    const foodItem = {
-      itemName: this.itemName,
-      itemImg: this.itemImg,
-      itemDescription: this.itemDescription,
-      itemPrice: this.itemPrice,
-      itemCategory: this.itemCategory
-      // Add other properties as needed
-    };
+    const filePath = `merchant/${this.authService.getMerchantUUID()}/images/${Date.now()}_${this.itemImg?.name}`;
 
-    const merchantEmail = this.authService.getmerchantEmail(); // Replace with the actual email
-    if(this.isFormDataValid()){
-      this.http.post('http://localhost:8080/merchant/add-item', foodItem, {
-        params: { merchantEmail },
-      })
-        .subscribe(
-          (response) => {
-            console.log('Success:', response);
-            alert("You have succesfully added the Item")
-            // Handle success (e.g., show a success message)
-          },
-          (error) => {
-            console.error('Error:', error);
-            // Handle error (e.g., show an error message)
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, this.itemImg as Blob);
+  
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe((downloadURL) => {
+          const formData = new FormData();
+          formData.append('image', downloadURL); // Ensure the key is 'image'
+          formData.append('merchantEmail', this.authService.getmerchantEmail());
+          formData.append('foodItem', JSON.stringify({
+            itemName: this.itemName,
+            itemDescription: this.itemDescription,
+            itemPrice: this.itemPrice,
+            itemCategory: this.itemCategory
+          }));
+  
+          if (this.isFormDataValid()) {
+            this.http.post('http://localhost:8080/merchant/add-item', formData)
+              .subscribe(
+                (response) => {
+                  console.log('Success:', response);
+                  alert('You have successfully added the Item');
+                },
+                (error) => {
+                  console.error('Error:', error);
+                }
+              );
           }
-        );
-    }
+        });
+      })
+    ).subscribe();
   }
+  
   isFormDataValid(): boolean {
      
     if (!this.itemName.trim()) {
@@ -77,4 +90,5 @@ export class MerchantadditemComponent {
     // All checks passed, data is valid
     return true;
   }
+  
 }

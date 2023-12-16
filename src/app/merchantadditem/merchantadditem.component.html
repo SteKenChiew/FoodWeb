@@ -14,10 +14,11 @@
     <div class="indeximage">    
         <h1>Add Item</h1> 
         <div class="product-details-container">
-            <div class="product-picture">
-                <img src="assets\img\burger.png" alt="">
-                <input type="file" id="img" name="img" accept="image/*" style="border: none;" [(ngModel)]="itemImg">
-            </div>
+          <div class="product-picture">
+            <img src="assets\img\burger.png" alt="">
+            <!-- Add the [(ngModel)] binding to itemImg -->
+            <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+          </div>
             <form class="product-details" >
                 Name<br>
                 <input type="text" [(ngModel)]="itemName" name="itemName"  maxlength="30" ><br>
