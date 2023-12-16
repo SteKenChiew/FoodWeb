@@ -7,12 +7,13 @@ import { MerchantService } from '../services/merchant.service';
 import { MerchantauthService } from '../services/merchantauth.service';
 
 export interface Restaurantfood {
+  itemID: number;
   itemName: string ;
   itemDescription: string ;
   itemPrice: number ;
   itemImg: String ;
   itemCategory: String ;
-  
+  itemAvailability: boolean; 
 }
 
 interface FoodCategories {
@@ -52,13 +53,15 @@ export class MerchanteditmenuComponent {
     }
     
     fetchMerchantFoodItems(merchantEmail: string) {
-        console.log('Fetching food items for searchQuery:', this.searchQuery);
+      console.log('Fetching food items for searchQuery:', this.searchQuery);
       this.merchantService.getMerchantFoodItems(merchantEmail).subscribe(
         (foodItems: Restaurantfood[]) => {
           // Populate foodfilter array with unique categories
           const uniqueCategories = Array.from(new Set(foodItems.map(food => food.itemCategory)));
           this.foodfilter = uniqueCategories.map(category => ({ name: category as string }));
-          this.foodcategories = foodItems;
+    
+          // Initialize itemAvailability property for each food item
+          this.foodcategories = foodItems.map(food => ({ ...food, itemAvailability: food.itemAvailability }));
     
           console.log('foodfilter:', this.foodfilter);
           console.log('foodcategories:', this.foodcategories);
@@ -69,6 +72,8 @@ export class MerchanteditmenuComponent {
         }
       );
     }
+    
+    
     
     
     openDialog(food: Restaurantfood): void {
@@ -103,5 +108,27 @@ export class MerchanteditmenuComponent {
       this.searchQuery = ''; // Clear the search query
   }
  
-    
+  // Update the updateItemAvailability method in your Angular component
+  updateItemAvailability(food: Restaurantfood): void {
+    const merchantEmail = this.merchantAuthService.getmerchantEmail();
+  
+    if (merchantEmail) {
+      console.log('Updating item availability:', food);
+      
+      // Make a request to update the availability status
+      this.merchantService.updateFoodItemAvailability(merchantEmail, food.itemID, food.itemAvailability)
+        .subscribe(
+          (response) => {
+            console.log('Item availability updated successfully. Response:', response);
+          },
+          (error) => {
+            console.error('Error updating item availability:', error);
+            // Handle error, e.g., show an error message to the user
+          }
+        );
+    }
+  }
+  
+
+  
 }

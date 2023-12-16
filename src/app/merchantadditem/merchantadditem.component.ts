@@ -37,7 +37,8 @@ export class MerchantadditemComponent {
             itemName: this.itemName,
             itemDescription: this.itemDescription,
             itemPrice: this.itemPrice,
-            itemCategory: this.itemCategory
+            itemCategory: this.itemCategory,
+            itemAvailability: true
           }));
   
           if (this.isFormDataValid()) {

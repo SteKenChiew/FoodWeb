@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Restaurantfood {
@@ -9,6 +9,7 @@ export interface Restaurantfood {
   itemPrice: number ;
   itemImg: String ;
   itemCategory: String ;
+  itemAvailability: boolean;
 }
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,22 @@ export class MerchantService {
     return this.http.put(url, food, { params });
   }
   
+// Update the updateFoodItemAvailability method in your Angular service
+  updateFoodItemAvailability(merchantEmail: string, itemId: number, availability: boolean): Observable<void> {
+    const url = `${this.apiUrl}/update-food-availability`;
+
+    // Include 'merchantEmail', 'itemId', and 'itemAvailability' as query parameters
+    const params = new HttpParams()
+      .set('merchantEmail', merchantEmail)
+      .set('itemID', itemId.toString())
+      .set('itemAvailability', availability.toString()); // Convert 'availability' to string
+    
+    const body = { itemId, availability };
+
+    return this.http.put<void>(url, body, { params });
+  }
+
+
+
   
 }

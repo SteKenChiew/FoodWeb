@@ -51,7 +51,7 @@
                     </div>
                     <div class="food-card-toggle-btn">
                       <label class="switch">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" [(ngModel)]="food.itemAvailability" (change)="updateItemAvailability(food)" [checked]="food.itemAvailability === true">
                         <span class="slider round"></span>
                       </label>
                     </div>
@@ -84,7 +84,7 @@
                   </div>
                   <div class="food-card-toggle-btn">
                     <label class="switch">
-                      <input type="checkbox" checked>
+                      <input type="checkbox" [(ngModel)]="food.itemAvailability" (change)="updateItemAvailability(food)" [checked]="food.itemAvailability === true">
                       <span class="slider round"></span>
                     </label>
                   </div>

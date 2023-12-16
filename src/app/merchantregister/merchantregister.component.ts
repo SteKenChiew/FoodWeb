@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MerchantService } from '../services/merchant.service'; 
-import { FileUploadService } from '../services/file-upload.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-merchantregister',
   templateUrl: './merchantregister.component.html',
@@ -13,41 +16,43 @@ export class MerchantregisterComponent {
     merchantImage: '',
     merchantEmail: '',
     hashedpassword: '',
-    merchantType:'',
+    merchantType: '',
   };
   selectedFile: File | null = null;
   passwordInputFocused = false;
 
-  constructor(private merchantService: MerchantService, private router: Router, private fileUploadService: FileUploadService) {}
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile)
-  }
-  registerMerchant() {
-    if (!this.isFormDataValid()){
-      return;
-    }
-    else if (this.selectedFile) {
-      // Upload the file first
-      this.fileUploadService.uploadFile(this.selectedFile).subscribe(
-        (response) => {
-          // Save the file path in the merchant object
-          this.merchant.merchantImage = response.filePath;
+  constructor(
+    private merchantService: MerchantService,
+    private router: Router,
+    private http: HttpClient,
+    private storage: AngularFireStorage
+  ) {}
 
-          // Proceed with merchant registration
-          this.registerMerchantAfterUpload();
-        },
-        (error) => {
-          console.error('File upload failed:', error);
-        }
-      );
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0] as File;
+  }
+
+  registerMerchant() {
+    if (this.selectedFile) {
+      const filePath = `merchant/images/${Date.now()}_${this.selectedFile.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, this.selectedFile as Blob);
+
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((downloadURL) => {
+            this.merchant.merchantImage = downloadURL;
+            this.registerMerchantAfterUpload();
+          });
+        })
+      ).subscribe();
     } else {
       // No file selected, proceed with merchant registration without an image
       this.registerMerchantAfterUpload();
     }
   }
+
   private registerMerchantAfterUpload() {
-    // Call the user service to register the user
     this.merchantService.registerMerchant(this.merchant).subscribe(
       (response) => {
         console.log('User registered successfully:', response);
@@ -59,42 +64,4 @@ export class MerchantregisterComponent {
       }
     );
   }
-  isFormDataValid(): boolean {
-     
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{3,15}$/;
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    if (!this.merchant.merchantName.trim()) {
-      // Merchant Name is empty
-      alert('Please enter Merchant Name');
-      return false;
-    }else if (!/^[a-zA-Z ]+$/.test(this.merchant.merchantName.trim())){
-      alert('Merchant Name should only contain letter') ;
-      return false;
-    }
-
-    if (!this.merchant.merchantEmail.trim()) {
-      // Merchant Email is empty
-      alert('Please enter Merchant Email');
-      return false;
-    }else if(!emailRegex.test(this.merchant.merchantEmail.trim()))
-
-    if (!this.merchant.hashedpassword.trim()) {
-      // Merchant Password is empty
-      alert('Please enter Merchant Password');
-      return false;
-    }else if (!passwordRegex.test(this.merchant.hashedpassword.trim())){
-      alert('Password should contain 3-15 characters with a combination of letters, numbers, and symbols.');
-      return false;
-    }
-
-    if (!this.merchant.merchantType) {
-      // Merchant Type is not selected
-      alert('Please select Merchant Type');
-      return false;
-    }
-
-    // All checks passed, data is valid
-    return true;
-  }
-
 }

@@ -99,7 +99,7 @@
                 <div class="food-list-container-merging">
                     <div *ngFor="let food of foodcategories">
                         <!-- Check if the current food item belongs to the current category -->
-                        <div class="food-card" *ngIf="food.itemCategory === category.name"(click)="openDialog(food)">
+                        <div class="food-card" *ngIf="food.itemCategory === category.name && food.itemAvailability"(click)="openDialog(food)">
                           <div class="foodimg" >
                             <img [src]="food.itemImg" alt="">
                           </div>
@@ -123,18 +123,21 @@
               <ng-container *ngIf="foodcategories | filterBySearch: searchQuery as filteredItems">
                 <div class="food-list-container-merging">
                   <div class="food-card" *ngFor="let food of filteredItems" (click)="openDialog(food)">
-                    <div class="foodimg">
+                    <!-- Check if the current food item is available -->
+                    <ng-container *ngIf="food.itemAvailability">
+                      <div class="foodimg">
                         <img [src]="food.itemImg" alt="">
-                    </div>
-                    <div class="food-card-title">
+                      </div>
+                      <div class="food-card-title">
                         <h2>{{food.itemName}}</h2>
                         <h3>from</h3>
                         <p>MYR {{food.itemPrice.toFixed(2)}}</p>
-                    </div>
-                </div>
+                      </div>
+                    </ng-container>
+                  </div>
                 </div>
                 <div class="no-results-message" *ngIf="filteredItems.length === 0">
-                    <img src="assets/img/searchnotfound.png" alt="">
+                  <img src="assets/img/searchnotfound.png" alt="">
                   <p>Search not found!</p>
                 </div>
               </ng-container>

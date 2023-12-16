@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
 import { MerchantauthService } from '../services/merchantauth.service';
-import { timer } from 'rxjs';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-orderpreparingpage',
@@ -12,31 +12,32 @@ export class OrderpreparingpageComponent implements OnInit {
   activeOrders: any[] = [];
   merchantUuid: any;
 
-  constructor(private orderService: OrderService, private merchantauthService: MerchantauthService) {
- 
-  }
+  constructor(private orderService: OrderService, private merchantauthService: MerchantauthService) {}
 
   ngOnInit(): void {
     this.fetchMerchantActiveOrders();
-    timer(0, 30000).subscribe(() => this.fetchMerchantActiveOrders());
+
+    // Set up a timer to fetch active orders every 30 seconds (adjust the interval as needed)
+    interval(5000).subscribe(() => {
+      this.fetchMerchantActiveOrders();
+    });
   }
 
   fetchMerchantActiveOrders() {
-    const merchantUuid = this.merchantauthService.getMerchantUUID(); // Invoke the method
+    const merchantUuid = this.merchantauthService.getMerchantUUID();
     this.orderService.getMerchantActiveOrders(merchantUuid)
-  .subscribe(
-    (orders: any[]) => {
-      console.log('Fetched orders:', orders);
-      this.activeOrders = orders;
-      console.log('Component activeOrders:', this.activeOrders);
-    },
-    error => {
-      console.error('Error fetching orders:', error);
-    }
-  );
-
-
+      .subscribe(
+        (orders: any[]) => {
+          console.log('Fetched orders:', orders);
+          this.activeOrders = orders;
+          console.log('Component activeOrders:', this.activeOrders);
+        },
+        error => {
+          console.error('Error fetching orders:', error);
+        }
+      );
   }
+
   markOrderAsReady(orderId: string) {
     const merchantUuid = this.merchantauthService.getMerchantUUID();
     this.orderService.markOrderAsReady(merchantUuid, orderId)
