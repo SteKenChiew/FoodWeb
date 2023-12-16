@@ -8,7 +8,7 @@ export interface Restaurantfood {
   itemDescription: string ;
   itemPrice: number ;
   itemImg: String ;
-  itemCategory: String ;
+  itemCategory: string ;
   itemAvailability: boolean;
 }
 @Injectable({

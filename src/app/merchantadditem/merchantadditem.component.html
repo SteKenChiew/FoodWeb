@@ -15,9 +15,10 @@
         <h1>Add Item</h1> 
         <div class="product-details-container">
           <div class="product-picture">
-            <img src="assets\img\burger.png" alt="">
-            <!-- Add the [(ngModel)] binding to itemImg -->
+            <h1 style="font-size: 20px; color: #232323;" *ngIf="itemImgSrc == null">Please select an image</h1>
+            <img [src]="itemImgSrc" alt="" *ngIf="itemImgSrc">
             <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+           
           </div>
             <form class="product-details" >
                 Name<br>
@@ -26,8 +27,14 @@
                 <input type="text" [(ngModel)]="itemDescription" name="itemDescription"  maxlength="100" ><br>
                 Price<br>
                 <input type="number" [(ngModel)]="itemPrice" name="itemPrice"><br>
-                Category<br>
-                <input type="text" [(ngModel)]="itemCategory" name="itemPrice"  maxlength="30" ><br>
+        
+               <label for="itemCategory">Category</label>
+               <input list="categories" [(ngModel)]="selectedCategory" name="selectedCategory" placeholder="Enter or select category">
+               <datalist id="categories">
+                 <option *ngFor="let category of existingCategories" [value]="category">{{ category }}</option>
+               </datalist>
+               
+                <br>
                 <div class="send-btn">
                     <button  (click)="addItem()">Send</button>
                 </div>

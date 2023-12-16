@@ -41,7 +41,8 @@ export class RestaurantDetailComponent implements OnInit {
   foodfilter: FoodCategories[] = []
   foodcategories: Restaurantfood[] = [];
   merchantName: string = '';
-
+  merchantduration: number = 0;
+  availableItems: Restaurantfood[] = [];
   constructor(private route: ActivatedRoute,
     private dialog: MatDialog,
     private http: HttpClient
@@ -68,7 +69,7 @@ export class RestaurantDetailComponent implements OnInit {
   @ViewChild('prevButton') prevButton!: ElementRef;
 
   ngOnInit() {
-
+    console.log('foodfilter:', this.foodfilter);
     const cardElement = this.categoriesCard.nativeElement; // <-- Error here
     cardElement.addEventListener('scroll', () => {
       this.checkButtonVisibility(cardElement);
@@ -76,36 +77,39 @@ export class RestaurantDetailComponent implements OnInit {
     this.prevButton.nativeElement.style.display = 'none';
 
   }
-
   fetchRestaurantData() {
     // Fetch additional restaurant data using this.uuid if needed
-    this.http.get<any>(`http://localhost:8080/restaurants/${this.uuid}`)
+    this.http.get<any>(`http://localhost:8080/restaurants/${this.uuid}?itemAvailability=true`)
       .subscribe((data: any) => {
         console.log(data);
         this.merchantName = data.merchantName;
-
+        this.merchantduration = data.duration;
         if (Array.isArray(data.foodItems)) {
           // If data.foodItems is an array, merge it into foodcategories
           this.foodcategories = [...this.foodcategories, ...data.foodItems];
           console.log(this.foodcategories);
-
+  
           // Extract unique categories from foodcategories and populate foodfilter
           const uniqueCategories = Array.from(new Set(this.foodcategories.map(food => food.itemCategory)));
           this.foodfilter = uniqueCategories.map(category => ({ name: category as string }));
           console.log('foodfilter:', this.foodfilter);
+  
+          // Filter items with itemAvailability set to true and store in availableItems
+          this.availableItems = this.foodcategories.filter(food => food.itemAvailability);
+          console.log('availableItems:', this.availableItems);
         } else {
           console.error('foodItems is not an array:', data.foodItems);
           // Handle the case where data.foodItems is not an array
         }
-
+  
         // You can also merge other properties if needed
         // this.foodcategories = [...this.foodcategories, ...data.otherProperty];
-
+  
       }, (error) => {
         console.error('Error fetching data:', error);
       });
   }
-
+  
   nextCard() {
     const container = this.categoriesCard.nativeElement;
     const cardWidth = 1200; // Adjust this value based on your card width
@@ -200,5 +204,11 @@ export class RestaurantDetailComponent implements OnInit {
   clearSearchQuery(): void {
     this.searchQuery = ''; // Clear the search query
   }
-
+  hasItemsInCategory(category: any): boolean {
+    console.log('Category:', category);
+    console.log('Available Items:', this.availableItems);
+    return this.availableItems.some(food => food.itemCategory === category.name);
+  }
+  
+  
 }

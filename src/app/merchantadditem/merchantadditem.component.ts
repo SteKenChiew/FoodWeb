@@ -1,32 +1,61 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MerchantauthService } from '../services/merchantauth.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
+import { MerchantService , Restaurantfood} from '../services/merchant.service';
+
 @Component({
   selector: 'app-merchantadditem',
   templateUrl: './merchantadditem.component.html',
   styleUrls: ['./merchantadditem.component.css']
 })
-export class MerchantadditemComponent {
+export class MerchantadditemComponent implements OnInit{
   itemName: string = '';
   itemDescription: string = '';
   itemPrice: number = 0;
   itemImg: File | null = null;
   itemCategory: string = '';
-
-  constructor(private http: HttpClient, private authService: MerchantauthService, private storage: AngularFireStorage) {}
-
-  onFileSelected(event: any) {
-    this.itemImg = event.target.files[0] as File;
+  itemImgSrc: string | ArrayBuffer | null = null; // Add this property for image preview
+  existingCategories: string[] = [];
+  selectedCategory: string = '';
+  constructor(private http: HttpClient, private authService: MerchantauthService, private storage: AngularFireStorage, private merchantService: MerchantService) {}
+  ngOnInit() {
+    this.fetchExistingCategories();
   }
 
+  fetchExistingCategories() {
+    const merchantEmail = this.authService.getmerchantEmail();
+
+    this.merchantService.getMerchantFoodItems(merchantEmail).subscribe(
+      (foodItems: Restaurantfood[]) => {
+        // Extract unique categories from the fetched food items
+        this.existingCategories = [...new Set(foodItems.map(item => item.itemCategory.toString()))];
+      },
+      error => {
+        console.error('Error fetching existing categories:', error);
+      }
+    );
+  }
+  onFileSelected(event: any) {
+    this.itemImg = event.target.files[0] as File;
+      this.previewImage();
+  }
+  previewImage() {
+    if (this.itemImg) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.itemImg);
+      reader.onload = (_event) => {
+        this.itemImgSrc = reader.result;
+      };
+    }
+  }
   addItem() {
     const filePath = `merchant/${this.authService.getMerchantUUID()}/images/${Date.now()}_${this.itemImg?.name}`;
 
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, this.itemImg as Blob);
-  
+    this.itemCategory = this.selectedCategory || this.itemCategory;
     task.snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe((downloadURL) => {

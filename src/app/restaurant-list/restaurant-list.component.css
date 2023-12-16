@@ -209,6 +209,8 @@
     flex-direction:row;
     margin-top: 20px;
     position: relative;
+    justify-content: center;
+    align-items: center;
     
 }
 
@@ -224,9 +226,11 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
-    margin: 0px 70px 0px 100px;
+    align-items: center;
+   
     
 }
+
 
 .favcuisine-container .favcuisine-prev-btn{
     width: 50%;
@@ -287,6 +291,7 @@
     position: absolute;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .restaurant-favcuisine-container-innercard{
@@ -295,9 +300,8 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    margin-right: 100px;
     align-items: center;
-    
+    margin: 0px 50px 0px 50px;
 }
 .restaurant-favcuisine-container-innercard img{
     height: 123px;

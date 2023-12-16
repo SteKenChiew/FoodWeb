@@ -36,11 +36,8 @@ export class RestaurantListComponent implements OnInit{
     { type: 'Asian Delights', logo: 'assets/img/mee.png' ,img: "assets/img/favcategories/asiandelights.png" },
     { type: 'Quick Bites', logo: 'assets/img/muffin.png',img: "assets/img/favcategories/fastfood.png" },
     { type: 'Beverages', logo: 'assets/img/drinks.png' ,img: "assets/img/favcategories/beverage.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-   { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
-   { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"},
+    { type: 'Desserts', logo: 'assets/img/icecream.png' ,img: "assets/img/favcategories/desserts.png"}
+    
   ];
 
   foodcategories: Categoriesfood[] = [
@@ -139,7 +136,7 @@ ngOnInit() {
         img: merchant.merchantImage,
         name: merchant.merchantName,
         religion: merchant.merchantType,
-        estimatedtime: '30', // You may need to update this based on your data
+        estimatedtime: merchant.duration, // You may need to update this based on your data
         rating: 4.0, // You may need to update this based on your data
       }));
 

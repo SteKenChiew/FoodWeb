@@ -426,10 +426,10 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: 30% 30%;
+    grid-template-columns: auto auto auto;
     align-items: center;
     justify-content: center;
-    gap:54px 103px ;
+    gap:50px 50px ;
     margin-bottom: 10px;
 
 }
