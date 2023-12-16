@@ -23,4 +23,10 @@ export class UserService {
     console.log('Registration URL:', url); // Add this line
     return this.http.post(url, user);
   }
+
+  updateUserDetails(user: any): Observable<any>{
+    const url = `http://localhost:8080/update-user?user=${user}`; 
+    console.log('Update User URL:', url);
+    return this.http.post(url, user);
+  }
 }
