@@ -20,25 +20,28 @@
 <body>
     <div class="add-product-container">
         <div class="product-details-container">
-            <div class="product-picture">
-                <img src="assets\img\burger.png" alt="">
-                <input type="file" id="img" name="img" accept="image/*" style="border: none;" [(ngModel)]="itemImg">
+          <div class="product-picture">
+            <img src="assets\img\burger.png" alt="">
+            <!-- Add the [(ngModel)] binding to itemImg -->
+            <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+          </div>
+          <form class="product-details">
+            Name<br>
+            <input type="text" [(ngModel)]="itemName" name="itemName" required><br>
+            Description<br>
+            <input type="text" [(ngModel)]="itemDescription" name="itemDescription" required><br>
+            Price<br>
+            <input type="number" [(ngModel)]="itemPrice" name="itemPrice" required><br>
+            Category<br>
+            <input type="text" [(ngModel)]="itemCategory" name="itemCategory" required><br>
+      
+            <div class="send-btn">
+              <button (click)="addItem()">Send</button>
             </div>
-            <form class="product-details" >
-                Name<br>
-                <input type="text" [(ngModel)]="itemName" name="itemName" required><br>
-                Description<br>
-                <input type="text" [(ngModel)]="itemDescription" name="itemDescription" required><br>
-                Price<br>
-                <input type="number" [(ngModel)]="itemPrice" name="itemPrice" required><br>
-                Category<br>
-                <input type="text" [(ngModel)]="itemCategory" name="itemPrice" required><br>
-                <div class="send-btn">
-                  <button  (click)="addItem()">Send</button>
-                </div>
-              </form>  
+          </form>
         </div>
-    </div>
+      </div>
+      
     
 </body>
 </html>
