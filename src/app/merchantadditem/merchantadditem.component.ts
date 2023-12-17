@@ -51,26 +51,27 @@ export class MerchantadditemComponent implements OnInit{
     }
   }
   addItem() {
-    const filePath = `merchant/${this.authService.getMerchantUUID()}/images/${Date.now()}_${this.itemImg?.name}`;
-
-    const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, this.itemImg as Blob);
-    this.itemCategory = this.selectedCategory || this.itemCategory;
-    task.snapshotChanges().pipe(
-      finalize(() => {
-        fileRef.getDownloadURL().subscribe((downloadURL) => {
-          const formData = new FormData();
-          formData.append('image', downloadURL); // Ensure the key is 'image'
-          formData.append('merchantEmail', this.authService.getmerchantEmail());
-          formData.append('foodItem', JSON.stringify({
-            itemName: this.itemName,
-            itemDescription: this.itemDescription,
-            itemPrice: this.itemPrice,
-            itemCategory: this.itemCategory,
-            itemAvailability: true
-          }));
+    if (this.isFormDataValid()) {
+      const filePath = `merchant/${this.authService.getMerchantUUID()}/images/${Date.now()}_${this.itemImg?.name}`;
   
-          if (this.isFormDataValid()) {
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, this.itemImg as Blob);
+      this.itemCategory = this.selectedCategory || this.itemCategory;
+  
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((downloadURL) => {
+            const formData = new FormData();
+            formData.append('image', downloadURL); // Ensure the key is 'image'
+            formData.append('merchantEmail', this.authService.getmerchantEmail());
+            formData.append('foodItem', JSON.stringify({
+              itemName: this.itemName,
+              itemDescription: this.itemDescription,
+              itemPrice: this.itemPrice,
+              itemCategory: this.itemCategory,
+              itemAvailability: true
+            }));
+  
             this.http.post('http://localhost:8080/merchant/add-item', formData)
               .subscribe(
                 (response) => {
@@ -81,11 +82,12 @@ export class MerchantadditemComponent implements OnInit{
                   console.error('Error:', error);
                 }
               );
-          }
-        });
-      })
-    ).subscribe();
+          });
+        })
+      ).subscribe();
+    }
   }
+  
   
   isFormDataValid(): boolean {
      

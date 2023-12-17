@@ -205,8 +205,7 @@ export class RestaurantDetailComponent implements OnInit {
     this.searchQuery = ''; // Clear the search query
   }
   hasItemsInCategory(category: any): boolean {
-    console.log('Category:', category);
-    console.log('Available Items:', this.availableItems);
+   
     return this.availableItems.some(food => food.itemCategory === category.name);
   }
   

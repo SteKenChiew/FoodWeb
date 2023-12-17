@@ -28,11 +28,12 @@
                 Price<br>
                 <input type="number" [(ngModel)]="itemPrice" name="itemPrice"><br>
         
-               <label for="itemCategory">Category</label>
-               <input list="categories" [(ngModel)]="selectedCategory" name="selectedCategory" placeholder="Enter or select category">
-               <datalist id="categories">
-                 <option *ngFor="let category of existingCategories" [value]="category">{{ category }}</option>
-               </datalist>
+                <label for="itemCategory">Category</label>
+                <input list="categories" [(ngModel)]="itemCategory" name="itemCategory" placeholder="Enter or select category">
+                <datalist id="categories">
+                  <option *ngFor="let category of existingCategories" [value]="category">{{ category }}</option>
+                </datalist>
+                
                
                 <br>
                 <div class="send-btn">
