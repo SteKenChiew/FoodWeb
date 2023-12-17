@@ -26,6 +26,9 @@ import {MerchantadditemComponent} from './merchantadditem/merchantadditem.compon
 import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.component';
+import {CusorderhistoryComponent} from './cusorderhistory/cusorderhistory.component';
+import {CusactiveorderComponent} from './cusactiveorder/cusactiveorder.component';
+
 
 const routes: Routes = [
   
@@ -56,6 +59,8 @@ const routes: Routes = [
   {path: 'adminmainpage', component:AdminmainpageComponent},
   {path: 'merchantlogin', component:MerchantloginComponent},
   {path: 'merchantmainpage', component:MerchantmainpageComponent},
+  {path: 'cusorderhistory', component:CusorderhistoryComponent},
+  {path: 'cusactiveorder', component:CusactiveorderComponent},
 ];
 
 @NgModule({

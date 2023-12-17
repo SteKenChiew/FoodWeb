@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cusactiveorder.component.css">
+</head>
+<header>
+    
+    <div class="nav-btm" >
+        <a routerLink="/" routerLinkActive="active"><img src="assets/img/mainlogo.svg" alt=""></a>
+        <div class="status-btn-merge">
+            <div class="status-btn-history"  routerLink="/cusactiveorder" routerLinkActive="active">
+                <img src="assets/img/merchant/ready.png" alt="">
+                <a>Active</a>
+            </div>
+            <div class="status-btn" routerLink="/cusorderhistory" routerLinkActive="active">
+                <img src="assets/img/merchant/history.png" alt="">
+                <a>History</a>
+            </div>
+        </div>
+        
+        <div class="nav-input">
+            
+            <input type="text"  placeholder="  Search order">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+        </div>
+    </div>
+
+</header>
+<body>
+    <div class="orderpreparingpage-merge">
+        <h1>Active orders </h1>
+        <div class="orderpreparingstats">
+            
+            <div class="order-card-merge">
+                <div  class="order-card">
+                    <div class="order-card-innerdesc">
+                      <h1>#eg1234</h1>
+                      <div class="item-desc">
+                        <!-- Debug: Log order and orderItems -->
+                        
+                        <div class="item-qty">
+                          <p>123x &nbsp;</p>
+                          <p>itemname</p>
+                        </div>
+                      </div>
+                      <div class="pricing">
+                        <h3>MYR</h3>
+                        <h2>total</h2>
+                      </div>
+                      <p>Date: </p>
+                    </div>
+                    <div class="order-card-img">
+                      <!-- Assuming you want to display an image related to the first item in the order -->
+                     <img>
+    
+                      </div>
+                  </div>
+                
+            </div>
+            
+        </div>
+        
+        
+    </div>
+</body>
+</html>

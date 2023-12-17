@@ -42,6 +42,8 @@ import {AdminmainpageComponent} from './adminmainpage/adminmainpage.component';
 import {MerchantloginComponent} from './merchantlogin/merchantlogin.component';
 import { MerchantHeaderComponent } from './merchantheader/merchantheader.component';
 import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.component';
+import {CusorderhistoryComponent} from './cusorderhistory/cusorderhistory.component';
+import {CusactiveorderComponent} from './cusactiveorder/cusactiveorder.component';
 import { OrderService } from './services/order.service';
 import { AngularFireModule } from '@angular/fire/compat';  // Use @angular/fire/compat for backward compatibility
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';  // Use @angular/fire/compat for backward compatibility
@@ -83,6 +85,8 @@ import { environment } from '../environment/environment';  // Make sure this pat
     MerchantmainComponent,
     MerchantHeaderComponent,
     MerchantmainpageComponent,
+    CusorderhistoryComponent,
+    CusactiveorderComponent,
   ],
   imports: [
     BrowserModule,
