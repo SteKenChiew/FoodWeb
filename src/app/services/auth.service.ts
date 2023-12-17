@@ -3,13 +3,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private user: any;
   private useruuid: any;
+  private usernameSubject = new BehaviorSubject<string>('');
+  public username$: Observable<string> = this.usernameSubject.asObservable();
+
 
   private apiUrl = 'http://localhost:8080/user'; // Replace with your authentication API URL
 
@@ -18,11 +21,11 @@ export class AuthService {
   login(email: string, hashedpassword: string): Observable<any> {
     const requestBody = { email, hashedpassword };
     return this.http.post('http://localhost:8080/user/login', requestBody);
+    
   }
   
   setUserUUID(useruuid: any): void {
     this.useruuid = useruuid;
-    
   }
   getUserUUID(): any {
     return this.useruuid;
@@ -40,6 +43,10 @@ export class AuthService {
     return !!this.getUser();
   }
 
-
+  updateUsername(newUsername: string) {
+    console.log('Updating username:', newUsername);
+    this.usernameSubject.next(newUsername);
+  }
+  
   
 }

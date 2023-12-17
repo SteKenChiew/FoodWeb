@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
 import { AuthService } from '../services/auth.service';
-import { interval } from 'rxjs';
+
 
 @Component({
   selector: 'app-cusorderhistory',
@@ -18,10 +18,7 @@ export class CusorderhistoryComponent implements OnInit{
     console.log('CusactiveorderComponent initialized');
     this.fetchUserOrderHistory();
 
-    // Set up a timer to fetch active orders every 30 seconds (adjust the interval as needed)
-    interval(5000).subscribe(() => {
-      this.fetchUserOrderHistory();
-    });
+   
   }
   fetchUserOrderHistory() {
     const userUuid = this.authService.getUserUUID();
@@ -31,7 +28,7 @@ export class CusorderhistoryComponent implements OnInit{
         (orders: any[]) => {
           console.log('Fetched orders:', orders);
           this.orderHistory = orders;
-          console.log('Component activeOrders:', this.orderHistory);
+          console.log('Component order history:', this.orderHistory);
         },
         error => {
           console.error('Error fetching orders:', error);

@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class UserService {
   private apiUrl = 'http://localhost:8080/'; // Replace with your NestJS API URL
-
+ 
   constructor(private http: HttpClient) {}
 
   registerUser(user: any): Observable<any> {
@@ -36,5 +36,5 @@ export class UserService {
         })
       );
   }
-  
+ 
 }

@@ -19,7 +19,7 @@ export class CusactiveorderComponent implements OnInit{
     this.fetchUserActiveOrders();
 
     // Set up a timer to fetch active orders every 30 seconds (adjust the interval as needed)
-    interval(5000).subscribe(() => {
+    interval(10000).subscribe(() => {
       this.fetchUserActiveOrders();
     });
   }

@@ -36,32 +36,45 @@ export class ProfileComponent implements OnInit {
       uuid: user.uuid,
       username: user.username,
       email: user.email,
-      password: '', // You might not want to expose the password in the UI
+      password: '',
     };
-
+  
     // Initialize newUsername and newEmail with current values
     this.newUsername = this.userDetails.username;
     this.newEmail = this.userDetails.email;
+  
+    // Subscribe to changes in the username
+    this.authService.username$.subscribe(newUsername => {
+      this.newUsername = newUsername;
+    });
   }
+  
 
   editUser(): void {
     // Check if there are changes to username or email
-    if (this.newUsername !== this.userDetails.username || this.newEmail !== this.userDetails.email) {
+    const usernameChanged = this.newUsername !== this.userDetails.username;
+    const emailChanged = this.newEmail !== this.userDetails.email;
+  
+    console.log('Username changed:', usernameChanged);
+    console.log('Email changed:', emailChanged);
+  
+    if (usernameChanged || emailChanged) {
+      // Update the username in the AuthService before making the API call
+      this.authService.updateUsername(this.newUsername);
+  
       const updatedUserDetails: UserDetails = {
         ...this.userDetails,
         username: this.newUsername,
         email: this.newEmail,
       };
-
+  
       console.log('Data being sent to the server:', updatedUserDetails);
       this.userService.updateUserDetails(updatedUserDetails).subscribe(
         (response) => {
           console.log('User details updated successfully:', response);
-
+  
           // Use alert for success
           alert('User details updated successfully');
-
-        
         },
         (error) => {
           console.error('Error updating user details:', error);
@@ -74,5 +87,7 @@ export class ProfileComponent implements OnInit {
       console.log('No changes to username or email. No request sent.');
     }
   }
+  
+  
 
 }
