@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -24,9 +25,16 @@ export class UserService {
     return this.http.post(url, user);
   }
 
-  updateUserDetails(user: any): Observable<any>{
-    const url = `http://localhost:8080/update-user?user=${user}`; 
+  updateUserDetails(user: any): Observable<any> {
+    const url = `http://localhost:8080/user/update-user`;
     console.log('Update User URL:', url);
-    return this.http.post(url, user);
+    return this.http.post(url, user)
+      .pipe(
+        catchError((error) => {
+          console.error('Error updating user details:', error);
+          throw error; // Rethrow the error after logging
+        })
+      );
   }
+  
 }

@@ -22,6 +22,7 @@ export class AuthService {
   
   setUserUUID(useruuid: any): void {
     this.useruuid = useruuid;
+    
   }
   getUserUUID(): any {
     return this.useruuid;

@@ -13,20 +13,20 @@
             <div class="inner-form">
                 <div class="input">
                     <h3>Username:</h3>
-                    <input type="text" name="" id="" [(ngModel)]="userDetails.Name">
+                    <input type="text" name="" id="" [(ngModel)]="newUsername" >
                 </div>
                 <div class="input">
                     <h3>Email:</h3>
-                    <input type="email" name="" id="" [(ngModel)]="userDetails.Email">
+                    <input type="email" name="" id="" [(ngModel)]="newEmail">
                 </div>
-                <div class="input">
+                <!-- <div class="input">
                     <h3>Current password:</h3>
                     <input type="text" name="" id="" [(ngModel)]="userDetails.Password">
                 </div>
                 <div class="input">
                     <h3>New password:</h3>
                     <input type="text" name="" id="">
-                </div>
+                </div> -->
                 <button (click)="editUser()">Save</button>
             </div>
             <div class="account-delete">

@@ -25,6 +25,7 @@ export class LoginComponent {
         this.authService.setUserUUID(response.uuid);
         this.authService.setUser(response);
         this.router.navigate(['']);
+       
       },
       (error) => {
         console.error('Login failed:', error);

@@ -35,29 +35,29 @@
         <div class="orderpreparingstats">
             
             <div class="order-card-merge">
-                <div  class="order-card">
+                <div *ngFor="let order of orderHistory" class="order-card">
                     <div class="order-card-innerdesc">
-                      <h1>#eg1234</h1>
+                      <h1>#{{ order.orderId }}</h1>
                       <div class="item-desc">
                         <!-- Debug: Log order and orderItems -->
                         
-                        <div class="item-qty">
-                          <p>123x &nbsp;</p>
-                          <p>itemname</p>
+                        <div *ngFor="let item of order.orderItems" class="item-qty">
+                          <p>{{ item.quantity }}x &nbsp;</p>
+                          <p>{{ item.foodItem.itemName }}</p>
                         </div>
                       </div>
                       <div class="pricing">
                         <h3>MYR</h3>
-                        <h2>total</h2>
+                        <h2>{{ order.orderTotal }}</h2>
                       </div>
-                      <p>Date: </p>
+                      <p *ngIf="order.orderPlacedDateTime">Date:  {{ formatOrderPlacedDateTime(order.orderPlacedDateTime) }}</p>
                     </div>
                     <div class="order-card-img">
                       <!-- Assuming you want to display an image related to the first item in the order -->
-                     <img>
-    
+                      <img *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
                       </div>
                   </div>
+                
                 
             </div>
             

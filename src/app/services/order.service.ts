@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class OrderService {
   private apiUrl = 'http://localhost:8080/merchant';
+  private userapiUrl = 'http://localhost:8080/user';
   constructor(private http: HttpClient) {}
 
   getMerchantActiveOrders(merchantUuid: string): Observable<any[]> {
@@ -50,5 +51,16 @@ export class OrderService {
   getMerchantTotalSalesToday(merchantUuid: string): Observable<number> {
     const url = `${this.apiUrl}/sales/today?merchantUuid=${merchantUuid}`;
     return this.http.get<number>(url);
+  }
+
+
+  getUserActiveOrders(userUuid: string): Observable<any[]> {
+    const url = `${this.userapiUrl}/orders/active?userUuid=${userUuid}`;
+    return this.http.get<any[]>(url);
+  }
+
+  getUserOrderHistory(userUuid: string): Observable<any[]> {
+    const url = `${this.userapiUrl}/orders/orderhistory?userUuid=${userUuid}`;
+    return this.http.get<any[]>(url);
   }
 }
