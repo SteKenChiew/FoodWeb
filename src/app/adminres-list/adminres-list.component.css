@@ -185,7 +185,7 @@ header img{
 }
 .res-card-merge{
     width: 90%;
-    max-height: 180vh;
+    min-height: 180vh;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -45,6 +45,7 @@ import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.com
 import {CusorderhistoryComponent} from './cusorderhistory/cusorderhistory.component';
 import {CusactiveorderComponent} from './cusactiveorder/cusactiveorder.component';
 import {ContactusComponent} from './contactus/contactus.component';
+import {AboutusComponent} from './aboutus/aboutus.component';
 import { OrderService } from './services/order.service';
 import { AngularFireModule } from '@angular/fire/compat';  // Use @angular/fire/compat for backward compatibility
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';  // Use @angular/fire/compat for backward compatibility
@@ -90,6 +91,7 @@ import {FilterMerchantPipe} from './filter-merchant.pipe'
     CusactiveorderComponent,
     ContactusComponent,
     FilterMerchantPipe,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,

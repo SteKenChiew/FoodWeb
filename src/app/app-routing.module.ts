@@ -29,6 +29,7 @@ import {MerchantmainpageComponent} from './merchantmainpage/merchantmainpage.com
 import {CusorderhistoryComponent} from './cusorderhistory/cusorderhistory.component';
 import {CusactiveorderComponent} from './cusactiveorder/cusactiveorder.component';
 import {ContactusComponent} from './contactus/contactus.component';
+import {AboutusComponent} from './aboutus/aboutus.component';
 
 
 const routes: Routes = [
@@ -63,6 +64,7 @@ const routes: Routes = [
   {path: 'cusorderhistory', component:CusorderhistoryComponent},
   {path: 'cusactiveorder', component:CusactiveorderComponent},
   {path: 'contactus', component:ContactusComponent},
+  {path: 'aboutus', component:AboutusComponent},
 ];
 
 @NgModule({
