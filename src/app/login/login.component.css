@@ -20,6 +20,7 @@
     display: flex;
     justify-content: end;
     flex-direction: column;
+    
 }
 
 .login-container .login-form .login-header{

@@ -1,6 +1,9 @@
 import { Component, OnInit , HostListener} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+
+
 interface Restaurant {
   id: number;
   uuid: string;
@@ -21,7 +24,7 @@ export class AdminresListComponent implements OnInit{
   shop: Restaurant[] = [];
   searchTerm: string = '';
   currentPage: number = 1;
-  pageSize: number = 5; 
+  pageSize: number = 10; 
   totalpagesize: number = 0;
   constructor(private httpClient: HttpClient,private router: Router) {}
   ngOnInit() {
@@ -29,17 +32,24 @@ export class AdminresListComponent implements OnInit{
   }
   
 
+ 
   fetchMerchants() {
-    this.httpClient.get<any[]>('http://localhost:8080/restaurants').subscribe((data) => {
+    let apiUrl = 'http://localhost:8080/restaurants';
+  
+    this.httpClient.get<any[]>(apiUrl).subscribe((data) => {
       if (Array.isArray(data) && data.length > 0) {
-        // Calculate total pages based on the total number of items and the page size
+        // Display results only if a search has been performed
+        if (this.searchTerm) {
+          data = data.filter(merchant =>
+            merchant.merchantName.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+        }
+  
         const totalItems = data.length;
         const totalPages = Math.ceil(totalItems / this.pageSize);
         this.totalpagesize = totalPages;
-        // Ensure currentPage does not exceed the total number of pages
-        this.currentPage = Math.min(this.currentPage, totalPages);
   
-        // Calculate start and end indices for pagination
+        // Calculate the start and end indices for the current page
         const startIndex = (this.currentPage - 1) * this.pageSize;
         const endIndex = Math.min(startIndex + this.pageSize, totalItems);
   
@@ -57,15 +67,18 @@ export class AdminresListComponent implements OnInit{
     });
   }
   
+  
   openRestaurantDetail(shop: any) {
     this.router.navigate(['/restaurant-detail', shop.uuid, shop.name]);
   }
 
   onSearchChange() {
-    // Reset current page when search term changes
+    // Reset current page to 1 when search term changes
     this.currentPage = 1;
+    // Fetch data with real-time search
     this.fetchMerchants();
   }
+
   changePage(offset: number) {
     this.currentPage += offset;
     this.fetchMerchants();
@@ -74,5 +87,22 @@ export class AdminresListComponent implements OnInit{
   totalPages(): number {
     const totalItems = this.shop.length;
     return Math.ceil(totalItems / this.pageSize);
+  }
+
+  onDeleteUser(merchantUUID: string) {
+    // Make an HTTP DELETE request to delete the user
+    this.httpClient.delete(`http://localhost:8080/merchant/delete/${merchantUUID}`)
+      .subscribe(
+        response => {
+          console.log(`User with UUID ${merchantUUID} deleted successfully.`);
+          // Refresh the user list or update the UI as needed
+          // You may want to refetch the user list or update it based on the response
+          this.fetchMerchants();
+        },
+        error => {
+          console.error(`Error deleting user with UUID ${merchantUUID}:`, error);
+          // Handle the error, show a message, etc.
+        }
+      );
   }
 }

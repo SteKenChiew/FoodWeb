@@ -190,7 +190,7 @@ header img{
 }
 .order-card-merge{
     width: 90%;
-    height: 1000px;
+    min-height: 120vh;
     display: flex;
     flex-direction: column;
     align-items: center;

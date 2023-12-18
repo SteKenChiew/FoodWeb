@@ -9,21 +9,25 @@
 <header>
     <img src="assets/img/logo1.svg" alt="">
     <div class="nav-merge">
-        <a  routerLink="/orderpreparingpage" routerLinkActive="active">Orders</a>
-        <a>Menu</a>
+        <a  routerLink="/admincuslist" routerLinkActive="active" style="text-decoration: none;">Customer</a>
+        <a routerLink="/adminreslist" routerLinkActive="active" style="text-decoration: none;">Merchant</a>
         <a >{{adminUsername}}</a>
+        <a href="" style="text-decoration: none;"> Logout</a>
     </div>
 </header>
 <body>
-        
+      <div class="admin-header">
+        <h1>Admin Dashboard</h1>
+      </div>
         <div class="admin-menu">
+            
             <button routerLink="/adminreslist" routerLinkActive="active">
                 <img src="assets/img/order.png" alt="">
-                <h1>Search Merchant</h1>
+                <h1>Search Merchants <br> & Customer</h1>
             </button>
-            <button routerLink="/adminreslist" routerLinkActive="active">
+            <button routerLink="/merchantregister" routerLinkActive="active">
                 <img src="assets\img\orderdetail\orderdetailui.png" alt="" style="width:70%;">
-                <h1>Merchants</h1>
+                <h1>Merchant Registration</h1>
             </button>
         </div>
 </body>

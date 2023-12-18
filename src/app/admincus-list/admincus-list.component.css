@@ -177,16 +177,19 @@ header img{
 }
 
 .reslistpage-merge{
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     margin-bottom: 100px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .reslistpage-merge h1{
-    margin-left: 100px;
-    margin-top: 200px;
+
     color: var(--Gray-1, #515151);
     font-family: Poppins;
     font-size: 40px;
@@ -302,6 +305,7 @@ header img{
 .res-card-img{
     width: 30%;
     height: 100%;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -309,7 +313,8 @@ header img{
 
 .res-card .res-card-img img{
     width: 100%;
-    height: 80%;
+    min-height: 80%;
+    max-height: 230px;
 }
 
 .res-card .res-card-img button{
@@ -326,3 +331,59 @@ header img{
     line-height: 22.4px; /* 70% */
     border: none;
 }
+
+.user-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .user-table th, .user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .user-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .pagination {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .pagination-button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .navigation {
+    margin-top: 10px;
+  }
+  
+  .navigation-button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .navigation-button:hover {
+    background-color: #117a8b;
+  }
+  
