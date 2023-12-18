@@ -51,6 +51,37 @@ body{
     line-height: normal;
 }
 
+.home-btn{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 30px;
+}
+
+.home-btn button{
+  width: 190px;
+  height: 60px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  border-radius: 20px;
+  background: #FF4500;
+  box-shadow: 4px 6px 15px 0px rgba(0, 0, 0, 0.06);
+  color: #FFFDF4;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 .order-summary-container .logo-container .logo{
     width: 100%;
     height: 160px;
