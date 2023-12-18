@@ -7,31 +7,37 @@
 </head>
 <header></header>
 <body>
-   <div class="login-container">
+   <!-- adminlogin.component.html -->
+<div class="login-container">
     <div class="login-form">
-        <div class="login-header">
-            <h1>Admin Login</h1>
-            <p>Welcome back to Sunway Nom². Please enter your details .</p>
-        </div>
-        <div class="login-form-cotainer">
-            <input type="email" name="" id="" placeholder="Email" class="login-form-cotainer-email">
-            <input type="text" name="" id="" placeholder="Password">
-        </div>
-        <div class="forgot-pass">
-            <a  routerLink="/forgotpass" routerLinkActive="active">Forgot Password ?</a>
-        </div>
-        <div class="submit-btn">
-            <button >Login</button>
-        </div>
-       
-        
-            <img src="assets/img/loginavatar.png" alt="">
-        
+      <div class="login-header">
+        <h1>Login</h1>
+        <p>Welcome back to Sunway Nom². Please enter your details.</p>
+      </div>
+      <div class="login-form-cotainer">
+        <input type="email" name="" id="" placeholder="Email" [(ngModel)]="email" class="login-form-cotainer-email">
+        <input type="password" name="" id="" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <div class="forgot-pass">
+        <a routerLink="/forgotpass" routerLinkActive="active">Forgot Password?</a>
+      </div>
+      <div class="submit-btn">
+        <button (click)="login()">Login</button>
+      </div>
+      <div class="Gmail-login">
+        <button>
+          <img src="assets/img/googlelogo.png" alt="" style="width: 28px; height: 28px; padding-right: 15px;">Login with Google
+        </button>
+      </div>
+      <div class="register-acc">
+        <p>Don't have an account? <a routerLink="/signup" routerLinkActive="active">Sign up</a></p>
+      </div>
+      <img src="assets/img/merchant/group80.svg" alt="">
     </div>
     <div class="login-bg">
-        <img src="assets/img/loginbg.png" alt="">
+      <img src="assets/img/loginbg.png" alt="">
     </div>
-   </div>
-    
+  </div>
+  
 </body>
 </html>
