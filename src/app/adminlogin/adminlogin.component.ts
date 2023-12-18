@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import{AdminService} from'../services/admin.service'
 
 @Component({
   selector: 'app-adminlogin',
@@ -11,14 +12,15 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class AdminloginComponent {
   email: string = '';
   password: string = '';
-  
-  constructor(private http: HttpClient, private router: Router) {}
+
+  constructor(private http: HttpClient, private router: Router, private adminService: AdminService) {}
 
   login(): void {
     this.http.post('http://localhost:8080/admin/login', { email: this.email, password: this.password })
       .subscribe(
         (response) => {
           this.router.navigate(['adminmainpage']);
+          this.adminService.setadminUsername(response);
           console.log(response);
         },
         (error) => {

@@ -31,36 +31,39 @@
     </div>
 </header>
 <body>
+  
     <div class="restaurant-container">
       <div *ngIf="!searchQuery"> 
-        <div class="restaurant-list-container" *ngFor="let category of foodfilter">
-          <h1 id="{{category.name}}">{{category.name}}</h1>
-          <div class="food-list-container">
-            <div class="food-list-container-merging">
-              <div *ngFor="let food of foodcategories">
-                <!-- Check if the current food item belongs to the current category -->
-                <div class="food-card" *ngIf="food.itemCategory === category.name">
-                  <div class="foodimg" (click)="openDialog(food)">
-                    <img [src]="food.itemImg" alt="">
-                  </div>
-                  <div class="food-card-title">
-                    <div class="food-card-desc" (click)="openDialog(food)">
-                      <h2>{{food.itemName}}</h2>
-                      <h3>from</h3>
-                      <p>MYR {{food.itemPrice.toFixed(2)}}</p>
-                    </div>
-                    <div class="food-card-toggle-btn">
-                      <label class="switch">
-                        <input type="checkbox" [(ngModel)]="food.itemAvailability" (change)="updateItemAvailability(food)" [checked]="food.itemAvailability === true">
-                        <span class="slider round"></span>
-                      </label>
+        <ng-container *ngFor="let category of foodfilter" >
+            <div class="restaurant-list-container" >
+              <h1 id="{{category.name}}">{{category.name}}</h1>
+              <div class="food-list-container">
+                <div class="food-list-container-merging">
+                  <div *ngFor="let food of foodcategories">
+                    <!-- Check if the current food item belongs to the current category -->
+                    <div class="food-card" *ngIf="food.itemCategory === category.name">
+                      <div class="foodimg" (click)="openDialog(food)">
+                        <img [src]="food.itemImg" alt="">
+                      </div>
+                      <div class="food-card-title">
+                        <div class="food-card-desc" (click)="openDialog(food)">
+                          <h2>{{food.itemName}}</h2>
+                          <h3>from</h3>
+                          <p>MYR {{food.itemPrice.toFixed(2)}}</p>
+                        </div>
+                        <div class="food-card-toggle-btn">
+                          <label class="switch">
+                            <input type="checkbox" [(ngModel)]="food.itemAvailability" (change)="updateItemAvailability(food)" [checked]="food.itemAvailability === true">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+            </ng-container>
         <!-- Show this div when foodcategories is empty -->
         <div *ngIf="foodcategories.length === 0" class="Empty-fooditem">
           <p>No food items available pls add food item by letting customer buy your food</p>

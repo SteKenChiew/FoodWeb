@@ -49,7 +49,7 @@ import { OrderService } from './services/order.service';
 import { AngularFireModule } from '@angular/fire/compat';  // Use @angular/fire/compat for backward compatibility
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';  // Use @angular/fire/compat for backward compatibility
 import { environment } from '../environment/environment';  // Make sure this path is correct
-
+import {FilterMerchantPipe} from './filter-merchant.pipe'
 
 
 @NgModule({
@@ -89,6 +89,7 @@ import { environment } from '../environment/environment';  // Make sure this pat
     CusorderhistoryComponent,
     CusactiveorderComponent,
     ContactusComponent,
+    FilterMerchantPipe,
   ],
   imports: [
     BrowserModule,

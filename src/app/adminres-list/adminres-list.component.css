@@ -156,9 +156,10 @@ header img{
 }
 
 .reslistpage-merge{
-    height: 100vh;
+    height: auto;
     width: 100%;
     margin-bottom: 100px;
+    
 }
 
 
@@ -180,14 +181,15 @@ header img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .res-card-merge{
     width: 90%;
-    height: 1000px;
+    max-height: 180vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: auto;
+    
     
 }
 
@@ -279,18 +281,19 @@ header img{
 
 .res-card-img{
     width: 30%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 0px 20px 0px 20px;
 }
 
-.res-card .res-card-img img{
+.res-card .res-card-img .res-card-img-image{
     width: 100%;
-    height: 80%;
+    height: 75%;
 }
 
-.res-card .res-card-img button{
+.res-card .res-card-img .res-card-img-btn{
     width: 80%;
     height: 15%;
     border-radius: 20px;
@@ -303,4 +306,6 @@ header img{
     font-weight: 600;
     line-height: 22.4px; /* 70% */
     border: none;
+    margin-top: 13px;
+    padding: 10px 10px;
 }
