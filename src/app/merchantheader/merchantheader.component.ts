@@ -22,5 +22,9 @@ export class MerchantHeaderComponent implements OnInit {
   }
 
 
- 
+  logout() {
+    this.merchantAuthService.logout();
+    // Redirect to the login page or any other desired page after logout
+    this.router.navigate(['/merchantlogin']);
+  }
 }

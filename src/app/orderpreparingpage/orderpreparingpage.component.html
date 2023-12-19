@@ -55,8 +55,8 @@
         </div>
         <div class="order-card-img">
           <!-- Assuming you want to display an image related to the first item in the order -->
-          <img *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
-          <button (click)="markOrderAsReady(order.orderId )">Ready</button>
+          <img style="border-top-right-radius: 50px;" height="100%" width="100%" *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
+          <button (click)="markOrderAsReady(order.orderId )" style="margin-top: 10px;">Ready</button>
         </div>
       </div>
     </div>

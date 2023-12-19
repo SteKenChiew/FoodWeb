@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FoodDialogComponent } from '../food-dialog/food-dialog.component';
 import { HttpClient } from '@angular/common/http';
-
+import { interval } from 'rxjs';
 export interface Restaurantfood {
   itemID: number;
   itemImg: string;
@@ -58,9 +58,11 @@ export class RestaurantDetailComponent implements OnInit {
         // Handle the case where the shop object is not available
         console.error('Shop object not found in navigation state');
       }
-
+      interval(10).subscribe(() => {
+        this.fetchRestaurantData();
+      });
       // Fetch additional data if needed
-      this.fetchRestaurantData();
+    
     });
   }
 
@@ -207,5 +209,7 @@ export class RestaurantDetailComponent implements OnInit {
     return this.availableItems.some(food => food.itemCategory === category.name);
   }
   
-  
+  getFilteredFood(categoryName: string): Restaurantfood[] {
+    return this.foodcategories.filter(food => food.itemCategory === categoryName);
+  }
 }

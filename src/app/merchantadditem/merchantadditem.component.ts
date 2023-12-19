@@ -4,6 +4,7 @@ import { MerchantauthService } from '../services/merchantauth.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
 import { MerchantService , Restaurantfood} from '../services/merchant.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-merchantadditem',
@@ -19,7 +20,8 @@ export class MerchantadditemComponent implements OnInit{
   itemImgSrc: string | ArrayBuffer | null = null; // Add this property for image preview
   existingCategories: string[] = [];
   selectedCategory: string = '';
-  constructor(private http: HttpClient, private authService: MerchantauthService, private storage: AngularFireStorage, private merchantService: MerchantService) {}
+  constructor(private http: HttpClient, private authService: MerchantauthService, private storage: AngularFireStorage, private merchantService: MerchantService, private router: Router) {}
+  
   ngOnInit() {
     this.fetchExistingCategories();
   }
@@ -74,12 +76,14 @@ export class MerchantadditemComponent implements OnInit{
   
             this.http.post('http://localhost:8080/merchant/add-item', formData)
               .subscribe(
-                (response) => {
+                (response:any) => {
                   console.log('Success:', response);
                   alert('You have successfully added the Item');
                 },
                 (error) => {
                   console.error('Error:', error);
+                  alert('Please login');
+                  this.router.navigate(['/merchantlogin']);
                 }
               );
           });
@@ -90,7 +94,7 @@ export class MerchantadditemComponent implements OnInit{
   
   
   isFormDataValid(): boolean {
-     
+   
     if (!this.itemName.trim()) {
       alert('Please enter Item Name');
       return false;

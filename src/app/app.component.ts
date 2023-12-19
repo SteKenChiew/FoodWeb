@@ -3,7 +3,7 @@ import { Router, NavigationStart , NavigationEnd } from '@angular/router';
 import { CartNotificationService } from './cart-notification.service';
 import { AuthService } from './services/auth.service';
 import { filter } from 'rxjs/operators';
-const noHeaderURLs = ['/login', '/signup', '/forgotpass', '/verification', '/cart', '/order-summary', '/merchantmain', '/orderpreparingpage', '/readyorderpage', '/orderhistorypage', '/merchanteditmenu', '/admin', '/adminreslist', '/orderdetails', '/trackorder', '/admincuslist', '/merchantadditem', '/adminmainpage', '/merchantlogin', '/merchantmainpage', '/cusorderhistory', '/cusactiveorder'];
+const noHeaderURLs = ['/login', '/signup', '/forgotpass', '/verification', '/cart', '/order-summary', '/merchantmain', '/orderpreparingpage', '/readyorderpage', '/orderhistorypage', '/merchanteditmenu', '/admin', '/adminreslist', '/orderdetails', '/trackorder', '/admincuslist', '/merchantadditem', '/adminmainpage', '/merchantlogin', '/merchantmainpage', '/cusorderhistory', '/cusactiveorder','/merchantregister'];
 
 @Component({
   selector: 'app-root',

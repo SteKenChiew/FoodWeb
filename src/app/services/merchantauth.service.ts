@@ -52,5 +52,12 @@ export class MerchantauthService {
     return this.merchantUUID;
 }
 
+logout(): void {
 
+  this.setMerchantName("null");
+ this.setAuthenticated(false);
+ this.setMerchantEmail("null");
+ this.setMerchantUUID("null");
+
+}
 }

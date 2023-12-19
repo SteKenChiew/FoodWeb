@@ -16,4 +16,12 @@ export class AdminService {
   getadminUsername(): any {
     return this. adminUsername;
   }
+
+  logout(): void {
+  
+
+
+    this.setadminUsername("null");
+   
+  }
 }

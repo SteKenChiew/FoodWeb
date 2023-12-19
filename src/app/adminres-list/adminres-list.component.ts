@@ -41,9 +41,12 @@ export class AdminresListComponent implements OnInit{
         // Display results only if a search has been performed
         if (this.searchTerm) {
           data = data.filter(merchant =>
-            merchant.merchantName.toLowerCase().includes(this.searchTerm.toLowerCase())
+            merchant.merchantName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+            merchant.uuid.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+            merchant.merchantType.toLowerCase().includes(this.searchTerm.toLowerCase()) 
           );
         }
+  
   
         const totalItems = data.length;
         const totalPages = Math.ceil(totalItems / this.pageSize);
