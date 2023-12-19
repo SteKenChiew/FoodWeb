@@ -26,6 +26,10 @@ export class LoginComponent {
         this.authService.setUser(response);
         this.router.navigate(['']);
         this.authService.updateUsername(response.username);
+        const token = response.token;
+        if (token) {
+          this.authService.setAuthToken(token);
+        }
        
       },
       (error) => {
@@ -39,5 +43,5 @@ export class LoginComponent {
       }
     );
   }
-  
+ 
 }

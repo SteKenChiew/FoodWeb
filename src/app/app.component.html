@@ -16,16 +16,15 @@
     <a routerLink="/" routerLinkActive="active"><img src="assets/img/logo1.svg" alt=""></a>
     <div class="header-btn">
       <h1 routerLink="/aboutus" routerLinkActive="active" class="header1">Why Nom Nom?</h1>
-      <a routerLink="/profile" routerLinkActive="active">Pick-Up</a>
-      <a routerLink="/merchantmain" routerLinkActive="active">Dine-In</a>
       <a routerLink="/restaurant-list" routerLinkActive="active">Restaurant</a>
+     
+    <ng-container *ngIf="authenticated; else loginButtonTemplate">
       <button class="cart-btn" routerLink="/cart" routerLinkActive="active"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="31" viewBox="0 0 27 31" fill="none">
         <path d="M2.12344 12.9341C2.17928 12.2307 2.49508 11.5744 3.00797 11.0958C3.52086 10.6173 4.19319 10.3516 4.89108 10.3517H21.6273C22.3252 10.3516 22.9975 10.6173 23.5104 11.0958C24.0233 11.5744 24.3391 12.2307 24.395 12.9341L25.5095 26.9686C25.5402 27.3548 25.4914 27.7432 25.3663 28.1095C25.2412 28.4757 25.0425 28.8118 24.7826 29.0965C24.5228 29.3813 24.2074 29.6086 23.8565 29.7641C23.5055 29.9196 23.1265 29.9999 22.7433 30H3.77514C3.39195 29.9999 3.01293 29.9196 2.66195 29.7641C2.31097 29.6086 1.99563 29.3813 1.73578 29.0965C1.47593 28.8118 1.2772 28.4757 1.1521 28.1095C1.027 27.7432 0.978242 27.3548 1.0089 26.9686L2.12344 12.9341V12.9341Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M18.8111 14.5621V7.54482C18.8111 6.05595 18.2262 4.62806 17.185 3.57527C16.1438 2.52248 14.7317 1.93103 13.2592 1.93103C11.7868 1.93103 10.3746 2.52248 9.33342 3.57527C8.29224 4.62806 7.70731 6.05595 7.70731 7.54482V14.5621" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span class="cart-count" [class.active]="cartCount > 0" *ngIf="cartCount > 0">{{ cartCount }}</span>
     </button>
-    <ng-container *ngIf="authenticated; else loginButtonTemplate">
       <span class="username">{{ userName }}
         <div class="dropdown">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
@@ -37,6 +36,9 @@
             </div>
             <div  class="dropdown-btn" routerLink="/cusactiveorder" routerLinkActive="active">
               <h1>Order</h1>
+            </div>
+            <div  class="dropdown-btn" (click)="logout()">
+              <h1>Logout</h1>
             </div>
           </div>
         </div>

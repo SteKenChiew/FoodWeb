@@ -24,7 +24,7 @@ export class AdminresListComponent implements OnInit{
   shop: Restaurant[] = [];
   searchTerm: string = '';
   currentPage: number = 1;
-  pageSize: number = 10; 
+  pageSize: number = 5; 
   totalpagesize: number = 0;
   constructor(private httpClient: HttpClient,private router: Router) {}
   ngOnInit() {

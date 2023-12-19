@@ -83,8 +83,8 @@
         
             <div class="restaurant-list-merging"  >
                 <ng-container *ngFor="let shops of shop; let i = index">
-                <div class="restaurant-card" *ngIf="i < (isContentExpanded ? 8 : 4)" (click)="openRestaurantDetail(shops)" >
-                    
+                    <div class="restaurant-card" *ngIf="isContentExpanded || i < 4" (click)="openRestaurantDetail(shops)">
+     
                     <img src="{{shops.img}}" alt="" class="restaurant-image">
                     <div class="restaurant-card-desc">
                         <div class="restaurant-card-desc-title">

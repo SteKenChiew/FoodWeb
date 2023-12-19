@@ -84,9 +84,10 @@ export class RestaurantDetailComponent implements OnInit {
         console.log(data);
         this.merchantName = data.merchantName;
         this.merchantduration = data.duration;
+  
         if (Array.isArray(data.foodItems)) {
-          // If data.foodItems is an array, merge it into foodcategories
-          this.foodcategories = [...this.foodcategories, ...data.foodItems];
+          // Filter out items without itemAvailability
+          this.foodcategories = data.foodItems.filter((food: Restaurantfood) => food.itemAvailability === true);
           console.log(this.foodcategories);
   
           // Extract unique categories from foodcategories and populate foodfilter
@@ -94,21 +95,18 @@ export class RestaurantDetailComponent implements OnInit {
           this.foodfilter = uniqueCategories.map(category => ({ name: category as string }));
           console.log('foodfilter:', this.foodfilter);
   
-          // Filter items with itemAvailability set to true and store in availableItems
-          this.availableItems = this.foodcategories.filter(food => food.itemAvailability);
+          // availableItems should now only contain items with itemAvailability set to true
+          this.availableItems = this.foodcategories;
           console.log('availableItems:', this.availableItems);
         } else {
           console.error('foodItems is not an array:', data.foodItems);
           // Handle the case where data.foodItems is not an array
         }
-  
-        // You can also merge other properties if needed
-        // this.foodcategories = [...this.foodcategories, ...data.otherProperty];
-  
       }, (error) => {
         console.error('Error fetching data:', error);
       });
   }
+  
   
   nextCard() {
     const container = this.categoriesCard.nativeElement;

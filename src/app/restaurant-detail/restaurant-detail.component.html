@@ -92,32 +92,31 @@
                     </svg></button>
                 </div>
             </div>  
-            <ng-container *ngFor="let category of foodfilter" >
+            <ng-container *ngFor="let category of foodfilter">
               <div class="restaurant-list-container" *ngIf="hasItemsInCategory(category)">
-              
-                  <h1 id="{{category.name}}">{{category.name}}</h1>
-                  <div class="food-list-container">
-                    <div class="food-list-container-merging">
-                      <div *ngFor="let food of availableItems">
-                        <!-- Check if the current food item belongs to the current category -->
-                        <div class="food-card" *ngIf="food.itemCategory === category.name" (click)="openDialog(food)">
-                          <div class="foodimg">
-                            <img [src]="food.itemImg" alt="">
-                          </div>
-                          <div class="food-card-title">
-                            <div class="food-card-desc">
-                              <h2>{{food.itemName}}</h2>
-                              <h3>from</h3>
-                              <p>MYR {{food.itemPrice.toFixed(2)}}</p>
-                            </div>
+                <h1 id="{{category.name}}">{{category.name}}</h1>
+                <div class="food-list-container">
+                  <div class="food-list-container-merging">
+                    <div *ngFor="let food of availableItems">
+                      <!-- Check if the current food item belongs to the current category -->
+                      <div class="food-card" *ngIf="food.itemCategory === category.name" (click)="openDialog(food)">
+                        <div class="foodimg">
+                          <img [src]="food.itemImg" alt="">
+                        </div>
+                        <div class="food-card-title">
+                          <div class="food-card-desc">
+                            <h2>{{food.itemName}}</h2>
+                            <h3>from</h3>
+                            <p>MYR {{food.itemPrice.toFixed(2)}}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-              
+                </div>
               </div>
-          </ng-container>
+            </ng-container>
+            
               
               
         </div>

@@ -129,6 +129,8 @@ export class MerchanteditmenuComponent {
     }
   }
   
-
+  getFilteredFood(categoryName: string): Restaurantfood[] {
+    return this.foodcategories.filter(food => food.itemCategory === categoryName);
+  }
   
 }

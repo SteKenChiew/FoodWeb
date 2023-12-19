@@ -29,7 +29,7 @@ import { ReadyorderpageComponent } from './readyorderpage/readyorderpage.compone
 import { OrderhistorypageComponent } from './orderhistorypage/orderhistorypage.component';
 import { MerchanteditmenuComponent } from './merchanteditmenu/merchanteditmenu.component';
 import { AdminloginComponent} from './adminlogin/adminlogin.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { MerchantauthService } from './services/merchantauth.service';
 import { OrderdetailsComponent} from './orderdetails/orderdetails.component';
@@ -51,7 +51,7 @@ import { AngularFireModule } from '@angular/fire/compat';  // Use @angular/fire/
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';  // Use @angular/fire/compat for backward compatibility
 import { environment } from '../environment/environment';  // Make sure this path is correct
 import {FilterMerchantPipe} from './filter-merchant.pipe'
-
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -92,6 +92,7 @@ import {FilterMerchantPipe} from './filter-merchant.pipe'
     ContactusComponent,
     FilterMerchantPipe,
     AboutusComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -104,14 +105,20 @@ import {FilterMerchantPipe} from './filter-merchant.pipe'
     FormsModule ,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    
     
     
   ],
   providers: [
     AuthService,
     MerchantauthService,
-    OrderService 
+    OrderService ,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

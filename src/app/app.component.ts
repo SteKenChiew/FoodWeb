@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Component, ViewEncapsulation, ChangeDetectorRef , OnInit } from '@angular/core';
+import { Router, NavigationStart , NavigationEnd } from '@angular/router';
 import { CartNotificationService } from './cart-notification.service';
 import { AuthService } from './services/auth.service';
-
+import { filter } from 'rxjs/operators';
 const noHeaderURLs = ['/login', '/signup', '/forgotpass', '/verification', '/cart', '/order-summary', '/merchantmain', '/orderpreparingpage', '/readyorderpage', '/orderhistorypage', '/merchanteditmenu', '/admin', '/adminreslist', '/orderdetails', '/trackorder', '/admincuslist', '/merchantadditem', '/adminmainpage', '/merchantlogin', '/merchantmainpage', '/cusorderhistory', '/cusactiveorder'];
 
 @Component({
@@ -11,7 +11,7 @@ const noHeaderURLs = ['/login', '/signup', '/forgotpass', '/verification', '/car
   styleUrls: ['./app.component.css', './header.css', './footer.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'my-first-project';
   showHeader = true;
   showHead: boolean = false;
@@ -37,6 +37,10 @@ export class AppComponent {
         }
         this.authenticated = this.authService.isAuthenticated();
       }
+
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0); // Scroll to the top on NavigationEnd
+      }
     });
   }
 
@@ -46,11 +50,15 @@ export class AppComponent {
       this.userName = newUsername;
       this.cd.detectChanges(); // Trigger change detection
     });
-
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      this.authService.setAuthToken(authToken);
+    }
     // Subscribe to cart count changes
     this.cartNotificationService.cartCount$.subscribe((count) => {
       this.cartCount = count;
     });
+   
   }
 
   goPlaces() {
@@ -63,5 +71,11 @@ export class AppComponent {
 
   set userName(value: string) {
     this._userName = value;
+  }
+
+  logout() {
+    this.authService.logout();
+    // Redirect to the login page or any other desired page after logout
+    this.router.navigate(['/home']);
   }
 }

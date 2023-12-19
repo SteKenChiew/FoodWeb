@@ -140,7 +140,7 @@ ngOnInit() {
         rating: 4.0, // You may need to update this based on your data
       }));
 
-      this.isContentExpanded = this.shop.length > 5;
+      
     }
   });
 }
