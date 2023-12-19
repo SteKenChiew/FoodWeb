@@ -163,7 +163,7 @@ header img{
 }
 
 .orderpreparingpage-merge{
-    height: 100vh;
+    height: auto;
     width: 100%;
     margin-bottom: 100px;
 }

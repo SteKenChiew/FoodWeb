@@ -19,16 +19,16 @@
             <input type="email" name="email" placeholder="Email" class="signup-form-cotainer-email" [(ngModel)]="user.email">
             <input type="password" name="password" placeholder="Password" [(ngModel)]="user.hashedpassword" maxlength="15" (focus)="passwordInputFocused = true" (blur)="passwordInputFocused = false">
         </div>
-        <div style="color: red;padding-left: 60px;" *ngIf="passwordInputFocused">
+        <div style="color: red;padding-left: 60px; height: 50px; ;" *ngIf="passwordInputFocused">
             *Should contain 3 - 15 characters with the combination of letters, numbers, and symbols.
         </div>
         
           <div class="submit-btn">
             <button (click)="registerUser()">Create account</button>
           </div>
-        <div class="Gmail-signup">
+        <!-- <div class="Gmail-signup">
             <button><img src="assets/img/googlelogo.png" alt="" style="width: 28px; height: 28px; padding-right: 15px;">Sign up with Google</button>
-        </div>
+        </div> -->
         <div class="register-acc" >
             <p>Already have an account ? <a routerLink="/login" routerLinkActive="active">Log in</a></p>
            

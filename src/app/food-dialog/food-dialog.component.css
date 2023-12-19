@@ -13,7 +13,9 @@ custom-dialog{
 
 .dialog-img{
   width: 100%;
-  height: 320px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
 }
 .dialog-img img{
   width: 100%;
@@ -29,7 +31,7 @@ custom-dialog{
 .dialog-food-desc-merge h1{
   margin: 0px;
   margin-top: 20px;
-
+  margin-bottom: 10px;
   width: 100%;
   height: 10%;
   color: #333;
@@ -42,13 +44,13 @@ custom-dialog{
 
 .dialog-food-desc{
   margin: 0px;
-  max-height: 20%;
+  max-height: auto;
   color: grey;
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 45px; /* 132.353% */
+  line-height: 25px; /* 132.353% */
 
 }
 

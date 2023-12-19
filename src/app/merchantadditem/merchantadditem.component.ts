@@ -111,13 +111,14 @@ export class MerchantadditemComponent implements OnInit{
     if (!this.itemPrice) {
       alert('Please enter Item Price');
       return false;
-    }else if (this.itemPrice > 1000){
-      alert('The price should below RYM 1000')
+    } else if (this.itemPrice > 1000) {
+      alert('The price should be below RYM 1000');
       return false;
-    }else if (!/^\d+(,\d{1,2})?$/.test(this.itemPrice.toString())){
-      alert('Please enter an valid price')
+    } else if (!/^\d+(?:\.\d{1,2})?$/.test(this.itemPrice.toString())) {
+      alert('Please enter a valid price with up to two decimal places');
       return false;
     }
+    
 
     if (!this.itemCategory.trim()) {
       alert('Please enter Item Category');

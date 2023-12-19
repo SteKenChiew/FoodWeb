@@ -48,13 +48,13 @@
                       </div>
                       <div class="pricing">
                         <h3>MYR</h3>
-                        <h2>{{ order.orderTotal }}</h2>
+                        <h2>{{ order.orderTotal.toFixed(2) }}</h2>
                       </div>
                       <p *ngIf="order.orderPlacedDateTime">Date:  {{ formatOrderPlacedDateTime(order.orderPlacedDateTime) }}</p>
                     </div>
                     <div class="order-card-img">
                       <!-- Assuming you want to display an image related to the first item in the order -->
-                      <img *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
+                      <img style="border-top-right-radius: 50px;" *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
                       </div>
                   </div>
                 

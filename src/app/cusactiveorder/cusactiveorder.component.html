@@ -48,7 +48,7 @@
                       </div>
                       <div class="pricing">
                         <h3>MYR &nbsp;</h3>
-                        <h2>{{ order.orderTotal }}</h2>
+                        <h2>{{ order.orderTotal.toFixed(2) }}</h2>
                       </div>
                       <div style="display: flex; flex-direction: row;">
                         <p>Order status: </p><p style="  color: #FF4500;">&nbsp; {{order.status}}</p>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="order-card-img">
                       <!-- Assuming you want to display an image related to the first item in the order -->
-                      <img *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
+                      <img style="border-top-right-radius: 50px;" *ngIf="order.orderItems.length > 0" [src]="order.orderItems[0].foodItem.itemImg || 'assets/default-image.png'" alt="">
                       
                     </div>
                   </div>

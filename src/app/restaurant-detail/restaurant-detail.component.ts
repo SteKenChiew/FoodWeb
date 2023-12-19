@@ -58,7 +58,7 @@ export class RestaurantDetailComponent implements OnInit {
         // Handle the case where the shop object is not available
         console.error('Shop object not found in navigation state');
       }
-      interval(10).subscribe(() => {
+      interval(1000).subscribe(() => {
         this.fetchRestaurantData();
       });
       // Fetch additional data if needed
@@ -177,7 +177,7 @@ export class RestaurantDetailComponent implements OnInit {
   openDialog(food: Restaurantfood): void {
     const dialogRef = this.dialog.open(FoodDialogComponent, {
       width: '640px', // Adjust the width as needed
-      height: '700px',
+      height: '550px',
       data: { food }, // Pass the food data to the dialog
       panelClass: 'custom-dialog'
     });

@@ -193,7 +193,7 @@
 }
 
 .favcuisine-header h1{
-    padding-left: 100px;
+    padding-left: 65px;
     color: var(--Gray-1, #333);
     font-family: Poppins;
     font-size: 45px;
@@ -332,6 +332,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
 }
 
 .restaurant-list-container h1{
@@ -341,11 +342,12 @@
     font-style: normal;
     font-weight: 700;
     line-height: 60px; /* 133.333% */
-    margin-left: 100px;
+    width: 90%;
+    
 }
 
 .restaurant-list-container .restaurant-list-merging{
-    width: 100%;
+    width: 80%;
     height: auto; /* Let the height expand as needed */
     display: grid;
     grid-template-columns: auto auto;
@@ -358,8 +360,8 @@
 }
 
 .restaurant-list-merging .restaurant-card{
-    width: 680px;
-    height: 442px;
+    width: 500px;
+    height: 342px;
     display: flex;
     cursor: pointer;
     flex-direction: column;
@@ -367,7 +369,7 @@
     
 }
 .restaurant-list-merging .restaurant-card .restaurant-image{
-    width: 680px;
+    width: 100%;
     height: 80%;
     border-radius: 5px;
     margin-top: 0px;
@@ -390,12 +392,14 @@
     margin: 10px 0px 0px 0px;
     color: #333;
     font-family: Poppins;
-    font-size: 36px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 600;
-    width: 70%;
+    width: 60%;
+    height: 70%;
     line-height: 22.4px; /* 62.222% */
-    
+    padding-right: 20px;
+    text-align: left;
 }
 .restaurantduration{
     display: flex;
@@ -405,7 +409,7 @@
     height: 100%;
     color: #000;
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
    
@@ -421,7 +425,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-left: 8px;
     height: 100%;
     width: 200px;
 }
@@ -432,7 +435,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 10%;
+    width: 15%;
     height: 100%;
     color: #000;
     font-family: Poppins;
