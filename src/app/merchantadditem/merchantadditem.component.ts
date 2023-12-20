@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MerchantauthService } from '../services/merchantauth.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./merchantadditem.component.css']
 })
 export class MerchantadditemComponent implements OnInit{
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
   itemName: string = '';
   itemDescription: string = '';
   itemPrice: number = 0;
@@ -79,6 +81,13 @@ export class MerchantadditemComponent implements OnInit{
                 (response:any) => {
                   console.log('Success:', response);
                   alert('You have successfully added the Item');
+                  this.itemName = '';
+                  this.itemDescription = '';
+                  this.itemPrice = 0;
+                  this.itemImg = null;
+                  this.itemImgSrc = null;
+                  this.itemCategory = '';
+                  this.fileInput.nativeElement.value = '';
                 },
                 (error) => {
                   console.error('Error:', error);

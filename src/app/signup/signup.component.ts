@@ -27,6 +27,11 @@ export class SignupComponent {
           alert("You have successfully registered")
           // Optionally, navigate to another page after successful registration
           this.router.navigate(['/login']);
+          this.user = {
+            username: '',
+            email: '',
+            hashedpassword: '',
+          };
         },
         (error) => {
           console.error('Registration failed:', error);

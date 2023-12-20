@@ -163,7 +163,7 @@ header img{
 }
 
 .orderpreparingpage-merge{
-    height: 100vh;
+    height: auto;
     width: 100%;
     margin-bottom: 100px;
 }
@@ -201,12 +201,12 @@ header img{
 .order-card{
     width: 80%;
     height: auto;
-    min-height: 400px;
     display: flex;
     flex-direction: row;
     background-color: #263238;
     border-radius: 50px;
     margin-bottom: 100px;
+    
 }
 
  .order-card-innerdesc{
@@ -217,6 +217,7 @@ header img{
     justify-content: end;
     padding-left: 50px;
     padding-bottom: 20px;
+    padding-top: 50px;
 }
 
 .order-card-innerdesc h1{

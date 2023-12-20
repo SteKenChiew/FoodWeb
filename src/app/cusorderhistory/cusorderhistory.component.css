@@ -201,7 +201,6 @@ header img{
 .order-card{
     width: 80%;
     height: auto;
-    min-height: 400px;
     display: flex;
     flex-direction: row;
     background-color: #263238;
@@ -217,6 +216,7 @@ header img{
     justify-content: end;
     padding-left: 50px;
     padding-bottom: 20px;
+    padding-top: 50px;
 }
 
 .order-card-innerdesc h1{

@@ -17,7 +17,7 @@
           <div class="product-picture">
             <h1 style="font-size: 20px; color: #232323;" *ngIf="itemImgSrc == null">Please select an image</h1>
             <img [src]="itemImgSrc" alt="" *ngIf="itemImgSrc">
-            <input type="file" (change)="onFileSelected($event)" accept="image/png, image/jpeg">
+            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/png, image/jpeg">
            
           </div>
             <form class="product-details" >

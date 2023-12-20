@@ -35,9 +35,9 @@ export class LoginComponent {
       (error) => {
         console.error('Login failed:', error);
         if (error.status === 404) {
-          console.error('User not found. Check user credentials.');
+          alert('User not found');
         } else {
-          console.error('Unexpected error:', error);
+          alert('Wrong password or email');
         }
         // Handle login error
       }

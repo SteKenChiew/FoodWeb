@@ -69,6 +69,14 @@ export class MerchantregisterComponent {
       (response) => {
         console.log('User registered successfully:', response);
         alert("Merhant Registered")
+        this.merchant = {
+          merchantName: '',
+          merchantImage: '',
+          merchantEmail: '',
+          hashedpassword: '',
+          merchantType: '',
+        };
+        
       },
       (error) => {
         console.error('Registration merchant failed:', error);
@@ -106,7 +114,7 @@ export class MerchantregisterComponent {
       // Merchant Password is empty
       alert('Please enter Merchant Password');
       return false;
-    }else if (!passwordRegex.test(this.merchant.hashedpassword.trim())){
+    }else if (passwordRegex.test(this.merchant.hashedpassword.trim())){
       alert('Password should contain 3-15 characters with a combination of letters, numbers, and symbols.');
       return false;
     }
